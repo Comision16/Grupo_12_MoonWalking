@@ -42,12 +42,3 @@ Anto realizó el style de product.
 
 # Impedimentos.
 Es jueves, estamos todos muy cansados.
-
-
-## 26/08
-# ¿Qué hicimos ayer?
-
-# ¿Qué hicimos hoy?
-
-# Impedimentos.
-

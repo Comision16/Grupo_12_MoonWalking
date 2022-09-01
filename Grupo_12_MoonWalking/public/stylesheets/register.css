@@ -1,12 +1,13 @@
 /* header */
-.container{
+.container {
     justify-content: flex-start;
     left: -37%;
     top: 4%;
     transform: translate(-3%, 15%);
     padding: 6px;
- }
- .input_buscador{
+}
+
+.input_buscador {
     outline: none;
     box-sizing: border-box;
     height: 35px;
@@ -18,11 +19,13 @@
     border: 1px solid var(--colorGrisOscuro);
     transition: all .7s ease;
     text-align: center;
- }
- ::placeholder{
+}
+
+::placeholder {
     color: grey;
- }
- .btn{
+}
+
+.btn {
     position: absolute;
     left: 0;
     top: 0;
@@ -30,59 +33,63 @@
     height: 47px;
     background-color: var(--colorGrisOscuro);
     line-height: 40px;
-    border-radius: 25%; 
+    border-radius: 25%;
     text-align: center;
     cursor: pointer;
     transition: .5s;
- }
- .btn i{
-    font-size:23px ;
+}
+
+.btn i {
+    font-size: 23px;
     color: white;
     line-height: 47px;
     transition: all .7s ease;
- }
- .container:hover input{
-    width: 250px;
- }
- .container:hover i{
-    transform:  rotate(-360deg);
- }
- .btn:hover{
-    background: #bcbcbc;
- }
+}
 
- 
-.hr_register{
+.container:hover input {
+    width: 250px;
+}
+
+.container:hover i {
+    transform: rotate(-360deg);
+}
+
+.btn:hover {
+    background: #bcbcbc;
+}
+
+
+.hr_register {
     height: 2px;
     width: 100%;
     opacity: 0.8;
     background-color: var(--colorGrisOscuro);
-    box-shadow: 2px 2px 2px rgb(100, 100, 100) ;
+    box-shadow: 2px 2px 2px rgb(100, 100, 100);
     border: none;
 }
-.h1_register{
-    margin-bottom: 8px ;
+
+.h1_register {
+    margin-bottom: 8px;
     margin-left: 10px;
-}
-.h1_agregar_producto{
-    margin-bottom: 50px ;
-    margin-left: 10px;
-    text-align: center;
 }
 
-.h3_register{
+
+
+.h3_register {
     color: var(--colorRojo);
     margin-left: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: 400;
 }
-.h4_register{
+
+.h4_register {
     margin-bottom: 10px;
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-left: 10px;
 }
-.form_register{
+
+.form_register {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -90,77 +97,56 @@
     gap: 12px;
     resize: none;
 }
-.form_register--select{
+
+.form_register--select {
     margin-left: 5%;
     width: 70%;
     background-color: var(--colorGrisClaro);
     color: #000;
-    box-shadow: 0px 2px 5px rgb(100, 100, 100) ;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
     border: none;
 }
-.form_register--select select{
-    border: none;  
+
+.form_register--select select {
+    border: none;
     background-color: var(--colorGrisClaro);
 }
-.main_agregar_producto{
-    background-color: var(--colorGrisClaro);
-    width: 885px;
-    height: 250px;
-    align-items: center;
-}
-.form__button--send:hover{
-    transform: scale( 1.1);
+
+
+
+.form__button--send:hover {
+    transform: scale(1.1);
     transition: 0.2s;
 }
-.form__button--send{
+
+.form__button--send {
     background-color: var(--colorGrisOscuro);
     border-radius: 10%;
 }
-.form__button--cancel:hover{
-    transform: scale( 1.1);
+
+.form__button--cancel:hover {
+    transform: scale(1.1);
     transition: 0.2s;
 }
-@media (max-width:1024px){
-    .main_agregar_producto{
-    margin: 100px auto;
-}
 
-}
-@media (min-width:350px){
-    .main_agregar_producto{
-    
-    margin: 100px auto;
-    flex-wrap: wrap;
-}
 
-}
-.agregar_producto1{
-    flex-direction: row; 
-    gap: 10px;
-}
-.agregar_producto2{
-    flex-direction: row; 
-    gap: 3%;
 
-}
-.col-12{
+
+.col-12 {
     display: flex;
     align-items: center;
     justify-content: end;
     justify-content: space-between;
     padding: 5px;
 }
-.section_agregar_producto{
-    display: flex;
-    flex-direction: row;
-    gap: 6px;
-    justify-content: center;
-    align-items: center;
-}
-.form__box  {
+
+
+
+.form__box {
     text-align: center;
 }
-.form_register button{
+
+.form_register button {
     font-size: medium;
     color: white;
     background-color: var(--colorGrisOscuro);
@@ -170,7 +156,8 @@
     border: none;
     border-radius: 8px;
 }
-.form_register--button{
+
+.form_register--button {
     display: flex;
     justify-content: center;
     margin-left: auto;
@@ -180,7 +167,7 @@
     margin-top: 1%;
 }
 
-.form_register input{
+.form_register input {
     margin-left: 5%;
     width: 70%;
     outline: none;
@@ -189,143 +176,114 @@
     border: none;
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
-.form_input--number{
+
+.form_input--number {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 70%;
     margin-left: 5%;
 }
+
 /* FOOTER */
-footer{
+footer {
     box-shadow: 0px 0px 5px #888, 0px -5px 5px #888;
     position: relative;
     margin: 0;
-  }
-  
-  footer h3{
-      font-size: small;
-  }
-  
-  .mobileimg{
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 80%;
-      opacity: 0.5;
-      height: 100%;
-      margin-left: 11%;
-  }
-  
-  .datos{
+}
+
+footer h3 {
+    font-size: small;
+}
+
+.mobileimg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 80%;
+    opacity: 0.5;
+    height: 100%;
+    margin-left: 11%;
+}
+
+.datos {
     font-size: x-small;
     display: flex;
     flex-wrap: wrap;
     color: var(grisCasiNegro);
     justify-content: space-between;
     text-align: center;
-  }
-  
-  .empresa{
-      width: 28%;
-      /*text-align: left;*/
-      padding-left: 5px;
-      padding-top:2px;
-  }
-  
-  .horarios{
-      width: 30%;
-      /*text-align: right;*/
-      padding-right: 5px;
-      padding-top: 2px;
-  }
-  
-  .copyright{
-      text-align: center;
-      background-color: var(--colorGrisOscuro);
-  }
-  /* TABLET */
-  @media (min-width:768px){
-      .datos{
-          line-height: 1.5;
-          font-size: medium;
-      }
-      .mobileimg{
-          position: absolute;
-          z-index: -1;
-          top: 0;
-          left: 0;
-          width: 80%;
-          opacity: 0.5;
-          height: 100%;
-          margin-left: 11%;
-      } 
-  
-      footer h3{
-          font-size: medium;
-      }
-  
-      .empresa{
-          width: 29%;
-          /*text-align: left;*/
-          padding: 20px 5px
-      }
-      
-      .horarios{
-          width: 32%;
-          /*text-align: right;*/
-          padding: 20px 5px
-      }
-  }
-  
-  /* DESKTOP*/
-  @media (min-width:1024px){
-      .datos{
-          line-height: 1.5;
-          font-size: medium;
-      }
-  
-      .mobileimg{
-          position: absolute;
-          z-index: -1;
-          top: 0;
-          left: 0;
-          width: 50%;
-          opacity: 0.5;
-          height: 100%;
-          margin-left: 25%;
-      } 
-  
-      footer h3{
-          font-size: medium;
-      }
-  
-      .empresa{
-          width: 22%;
-          /*text-align: left;*/
-          padding-left: 86px;
-          padding-top:20px;
-      }
-      
-      .horarios{
-          width: 40%;
-          /*text-align: right;*/
-          padding-right: 5px;
-          padding-top: 20px;
-      }
-  }
+}
 
-@media(min-width: 768px){
-    .form_register{
+.empresa {
+    width: 28%;
+    /*text-align: left;*/
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+.horarios {
+    width: 30%;
+    /*text-align: right;*/
+    padding-right: 5px;
+    padding-top: 2px;
+}
+
+.copyright {
+    text-align: center;
+    background-color: var(--colorGrisOscuro);
+}
+
+@media(min-width: 768px) {
+    .form_register {
         flex-direction: row;
         margin-top: 2%;
         gap: 20px;
     }
-    .form_register input{
+
+    .form_register input {
         width: 40%;
     }
-}
-@media(min-width: 1024px){
 
+    
 }
+
+/* DESKTOP*/
+@media (min-width:1024px) {
+    .datos {
+        line-height: 1.5;
+        font-size: medium;
+    }
+
+    .mobileimg {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 50%;
+        opacity: 0.5;
+        height: 100%;
+        margin-left: 25%;
+    }
+
+    footer h3 {
+        font-size: medium;
+    }
+
+    .empresa {
+        width: 22%;
+        /*text-align: left;*/
+        padding-left: 86px;
+        padding-top: 20px;
+    }
+
+    .horarios {
+        width: 40%;
+        /*text-align: right;*/
+        padding-right: 5px;
+        padding-top: 20px;
+    }
+}
+
+

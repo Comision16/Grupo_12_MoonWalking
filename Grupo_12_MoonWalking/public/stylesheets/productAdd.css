@@ -35,7 +35,6 @@
 
         margin: 100px auto;
         flex-wrap: wrap;
-
     }
 }
 
@@ -44,5 +43,5 @@
     .main_agregar_producto {
         margin: 100px auto;
     }
+}  
 
-} 
