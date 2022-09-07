@@ -28,7 +28,6 @@ Lula respondió en trello, y creó el product.json.
 No.
 
 
-
 ## 25/08
 # ¿Qué hicimos ayer?
 Rama creó la ruta para editar productos.
