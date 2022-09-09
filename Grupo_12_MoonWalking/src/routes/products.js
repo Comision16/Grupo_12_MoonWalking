@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const {detail, store, add, carrito, search, update, edit,remove} = require('../controllers/productsControllers');
 
+
 /* GET home page. */
 router
 .get('/detalle/:id',detail)

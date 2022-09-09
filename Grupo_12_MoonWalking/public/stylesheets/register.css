@@ -94,7 +94,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 12px;
+    gap: 15px;
     resize: none;
 }
 
@@ -106,6 +106,22 @@
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
     border: none;
 }
+.form_register--image{
+    margin-left: 5%;
+    width: 70%;
+    background-color: var(--colorGrisClaro);
+    color: #000;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+    border: none;
+}
+.input_image{
+    border: none;
+    background-color: var(--colorGrisClaro);
+   
+}
+input[type='file'] {
+    color: rgba(0, 0, 0, 0)
+  }
 
 .form_register--select select {
     border: none;
@@ -140,10 +156,11 @@
     padding: 5px;
 }
 
-
-
 .form__box {
     text-align: center;
+}
+.errors{
+    color: red;
 }
 
 .form_register button {
@@ -162,6 +179,7 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
     width: 50%;
     height: 40px;
     margin-top: 1%;
@@ -242,11 +260,22 @@ footer h3 {
         gap: 20px;
     }
 
-    .form_register input {
+    /*.form_register input {
         width: 40%;
+    }*/
+    .form_input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45%;
+    }
+    .form_input--number{
+        margin-left: 0%;
+    }
+    .form_register--select select {
+        width: 100%;
     }
 
-    
 }
 
 /* DESKTOP*/
