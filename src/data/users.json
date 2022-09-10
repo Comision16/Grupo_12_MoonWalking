@@ -87,5 +87,19 @@
       "piso": null,
       "cp": null,
       "city": null
+   },
+   {
+      "id": 6,
+      "firstName": "Quagsire",
+      "lastName": "Gutierrez",
+      "dni": null,
+      "celular": null,
+      "email": "quagsirelmejor@gmail.com",
+      "password": "$2a$10$SxGb/R9MGQOP0YElYgjAS.FNOFxx5BiF5nfWmS1MVbu4i.2wFAA12",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null
    }
 ]
