@@ -11,7 +11,7 @@
         <h3 class="h3_register">Completa el Formulario</h3>
         <hr>
         <h4 class="h4_register">Ingrese sus datos.</h4>
-        <form action="/users/update/1?_method=PUT" class="form_register" enctype="multipart/form-data" method="POST">
+        <form action="/users/update/<%= user.id %>?_method=PUT" class="form_register" enctype="multipart/form-data" method="POST">
             <div class="form_input">
             <input type="text" name="firstName" placeholder="Nombre" value="<%= locals.old && old.firstName %>">
              <small class="errors"><%= locals.errors && errors.firstName ? errors.firstName.msg : null %></small>
