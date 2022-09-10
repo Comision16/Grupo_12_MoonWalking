@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const methodOverride = require('method-override');
+const session = require('express-session');
+
+// Middleware
+const localsUserCheck = require('./middlewares/localsUserCheck');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..','public')));
 
 app.use(methodOverride('_method'))
+app.use(session({
+  secret : 'MoonWalking',
+  resave : false,
+  saveUninitialized : true
+}));
+app.use(localsUserCheck)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

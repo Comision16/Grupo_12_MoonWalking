@@ -7,9 +7,15 @@
         <div class="div_usuario-img">
         <img class="usuario_img"src="/img/usuario luna blanca.jpg" alt="login">
         </div>
-        <form action="" class="form_login">
+        <form action="/users/login" class="form_login" method="POST">
+            <div class="input_login">
             <input type="email" name="email" placeholder="Dirección de email:">
+            <small class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+             </div>
+             <div class="input_login">
             <input type="password" name="password" placeholder="Contraseña:">
+            <small class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+            </div>
             <div class="form_login--button">
             <button type="submit">INICIAR SESION</button>
             <p class="registrarse"><a href="./register">Registrarse</a></p>
