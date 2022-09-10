@@ -15,6 +15,6 @@ router
     .get('/', function(req, res, next) {
        res.send('respond with a resource');
     })
-    .put('/update/:id', upload.single('avatar'), usersValidator, updateProfile)
+    .put('/update', upload.single('avatar'), usersValidator, updateProfile)
 
 module.exports = router;
