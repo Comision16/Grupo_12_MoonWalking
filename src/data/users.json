@@ -101,5 +101,19 @@
       "piso": null,
       "cp": null,
       "city": null
+   },
+   {
+      "id": 7,
+      "firstName": "julian",
+      "lastName": "rodriguez",
+      "dni": null,
+      "celular": null,
+      "email": "juli@gamil.com.ar",
+      "password": "$2a$10$9AlXYVU7thg6UHY95NmKHOZGuUklJaMPeht.EiQ6tJFEaGlZqjRNe",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null
    }
 ]
