@@ -29,7 +29,10 @@ module.exports={
             numero : null,
             piso : null,
             cp : null,
-            city : null
+            city : null,
+            province: null,
+            avatar: null,
+            rol: 'user'
            }
            const userModify = [...users, newUser];
            storeUsers(userModify);
@@ -53,11 +56,21 @@ module.exports={
                 image,
                 rol
             }
-            return res.redirect('/')
+            return res.redirect('./users/profile')
         }else {
             return res.render('./users/login', {
                errors : errors.mapped()
             })
         }
+    },
+    profile: (req, res) => {
+        return res.render('./users/profile')
+    },
+    logout : (req, res) => {
+        req.session.destroy()
+        return res.redirect('/')
+    } ,
+    usersList: (req, res) => {
+        return res.render('./users/usersList')
     }
 }

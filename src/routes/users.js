@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, updateProfile, processLogin} = require('../controllers/userControllers');
+const {login, register, updateProfile, processLogin, profile, usersList, logout} = require('../controllers/userControllers');
 /* GET users listing. */
 
 const usersValidator = require('../validations/userValidator')
@@ -16,5 +16,8 @@ router
        res.send('respond with a resource');
     })
     .put('/update', upload.single('avatar'), usersValidator, updateProfile)
+    .get('/profile', profile)
+    .get('/usersList', usersList)
+    .get('/logout', logout)
 
 module.exports = router;

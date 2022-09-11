@@ -7,8 +7,7 @@
         "discount" : 0,
         "description" : "Detalles distintivos, proporciones más exageradas, las Zapatillas adidas Asistir W aseguran un andar con estilo. Cuentan con una mediasuela con amortiguación dinámica y de estilo robusto. Además, una característica importante es que el 25% de los componentes utilizados para fabricar este calzado está hecho con, al menos, un 50% de contenido reciclado. ¡Subite, asegurá tu tendencia, y sumate al mundo",
         "dues" : "de $3.333",
-        "category" : "Unisex",
-        "section" : "Deportivo",
+         "section" : "Deportivo",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 1.jpg"
     },
@@ -20,8 +19,7 @@
         "discount" : 0,
         "description": "Para tus días de relax y para acompañar tus looks informales con todo el estilo. Las Zapatillas adidas Multix se inspiran en los clásicos estilos deportivos de adidas y se readaptan a tu rutina diaria. Las tres rayas a los costados te dan el toque de originalidad que buscabas y el diseño liviano te permite combinarlas con todas las prendas de tu ropero.",
         "dues" : "de $2.833",
-        "category" : "Unisex",
-        "section" : "Deportivo",
+         "section" : "Deportivo",
         "size" : "36-37-38-39-40",
         "image" : "zapa 2.jpg" 
     },
@@ -33,7 +31,6 @@
         "dues" : "de $3.083",
         "discount" : 0,
         "description" : "Las zapatillas Adidas ZX 1K Boost están confeccionadas en su exterior con gamuza sintética y de forro interno textil para una sensación más cómoda y estable. La combinación entre Boost y EVA en la mediasuela son el gran acierto de estas zapatillas para que te sientas en el aire mientras caminas todo el día. Su diseño con las clásicas tiras laterales y mix de tonos la vuelven más deportiva para tus looks urbanos.",
-        "category" : "Mujer",
         "section" : "Deportivo",
         "size" : "35-36-37-38",
         "image" : "zapa 3.jpg" 
@@ -46,8 +43,7 @@
         "dues" : "de $3.333",
         "discount" : 15,
         "description" : "Si buscas unas zapatillas para usar a toda hora y en todo lugar, las Zapatillas Converse Chuck Taylor Core Ox son para vos. Te dan la versatilidad que quieres para combinarlas con lo mejor que tengas en el ropero sin perder el estilo y la comodidad.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 4.jpg" 
     },
@@ -59,8 +55,7 @@
         "dues" : "de $4.783",
         "discount" : 50,
         "description" : "Reviví un clásico de la marca con las Zapatillas Vans Sk8-Hi, diseñadas con una lona resistente y con una suela tipo waffle que garantiza una durabilidad única. Su caña media asegura el calce y renueva el clásico modelo de las Vans para mejorar tu estabilidad.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 10.jpg" 
     },
@@ -72,7 +67,6 @@
         "dues" : "de $3.749",
         "discount" : 0,
         "description" : "Las Zapatillas Puma Cali Star Wn S son urbanas, cómodas y super versátiles para completar todos tus outfits. Con una parte superior de cuero con empeine perforado, cuentan con cierre de cordones, entresuela de goma apilada con herramientas texturizadas y plantilla moldeada de PU para mayor confort. Incluye pieza de TPU de acabado brillante con la marca PUMA en las herramientas del talón y logotipo de la marca en el lateral.",
-        "category" : "Mujer",
         "section" : "Urbano",
         "size" : "35-36-37-38-39",
         "image" : "zapa 11.jpg" 
@@ -85,8 +79,7 @@
         "dues" : "de $6.499",
         "discount" : 50,
         "description" : "No podemos negar que la calidad de Vans brinda calzados para toda la vida, por eso las Zapatillas Vans Ultra Range Rapidweld son la mejor opción a la hora de elegir un par que te acompañe siempre. Su diseño mezcla lo urbano y lo deportivo para darles mayor versatilidad; tienen un interior sin costuras que reduce el peso y la fricción y una suela waffle invertida que aporta una mejor tracción para que todos tus pasos sean con la comodidad que mereces.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 6.jpg" 
     },
@@ -98,8 +91,7 @@
         "dues" : "de $3.049",
         "discount" : 0,
         "description" : "Inspiradas en los animales salvajes de las Llanuras de África, las Zapatillas Vans Safari Multi Era tienen un estilo audaz que rompe con tus zapatillas de uso diario. Elevá tu nivel con este calzado hecho con lona y una suela de goma que mejora la tracción, para que puedas disfrutar de tu vida con unas zapatillas diseñadas para resistirlo todo.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40",
         "image" : "zapa 8.jpg" 
     },
@@ -111,7 +103,6 @@
         "dues" : "de $1.300",
         "discount" : 0,
         "description" : "Las zapatillas Nike Air Jordan 1 Jester XX Low se destacan por un diseño que fusiona por un lado su exterior que combina la piel natural y sintética proporcionando una mejor sujeción donde más se necesita y, por otro lado, su media suela gruesa cuenta con la tecnología Air que te proporciona más altura con una forma disruptiva en su mitad con forma de olas para que sientas confort y estilo en cada paso.",
-        "category" : "Mujer",
         "section" : "Urbano",
         "size" : "35-36-37-38-39",
         "image" : "zapa jordan.jpg" 
@@ -124,8 +115,7 @@
         "dues" : "de $2.750",
         "discount" : 0,
         "description" : "Las Zapatillas Reebok Classic Leather, tienen un estilo retro y clásico ideal para que puedas combinar con cualquier prenda. Además, ofrecen excelente amortiguación y durabilidad.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 9.jpg" 
     },
@@ -137,8 +127,7 @@
         "dues" : "de $2.416",
         "discount" : 0,
         "description" : "Las zapatillas Topper Loli son ese calzado listo para dar un paseo. Con una parte superior de sintético súper suave y una plataforma y una plataforma que transforma la clásica zapatilla Topper en un nuevo ícono de la moda, ellas se convierten en una elección perfecta para esas mujeres simples pero modernas. Tenelas siempre a mano para completar tu look deportivo o casual.",
-        "category" : "Unisex",
-        "section" : "Urbano",
+         "section" : "Urbano",
         "size" : "35-36-37-38-39-40-41-42",
         "image" : "zapa 5.jpg" 
     },
@@ -150,7 +139,6 @@
         "dues" : "de $3.674",
         "discount" : 0,
         "description" : "El estilo de las Zapatillas Muse X3 Metallic se inspira en el deporte, pero lo adapta al uso urbano. Cuenta con una silueta elegante, un empeine brillante y una inserción metálica audaz en el talón. Además, presenta una confección única, que facilita su calce con correas elasticas cruzadas que se unen para crear unos tenis únicos. El estilo de este par de zapatos se define como audaz y atrevido.",
-        "category" : "Mujer",
         "section" : "Urbano",
         "size" : "35-36-37-38-39",
         "image" : "zapa 7.jpg" 

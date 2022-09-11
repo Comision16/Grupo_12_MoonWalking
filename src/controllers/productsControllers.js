@@ -16,7 +16,7 @@ module.exports = {
     update : (req,res) => {
         const products = loadProducts();
         const {id} = req.params;
-        const{name,brand,price,discount,size,category,section} = req.body;
+        const{name,brand,price,discount,size,section} = req.body;
         const productModify = products.map(product =>{
             if (product.id === +id){
                 return {
@@ -25,7 +25,6 @@ module.exports = {
                     brand : brand.trim(),
                     price : +price,
                     discount : +discount,
-                    category,
                     section,
                     size : +size
                 }

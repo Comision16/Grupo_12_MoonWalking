@@ -25,7 +25,7 @@
              <small class="errors"><%= locals.errors && errors.dni ? errors.dni.msg : null %></small>
             </div>
             <div class="form_input">
-            <input type="tel" name="tel" placeholder="Celular">
+            <input type="tel" name="celular" placeholder="Celular">
             </div>
             <div class="form_input">
             <input type="email" name="email" placeholder="Email" value="<%= locals.old && old.email %>">
@@ -40,11 +40,11 @@
              <small class="errors"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></small>
             </div>
             <div class="form_input">
-            <input class="input_calle" type="text" name="street" placeholder="Calle">
+            <input class="input_calle" type="text" name="calle" placeholder="Calle">
              </div>
              <div class="form_input--number">
             <input type="number" name="number" placeholder="Número">
-            <input type="number" name="flat" placeholder="Piso" >
+            <input type="number" name="piso" placeholder="Piso" >
             <input type="number" name="cp" placeholder="CP">  
               </div>
               <div class="form_register--select">
@@ -54,14 +54,33 @@
                 <option value="">Santa fe</option>
                 <option value="">Neuquen</option>
                 <option value="">Cordoba</option>
+                <option value="">Mendoza</option> 
+                <option value="">Salta</option>
+                <option value="">Santiago del Estero</option>
+                <option value="">Jujuy</option>
+                <option value="">Chaco</option>
+                <option value="">Entre Rios</option>
+                <option value="">Catamarca</option>
+                <option value="">La Rioja</option>
+                <option value="">Chubut</option>
+                <option value="">Tucumán</option>
+                <option value="">Misiones</option>
+                <option value="">San Luis</option>
+                <option value="">San Juan</option>
+                <option value="">Corrientes</option>
+                <option value="">La Pampa</option>
+                <option value="">Río Negro</option>
+                <option value="">Santa Cruz</option>
+                <option value="">Tierra Del Fuego</option>
                 <option value="">Mendoza</option>
+                <option value="">Formosa</option>
             </select> 
               </div>
               <div class="form_register--image">
-                <input class="input_image" type="file" name="avatar" id="avatar" accept=".jpg">
+                <input class="input_image" type="file" name="image" accept=".jpg, .png, .wepb">
               </div>
             <div class="form_register--button">
-            <button type="submit">Contiuar</button>
+            <button type="submit">Continuar</button>
         </div>
         </form>
     </main>
