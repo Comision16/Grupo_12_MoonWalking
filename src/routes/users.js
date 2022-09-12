@@ -13,11 +13,11 @@ router
     .get('/login', login)
     .post('/login',loginValidator ,processLogin)
     .get('/register', register)
-    .get('/', function(req, res, next) {
+    .get('/', function(req, res, next) { //borrar esto
        res.send('respond with a resource');
     })
     .put('/update', upload.single('image'), usersValidator, updateProfile)
-    .get('/profile', userSessionCheck, profile)
+    .get('/profile', userSessionCheck, profile) //se fija que este logueado para poder entrar al profile
     .get('/usersList', usersList)
     .get('/logout', logout)
 

@@ -1,6 +1,8 @@
 const {validationResult} = require('express-validator');
 const { loadUsers, storeUsers } = require('../data/productModule');
 const bcryptjs = require('bcryptjs');
+const fs = require('fs');
+const path = require('path');
 
 
 module.exports={
@@ -56,6 +58,13 @@ module.exports={
                 image,
                 rol
             }
+
+            if(req.body.remember){ //lo trae express en el app.js
+                res.cookie('userMoonWalking', req.session.userLogin, {
+                    maxAge : 1000 * 60 
+                })
+            }
+
             return res.redirect('./profile')
         }else {
             return res.render('./users/login', {
@@ -64,27 +73,42 @@ module.exports={
         }
     },
     profile: (req, res) => {
-        let user = loadUsers().find(user => user.id === req.session.userLogin.id);
+        let user = loadUsers().find(user => user.id === req.session.userLogin.id); //carga la vista de perfil de usuario los datos desde la base de datos (el archivo users.json)
         return res.render('./users/profile', {
             user,
             cities : require('../data/cities'),
             provinces : require('../data/provinces')
         })
     },
-    updateChangesProfile : (req, res) => {
+    updateChangesProfile : (req, res) => { //guardar los cambios
 
         const {firstName, lastName, dni, celular, email, calle, numero, piso, cp, city, province} = req.body;
 
-        let usersModify = loadUsers().map(user => {
-            if(user.id === +req.params.id){
+        let usersModify = loadUsers().map(user => { //recorre el usuario
+            if(user.id === +req.params.id){ //busca al usuario por parametros y cuando lo encuentra
                 return {
-                    ...user,
-                    ...req.body,
+                    ...user, // trae todos los datos
+                    ...req.body, //actualizan los que corresponde 
                     image : req.file ? req.file.filename : req.session.userLogin.image
                 }
             }
             return user
-        });
+        })
+        
+        if(req.file && req.session.userLogin.avatar){
+            if(fs.existsSync(path.resolve(__dirname,'..','public','img', 'users', req.session.userLogin.image))){
+                fs.unlinkSync(path.resolve(__dirname,'..','public','img', 'users', req.session.userLogin.image)) //elimina el anterior
+            }
+        }
+
+        req.session.userLogin = { // guarda la info en userLogin
+            ...req.session.userLogin,
+            firstName,
+            avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+        }
+
+        storeUsers(usersModify); // guarda la info y actualiza/reescribe el json
+        return res.redirect('/users/profile')
     },
 
     logout : (req, res) => {

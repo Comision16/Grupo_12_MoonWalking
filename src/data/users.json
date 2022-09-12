@@ -159,5 +159,22 @@
       "province": null,
       "avatar": null,
       "rol": "user"
+   },
+   {
+      "id": 10,
+      "firstName": "brishito",
+      "lastName": "Gutierrez",
+      "dni": null,
+      "celular": null,
+      "email": "b@gmail.com",
+      "password": "$2a$10$Avna4twJkwPCH0hLQooXTekLxJhnRgzIV8GRb/ypVrwGrcAiZTmIe",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "avatar": null,
+      "rol": "user"
    }
 ]

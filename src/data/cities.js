@@ -21,5 +21,5 @@ module.exports = [
     "Santa Fe",
     "Santiago del Estero",
     "Tierra del Fuego",
-    "Tucumán",
+    "Tucumán"
 ]
