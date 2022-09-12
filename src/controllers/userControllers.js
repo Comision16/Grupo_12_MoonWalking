@@ -10,6 +10,10 @@ module.exports={
     register: (req, res) => {
         return res.render('./users/register')
     },
+    logout :(req,res) =>{
+        req.session.destroy()
+        return res.redirect('/')
+    },
     updateProfile: (req, res) => {
         const errors = validationResult(req);
 

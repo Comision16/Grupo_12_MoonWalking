@@ -10,63 +10,81 @@
     <%- include('../partials/header') %>
 
     <main>
-        <section class="main_agregar_producto">
+        <section class="main_add_producto">
         <h1 class="h1_agregar_producto">Agregar Producto</h1>
         <section class="section_agregar_producto">
-        <div class="agregar_producto1">
-        <form action=""  method="POST" class="">
-            <div class="col-12 col-md-6 mb-3">
+            <div class="agregar_producto1">
+    <form action=""  method="POST" class="">
+            <div class="col-123">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" >
+                <small class="error_login"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+
             </div>
-            <div class="col-12 col-md-6 mb-3">
+            
+            <div class="col-123  " >
                 <label for="price" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="price" name="price">
+                <input type="number" class="form-control" id="price" name="price" >
+                <small class="error_login"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+
             </div>
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-123  col-md-6 mb-3">
                 <label for="discount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="discount" name="discount">
+                <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+
             </div>
         </div>
         <div class="agregar_producto2">
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-123  col-md-6 mb-3">
                 <label for="brand" class="form-label">Marca</label>
                 <input type="text" class="form-control" id="brand" name="brand">
+                <small class="error_login"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
+
             </div>
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-123  col-md-6 mb-3">
                 <label for="Talle" class="form-label">Talle</label>
                 <input type="text" class="form-control" id="talle" name="talle">
+                <small class="error_login"><%= locals.errors && errors.talle ? errors.talle.msg : null %></small>
+
             </div>
 
-            <div class="col-12 col-md-6 mb-3">
+            <div class="col-123  col-md-6 mb-3">
                 <label for="category" class="form-label">Categoría</label>
                 <select class="form-select col-12" aria-label="Default select example" id="category" name="category">
                     <option value="" selected hidden>Seleccione...</option>
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                    <option value="Niño/a">Niño/a</option>
-                    <option value="Unisex">Unisex</option>
-                </div>
-            </select>
-                  <div class="col-12 col-md-6 mb-3">
-                    <label for="section" class="form-label">Sección</label>
-                    <select class="form-select" aria-label="Default select example" id="section" name="section">
-                        <option value="" selected hidden>Seleccione...</option>
-                        <option value="popular">Deportivo</option>
-                        <option value="temporada">Urbano</option>
-                      </select>
+                    <option value="Deportivo">Deportivo</option>
+                    <option value="Urbano">Urbano</option>
+                    <small class="error_login"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
+
                 </div>
             </div>
-        </section>
-            <div class="form__box form__box--flex ">
-                <a href="/" class="form__button form__button--cancel">Cancelar</a>
-                <button class="form__button form__button--send" type="submit">Guardar</button>
-            </div> 
-        </form>
+            </select>  
+        </section> 
+            <div class="agregar_producto3">
+                <section class="section_agregar_producto1">
+                <div class="col-123 ">
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none;"></textarea>
+                    <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
+    
+                </div>
+            </section>
+        </div> 
+        
+        <div class="boton_add"> 
+        <div class="form__box form__box--flex ">
+            <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
+            <button class="guardar_add form__button--send" type="submit">Guardar</button>
+        </div>  
+    </div>   
+    </form>
     </section>
+   
     </main>
     
-   <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 
 </body>
+
 </html>

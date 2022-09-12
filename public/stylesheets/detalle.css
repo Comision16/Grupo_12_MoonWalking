@@ -7,14 +7,15 @@
     padding: 6px;
  }
  .Eliminar-producto{
-    background-color: #F08080;
+    background-color: rgb(240, 128, 108);
     border: none;
+    border-radius: 10%;
     width: 100%;
     /*eight: 35px;*/
     padding: 10px;
     cursor: pointer;
     align-items: center;
-    box-shadow: 0px 5px 5px #888, 0px 0px 5px #888;
+    box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
     
 }
  .input_buscador{
@@ -155,11 +156,12 @@
     /*eight: 35px;*/
     padding: 10px;
     align-items: center;
-    box-shadow: 0px 5px 5px #888, 0px 0px 5px #888;
     align-self: center;
     cursor: pointer;;
     margin-bottom: 10px;
     padding-top: 10px;
+    border-radius: 10%;
+     box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
 }
 
 .info{
