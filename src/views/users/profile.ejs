@@ -15,43 +15,43 @@
           <form action="/users/update/<%= user.id %>?_method=PUT" class="form" enctype="multipart/form-data" method="POST">
                 <div class="">
                     <label class="" for="nombre">Nombre:</label>
-                    <input class="" type="text" id="nombre" autocomplete="off" name="firstName" value="<%= user.name %>">
+                    <input class="" type="text" autocomplete="off" name="firstName" value="<%= user.firstName %>">
                 </div>
                 <div class="">
                     <label class="" for="apellido">Apellido:</label>
-                    <input class="" type="text" id="apellido" name="lastName" value="<%= user.lastName %>">
+                    <input class="" type="text" name="lastName" value="<%= user.lastName %>">
                 </div>
                 <div class="">
                     <label class="" for="dni">DNI:</label>
-                    <input class="" type="text" id="dni" name="dni" value="<%= user.dni %>">
+                    <input class="" type="text" name="dni" value="<%= user.dni %>">
                 </div>
                 <div class="">
                     <label class="" for="celular">Celular:</label>
-                    <input class="" type="text" id="celular" name="celular" value="<%= user.celular %>">
+                    <input class="" type="text" name="celular" value="<%= user.celular %>">
                 </div>
                 <div class="">
                     <label class="" for="email">Email:</label>
-                    <input class="" type="email" id="email" name="email" value="<%= user.email %>" readonly>
+                    <input class="" type="email"  name="email" value="<%= user.email %>" readonly>
                 </div>
                 <div class="">
                     <h5 class="">Domicilio</h5>
                         <label class="" for="calle">Calle y altura:</label>
-                        <input class="" type="text" id="direccion" name="calle" placeholder="Calle" value="<%= user.address %>">
-                        <input class="" type="text" id="direccion" name="numero"  placeholder="Número" value="<%= user.address %>">
+                        <input class="" type="text" cion" name="calle" placeholder="Calle" value="<%= user.calle %>">
+                        <input class="" type="text" cion" name="numero"  placeholder="Número" value="<%= user.numero %>">
 
                         <label class="" for="cp">Código Postal:</label>
-                        <input class="" type="text" id="cp" name="cp" value="<%= user.cp %>">
+                        <input class="" type="text" name="cp" value="<%= user.cp %>">
 
                         <label class="" for="piso">N° Piso:</label>
-                        <input class="" type="text" id="piso" name="piso" value="<%= user.piso %>">
+                        <input class="" type="text"  name="piso" value="<%= user.piso %>">
                     
-                        <select class="" name="city" id="city">
+                        <select class="" name="city" >
                         <option value="" hidden selected>Seleccione su ciudad...</option>
                         <% cities.forEach(city => { %>
-                            <option <%= city === user.city && 'selected'%>  value="<%= city %>"><%= city %></option>
+                            <option <%= city === user.city && 'selected'%> value="<%= city %>"><%= city %></option>
                         <% }) %>
                     </select>
-                    <select class="" name="province" id="province">
+                    <select class="" name="province">
                         <option value="" hidden selected>Seleccione su provincia...</option>
                         <% provinces.forEach(province => { %>
                             <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
@@ -61,7 +61,7 @@
                 <div class="">
                     <h5 class="">Tu Avatar</h5>
                     <label class="" for="image">Seleccione un imagen</label>
-                    <input hidden class="" type="file" id="image" name="image">
+                    <input hidden class="" type="file" name="image">
                 </div>
                 <div class="">
                     <a href="" class="">Cancelar</a>

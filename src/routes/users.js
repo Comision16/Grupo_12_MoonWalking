@@ -7,6 +7,7 @@ const {login, register, updateProfile, processLogin, profile, usersList, logout}
 const usersValidator = require('../validations/userValidator')
 const upload = require('../middlewares/uploadFiles');
 const loginValidator = require('../validations/loginValidator');
+const userSessionCheck = require('../middlewares/userSessionCheck');
 
 router
     .get('/login', login)
@@ -15,8 +16,8 @@ router
     .get('/', function(req, res, next) {
        res.send('respond with a resource');
     })
-    .put('/update', upload.single('avatar'), usersValidator, updateProfile)
-    .get('/profile', profile)
+    .put('/update', upload.single('image'), usersValidator, updateProfile)
+    .get('/profile', userSessionCheck, profile)
     .get('/usersList', usersList)
     .get('/logout', logout)
 

@@ -142,5 +142,22 @@
       "province": null,
       "avatar": null,
       "rol": "user"
+   },
+   {
+      "id": 9,
+      "firstName": "Julian",
+      "lastName": "Ortega",
+      "dni": null,
+      "celular": null,
+      "email": "julieselmejor@gmail.com",
+      "password": "$2a$10$TmL/6LcSrdOjFqZOO.eLc.SFTTzXel9DdEu4IIsRQF1oO11CLUjQa",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "avatar": null,
+      "rol": "user"
    }
 ]

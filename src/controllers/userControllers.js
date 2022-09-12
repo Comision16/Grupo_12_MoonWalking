@@ -56,7 +56,7 @@ module.exports={
                 image,
                 rol
             }
-            return res.redirect('./users/profile')
+            return res.redirect('./profile')
         }else {
             return res.render('./users/login', {
                errors : errors.mapped()
@@ -64,7 +64,10 @@ module.exports={
         }
     },
     profile: (req, res) => {
-        return res.render('./users/profile')
+        let user = loadUsers().find(user => user.id === req.session.processLogin.id);
+        return res.render('./users/profile', {
+            user
+        })
     },
     logout : (req, res) => {
         req.session.destroy()

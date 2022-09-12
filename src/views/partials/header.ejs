@@ -30,16 +30,31 @@
            </form>
         </div>
         <div class="carrito">
-           <a class="mas_celular" href="/products/add"><i class="fa-solid fa-2x fa-circle-plus " ></i></a>
-           <% if (locals.userLogin) { %>
-            <a class="mas_tablet_pc" href="/products/add"><i class="fa-solid fa-3x fa-circle-plus" ></i></a>
-            <hr class="barra_hr">
-           <% } %>
-           <!-- <a class="mas_tablet_pc" href="/products/add"><i class="fa-solid fa-3x fa-circle-plus" ></i></a> -->
-           <!-- <hr class="barra_hr"> -->
-            <a class="carrito_mas" href="/products/carrito"><img src="/img/carrito.jpg" alt="" height="30"></a>
-            <hr class="barra_hr">
-            <a class="logo_mas" href="/users/login"> <img src="/img/usuario luna blanca.jpg" alt="" height="30"></a>
+            <% if (locals.userLogin) { %>
+                <% if (userLogin.rol === "admin") { %>
+                    <!-- esto es agregar producto-->
+                <a class="mas_celular" href="/products/add"><i class="fa-solid fa-2x fa-circle-plus " ></i></a>
+                <a class="mas_tablet_pc" href="/products/add"><i class="fa-solid fa-3x fa-circle-plus" ></i></a>
+                <hr class="barra_hr">
+                    <!-- esto es agregar producto-->
+                <% } else { %>
+                    <!-- esto es el perfil-->
+                <a class="logo_mas" href="/users/profile"> <img src="/img/usuario luna blanca.jpg" alt="" height="30"></a>
+                    <!-- esto es el perfil-->
+                    <!-- esto es para desloguearse-->
+                <a class="logo_mas" href="/users/logout"> <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    <!-- esto es para desloguearse-->
+                <% } %>
+            <% } else { %>
+                    <!-- esto es el carrito-->
+                <a class="carrito_mas" href="/products/carrito"><img src="/img/carrito.jpg" alt="" height="30"></a>
+                <hr class="barra_hr">
+                    <!-- esto es el carrito -->
+                    <!-- esto es para loguearse-->
+                <a class="logo_mas" href="/users/login"> <img src="/img/usuario luna blanca.jpg" alt="" height="30"></a>
+                    <!-- esto es para loguearse-->
+            <% } %> 
         </div>
     </div>
 </header>
+
