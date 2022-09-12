@@ -104,12 +104,21 @@
    },
    {
       "id": 7,
+<<<<<<< HEAD
       "firstName": "Rama",
       "lastName": "Quiroga",
       "dni": null,
       "celular": null,
       "email": "ramacicarelli2001@gmail.com",
       "password": "$2a$10$bIx81fo8JWKPKgTKfwLrE.3ZXTQkp3MZLCzmcr4qda0HT46YS0Qt6",
+=======
+      "firstName": "julian",
+      "lastName": "rodriguez",
+      "dni": null,
+      "celular": null,
+      "email": "juli@gamil.com.ar",
+      "password": "$2a$10$9AlXYVU7thg6UHY95NmKHOZGuUklJaMPeht.EiQ6tJFEaGlZqjRNe",
+>>>>>>> dc218500146018c14baf17438689c6745fbf51d8
       "calle": null,
       "numero": null,
       "piso": null,
