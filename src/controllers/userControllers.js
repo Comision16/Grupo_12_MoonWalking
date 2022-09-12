@@ -67,8 +67,8 @@ module.exports={
         let user = loadUsers().find(user => user.id === req.session.userLogin.id);
         return res.render('./users/profile', {
             user,
-            cities,
-            provinces
+            cities : require('../data/cities'),
+            provinces : require('../data/provinces')
         })
     },
     updateChangesProfile : (req, res) => {
