@@ -44,19 +44,8 @@
 
                         <label class="" for="piso">N° Piso:</label>
                         <input class="" type="text"  name="piso" value="<%= user.piso %>">
+                
                     
-                        <select class="" name="city" >
-                        <option value="" hidden selected>Seleccione su ciudad...</option>
-                        <% cities.forEach(city => { %>
-                            <option <%= city === user.city && 'selected'%> value="<%= city %>"><%= city %></option>
-                        <% }) %>
-                    </select>
-                    <select class="" name="province">
-                        <option value="" hidden selected>Seleccione su provincia...</option>
-                        <% provinces.forEach(province => { %>
-                            <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
-                        <% }) %>
-                    </select>
                 </div>
                 <div class="">
                     <h5 class="">Tu Avatar</h5>

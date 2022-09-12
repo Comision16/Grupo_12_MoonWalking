@@ -64,11 +64,29 @@ module.exports={
         }
     },
     profile: (req, res) => {
-        let user = loadUsers().find(user => user.id === req.session.processLogin.id);
+        let user = loadUsers().find(user => user.id === req.session.userLogin.id);
         return res.render('./users/profile', {
-            user
+            user,
+            cities,
+            provinces
         })
     },
+    updateChangesProfile : (req, res) => {
+
+        const {firstName, lastName, dni, celular, email, calle, numero, piso, cp, city, province} = req.body;
+
+        let usersModify = loadUsers().map(user => {
+            if(user.id === +req.params.id){
+                return {
+                    ...user,
+                    ...req.body,
+                    image : req.file ? req.file.filename : req.session.userLogin.image
+                }
+            }
+            return user
+        });
+    },
+
     logout : (req, res) => {
         req.session.destroy()
         return res.redirect('/')
