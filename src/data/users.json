@@ -112,18 +112,18 @@
    },
    {
       "id": 7,
-      "firstName": "Gastón ♥",
+      "firstName": "Gastón ",
       "lastName": "Rodri",
-      "dni": null,
-      "celular": null,
+      "dni": "",
+      "celular": "",
       "email": "gr@gmail.com",
       "password": "$2a$10$E1UUDZif4viXakpwOdVmBut73Td46l/DUOaCPlUayLSOw3KjilHvO",
-      "calle": null,
-      "numero": null,
-      "piso": null,
-      "cp": null,
-      "city": null,
-      "province": null,
+      "calle": "",
+      "numero": "",
+      "piso": "",
+      "cp": "",
+      "city": "",
+      "province": "",
       "image": null
    },
    {
@@ -140,7 +140,7 @@
       "cp": null,
       "city": null,
       "province": null,
-      "avatar": null,
+      "image": null,
       "rol": "user"
    },
    {
@@ -157,7 +157,7 @@
       "cp": null,
       "city": null,
       "province": null,
-      "avatar": null,
+      "image": null,
       "rol": "user"
    },
    {
@@ -174,7 +174,24 @@
       "cp": null,
       "city": null,
       "province": null,
-      "avatar": null,
+      "image": null,
+      "rol": "user"
+   },
+   {
+      "id": 11,
+      "firstName": "brishito",
+      "lastName": "Rodriguez",
+      "dni": null,
+      "celular": null,
+      "email": "brishi@gmail.com",
+      "password": "$2a$10$6YG2eMHlTjIjDNnClEiqBOD9hY4BbWs7IvumKkTjPGT1Rq7UeNt/K",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
       "rol": "user"
    }
 ]

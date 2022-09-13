@@ -12,7 +12,7 @@ module.exports={
     register: (req, res) => {
         return res.render('./users/register')
     },
-    updateProfile: (req, res) => {
+    createProfile: (req, res) => {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
@@ -81,14 +81,14 @@ module.exports={
         })
     },
     updateChangesProfile : (req, res) => { //guardar los cambios
-
-        const {firstName, lastName, dni, celular, email, calle, numero, piso, cp, city, province} = req.body;
+        console.log(req)
+        const {firstName, lastName, dni, celular, email, calle, numero, piso, cp, city, province, image} = req.body;
 
         let usersModify = loadUsers().map(user => { //recorre el usuario
             if(user.id === +req.params.id){ //busca al usuario por parametros y cuando lo encuentra
                 return {
                     ...user, // trae todos los datos
-                    ...req.body, //actualizan los que corresponde 
+                    ...req.body, 
                     image : req.file ? req.file.filename : req.session.userLogin.image
                 }
             }
@@ -104,7 +104,17 @@ module.exports={
         req.session.userLogin = { // guarda la info en userLogin
             ...req.session.userLogin,
             firstName,
-            avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+            lastName,
+            dni, 
+            celular,
+            email, 
+            calle,
+            numero, 
+            piso, 
+            cp, 
+            city, 
+            province,
+            image : req.file ? req.file.filename : req.session.userLogin.image
         }
 
         storeUsers(usersModify); // guarda la info y actualiza/reescribe el json
