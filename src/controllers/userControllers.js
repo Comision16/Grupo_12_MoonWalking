@@ -61,7 +61,7 @@ module.exports={
 
             if(req.body.remember){ //lo trae express en el app.js
                 res.cookie('userMoonWalking', req.session.userLogin, {
-                    maxAge : 1000 * 60 
+                    maxAge : 10000 * 60 
                 })
             }
 

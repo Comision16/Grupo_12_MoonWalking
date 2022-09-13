@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 
 // Middleware
-const cookieCheck = require('./middlewares/cookieCheck')
+const cookieCheck = require('./middlewares/cookieCheck');
 const localsUserCheck = require('./middlewares/localsUserCheck');
 
 var indexRouter = require('./routes/index');
@@ -33,8 +33,8 @@ app.use(session({
   resave : false,
   saveUninitialized : true
 }));
-app.use(cookieCheck) // si existe la cookie
-app.use(localsUserCheck) // si existe sesión
+app.use(cookieCheck); // si existe la cookie
+app.use(localsUserCheck); // si existe sesión
 
 
 app.use('/', indexRouter);
