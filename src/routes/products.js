@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {detail, store, add, carrito, search, update, edit,remove} = require('../controllers/productsControllers');
-
+const productValidator = require('../validations/productValidator');
 
 /* GET home page. */
 router
@@ -9,7 +9,7 @@ router
 .get ('/add',add)
 .get('/edit/:id',edit)
 .put('/update/:id',update)
-.post('/add',store)
+.post('/add',productValidator,store)
 .get('/carrito', carrito)
 .get('/search',search)
 .delete('/delete/:id',remove)

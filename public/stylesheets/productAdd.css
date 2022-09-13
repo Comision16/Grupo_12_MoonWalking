@@ -1,49 +1,93 @@
 .h1_agregar_producto {
     margin-bottom: 50px;
     margin-left: 10px;
+    margin-top:20px ;
     text-align: center;
 }
 
-.main_agregar_producto {
-    background-color: var(--colorGrisClaro);
-    width: 100px;
-    height: 100px;
+.section_agregar_producto{
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    background-color: var(--colorGrisClaro);
+    padding-top: 0%;
+}
+.section_agregar_producto1{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--colorGrisClaro);
 }
 
+.col-123{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 .agregar_producto1 {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 .agregar_producto2 {
-    flex-direction: row;
+
     gap: 3%;
-
-}
-
-.section_agregar_producto {
     display: flex;
-    flex-direction: row;
-    gap: 6px;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: -10px;
+
 }
-.flecha_arriba:hover{
+.agregar_producto3 {
+
+    gap: 3%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 45px;
+
+}
+.form-control1{
+    width: 186px;
+}
+.boton_add{
+    padding: 30px;
+    padding-top: 0%;
+}
+
+.flecha_arriba{
     display: none;
 }
+.guardar_add{
+    background-color: rgb(148, 220, 148);
+    border-radius: 10%;
+    border-color: aliceblue;
+    border: none;
+    height: 30px;
+    width: 76px;
+    box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+}
+.cancelar_add{
+    background-color: rgb(240, 128, 108);
+    border-radius: 10%;
+    border: none;
+    border-color: aliceblue;
+    height: 30px;
+    width: 76px;
+    box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+}
 @media(min-width: 768px){
-    .main_agregar_producto {
 
-        margin: 100px auto;
-        flex-wrap: wrap;
+    .form-control1{
+        width: 381px;
     }
 }
 
 @media(min-width: 1024px){
 
-    .main_agregar_producto {
-        margin: 100px auto;
-    }
 }  
 

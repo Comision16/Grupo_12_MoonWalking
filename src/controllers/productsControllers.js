@@ -1,5 +1,5 @@
 const {loadProducts, storeProducts} = require('../data/productModule');
-
+const {validationResult} = require('express-validator')
 
 
 module.exports = {
@@ -45,7 +45,11 @@ module.exports = {
         return res.render('./products/productAdd')
     },
     store : (req,res)=>{
-        const products = loadProducts();
+
+         const errors = validationResult(req)
+         
+        if(errors.isEmpty()){
+            const products = loadProducts();
         const{name,brand,price,discount} = req.body;
 
         const id = products[products.length -1].id;
@@ -63,6 +67,12 @@ module.exports = {
 
         storeProducts(productsNew)
         return res.redirect('/')
+        }else{
+            const products = loadProducts();
+            return res.render('./products/productAdd',{
+            errors : errors.mapped()
+        })}
+        
     },
     remove : (req,res) => {
         const products = loadProducts();
