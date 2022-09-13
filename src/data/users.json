@@ -27,6 +27,7 @@
       "piso": null,
       "cp": 1223,
       "city": "San Miguel",
+      "province": null,
       "image": "usuario luna blanca.jpg"
    },
    {
@@ -42,6 +43,7 @@
       "piso": null,
       "cp": 1223,
       "city": "Lanus",
+      "province": null,
       "image": "usuario luna blanca.jpg"
    },
    {
@@ -57,6 +59,7 @@
       "piso": null,
       "cp": 1663,
       "city": "San Miguel",
+      "province": null,
       "image": "usuario luna blanca.jpg"
    },
    {
@@ -72,6 +75,7 @@
       "piso": null,
       "cp": 1663,
       "city": "San Miguel",
+      "province": null,
       "image": "usuario luna blanca.jpg"
    },
    {
@@ -86,11 +90,13 @@
       "numero": null,
       "piso": null,
       "cp": null,
-      "city": null
+      "city": null,
+      "province": null,
+      "image": null
    },
    {
       "id": 6,
-      "firstName": "Quagsire",
+      "firstName": "Quagsire ♥",
       "lastName": "Gutierrez",
       "dni": null,
       "celular": null,
@@ -100,7 +106,9 @@
       "numero": null,
       "piso": null,
       "cp": null,
-      "city": null
+      "city": null,
+      "province": null,
+      "image": null
    },
    {
       "id": 7,
@@ -124,10 +132,86 @@
       "celular": null,
       "email": "juanhondafan@gmail.com",
       "password": "$2a$10$vgZr3LG/b3VyJjAS0./Co.BVLHxXTpn9DWeJ06UIlm6EsePnLUx6K",
+      "firstName": "Gastón ",
+      "lastName": "Rodriguez",
+      "dni": "45678952",
+      "celular": "1591591591",
+      "email": "gr@gmail.com",
+      "password": "$2a$10$E1UUDZif4viXakpwOdVmBut73Td46l/DUOaCPlUayLSOw3KjilHvO",
+      "calle": "",
+      "numero": "",
+      "piso": "",
+      "cp": "",
+      "city": "",
+      "province": "",
+      "image": "1663032278258_avatar_.png"
+   },
+   {
+      "id": 8,
+      "firstName": "Julian",
+      "lastName": "Ortega",
+      "dni": null,
+      "celular": null,
+      "email": "julieselmejo@gmail.com",
+      "password": "$2a$10$rcWoJ9ywxcXdZKDOwHKSjuTkLSKo3n8spSAPdg4Rx78AffF8OlLCa",
       "calle": null,
       "numero": null,
       "piso": null,
       "cp": null,
-      "city": null
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
+   },
+   {
+      "id": 9,
+      "firstName": "Julian",
+      "lastName": "Ortega",
+      "dni": null,
+      "celular": null,
+      "email": "julieselmejor@gmail.com",
+      "password": "$2a$10$TmL/6LcSrdOjFqZOO.eLc.SFTTzXel9DdEu4IIsRQF1oO11CLUjQa",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
+   },
+   {
+      "id": 10,
+      "firstName": "brishito",
+      "lastName": "Gutierrez",
+      "dni": null,
+      "celular": null,
+      "email": "b@gmail.com",
+      "password": "$2a$10$Avna4twJkwPCH0hLQooXTekLxJhnRgzIV8GRb/ypVrwGrcAiZTmIe",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
+   },
+   {
+      "id": 11,
+      "firstName": "brishito",
+      "lastName": "Rodriguez",
+      "dni": null,
+      "celular": null,
+      "email": "brishi@gmail.com",
+      "password": "$2a$10$6YG2eMHlTjIjDNnClEiqBOD9hY4BbWs7IvumKkTjPGT1Rq7UeNt/K",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
    }
 ]

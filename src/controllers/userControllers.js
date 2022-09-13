@@ -1,6 +1,8 @@
 const {validationResult} = require('express-validator');
 const { loadUsers, storeUsers } = require('../data/productModule');
 const bcryptjs = require('bcryptjs');
+const fs = require('fs');
+const path = require('path');
 
 
 module.exports={
@@ -10,11 +12,7 @@ module.exports={
     register: (req, res) => {
         return res.render('./users/register')
     },
-    logout :(req,res) =>{
-        req.session.destroy()
-        return res.redirect('/')
-    },
-    updateProfile: (req, res) => {
+    createProfile: (req, res) => {
         const errors = validationResult(req);
 
         if(errors.isEmpty()){
@@ -33,7 +31,10 @@ module.exports={
             numero : null,
             piso : null,
             cp : null,
-            city : null
+            city : null,
+            province: null,
+            image: null,
+            rol: 'user'
            }
            const userModify = [...users, newUser];
            storeUsers(userModify);
@@ -57,11 +58,74 @@ module.exports={
                 image,
                 rol
             }
-            return res.redirect('/')
+
+            if(req.body.remember){ //lo trae express en el app.js
+                res.cookie('userMoonWalking', req.session.userLogin, {
+                    maxAge : 1000 * 60 
+                })
+            }
+
+            return res.redirect('./profile')
         }else {
             return res.render('./users/login', {
                errors : errors.mapped()
             })
         }
+    },
+    profile: (req, res) => {
+        let user = loadUsers().find(user => user.id === req.session.userLogin.id); //carga la vista de perfil de usuario los datos desde la base de datos (el archivo users.json)
+        return res.render('./users/profile', {
+            user,
+            cities : require('../data/cities'),
+            provinces : require('../data/provinces')
+        })
+    },
+    updateChangesProfile : (req, res) => { //guardar los cambios
+        console.log(req)
+        const {firstName, lastName, dni, celular, email, calle, numero, piso, cp, city, province, image} = req.body;
+
+        let usersModify = loadUsers().map(user => { //recorre el usuario
+            if(user.id === +req.params.id){ //busca al usuario por parametros y cuando lo encuentra
+                return {
+                    ...user, // trae todos los datos
+                    ...req.body, 
+                    image : req.file ? req.file.filename : req.session.userLogin.image
+                }
+            }
+            return user
+        })
+        
+        if(req.file && req.session.userLogin.avatar){
+            if(fs.existsSync(path.resolve(__dirname,'..','public','img', 'users', req.session.userLogin.image))){
+                fs.unlinkSync(path.resolve(__dirname,'..','public','img', 'users', req.session.userLogin.image)) //elimina el anterior
+            }
+        }
+
+        req.session.userLogin = { // guarda la info en userLogin
+            ...req.session.userLogin,
+            firstName,
+            lastName,
+            dni, 
+            celular,
+            email, 
+            calle,
+            numero, 
+            piso, 
+            cp, 
+            city, 
+            province,
+            image : req.file ? req.file.filename : req.session.userLogin.image
+        }
+
+        storeUsers(usersModify); // guarda la info y actualiza/reescribe el json
+        return res.redirect('/users/profile')
+    },
+
+    logout : (req, res) => {
+        req.session.destroy()
+        return res.redirect('/')
+    } ,
+    usersList: (req, res) => {
+        return res.render('./users/usersList')
     }
 }

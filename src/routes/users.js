@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const {login,register, updateProfile, processLogin, logout,profile} = require('../controllers/userControllers');
+const {login, register, createProfile, processLogin, updateChangesProfile, profile, usersList, logout} = require('../controllers/userControllers');
+
 /* GET users listing. */
 
 const usersValidator = require('../validations/userValidator')
@@ -13,11 +14,11 @@ router
     .get('/login', login)
     .post('/login',loginValidator ,processLogin)
     .get('/register', register)
+    .post('/register', upload.single('image'), usersValidator, createProfile) 
+    .put('/update/:id', upload.single('image'), usersValidator, updateChangesProfile)
+    .get('/profile', userSessionCheck, profile) //se fija que este logueado para poder entrar al profile
+    .get('/usersList', usersList)
     .get('/login',userSessionCheck, login)
-    .get('/', function(req, res, next) {
-       res.send('respond with a resource');
-    })
-    .put('/update', upload.single('avatar'), usersValidator, updateProfile)
     .get('/logout', logout)
 
 module.exports = router;

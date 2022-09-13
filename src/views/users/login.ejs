@@ -7,18 +7,22 @@
         <div class="div_usuario-img">
         <img class="usuario_img"src="/img/usuario luna blanca.jpg" alt="login">
         </div>
-        <form action="" class="form_login" method="POST">
-            <div class="input_login">
-            <input type="email" name="email" placeholder="Dirección de email:">
-            <small class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+        <form action="/users/login" class="form_login" method="POST">
+            <div class="div_input_login">
+                <input class="input_login" type="email" name="email" placeholder="Dirección de email:">
+                <small class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
              </div>
-             <div class="input_login">
-            <input type="password" name="password" placeholder="Contraseña:">
-            <small class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+             <div class="div_input_login">
+                <input class="input_login" type="password" name="password" placeholder="Contraseña:">
+                <small class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+            </div>
+            <div class="login_remember">
+                <input class="login_input_remember" type="checkbox" id="recordame" name="remember">
+                <label class="" for="remember">Recordame</label>
             </div>
             <div class="form_login--button">
-            <button type="submit">INICIAR SESION</button>
-            <p class="registrarse"><a href="./register">Registrarse</a></p>
+                <button type="submit">INICIAR SESION</button>
+                <p class="registrarse"><a href="./register">Registrarse</a></p>
              </div>
         </form>
     </main>
