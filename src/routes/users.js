@@ -11,6 +11,7 @@ const loginValidator = require('../validations/loginValidator');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 
 router
+    .get('/login', login)
     .post('/login',loginValidator ,processLogin)
     .get('/register', register)
     .post('/register', upload.single('image'), usersValidator, createProfile) 

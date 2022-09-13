@@ -33,7 +33,7 @@ module.exports={
             cp : null,
             city : null,
             province: null,
-            avatar: null,
+            image: null,
             rol: 'user'
            }
            const userModify = [...users, newUser];
