@@ -8,37 +8,37 @@
 
     <main class="">
         <section class="">
-          <h3 class="">Mi Perfil</h3>
-          <figure class="">
+          <h3 class="h3_profile">Mi Perfil</h3>
+          <figure class="imagen_profile">
             <!--tanto el width como el border radius hay que quitarlo y ponerlo en el css-->
-               <img src="/img/users/<%= user.image ? user.image : 'default.jpg' %>" alt="Tu avatar" width="50px" style = "border-radius: 50%;"> 
+               <img src="/img/users/<%= user.image ? user.image : 'default.jpg' %>" alt="Tu avatar"> 
           </figure>
-          <form action="/users/update/<%= user.id %>?_method=PUT" class="form" enctype="multipart/form-data" method="POST">
-                <div class="">
+          <form action="/users/update/<%= user.id %>?_method=PUT" class="form_profile" enctype="multipart/form-data" method="POST">
+                <div class="form_input--profile">
                     <label class="" for="nombre">Nombre:</label>
                     <input class="" type="text" autocomplete="off" name="firstName" value="<%= user.firstName %>">
                 </div>
-                <div class="">
+                <div class="form_input--profile">
                     <label class="" for="apellido">Apellido:</label>
                     <input class="" type="text" name="lastName" value="<%= user.lastName %>">
                 </div>
-                <div class="">
+                <div class="form_input--profile">
                     <label class="" for="dni">DNI:</label>
                     <input class="" type="text" name="dni" value="<%= user.dni %>">
                 </div>
-                <div class="">
+                <div class="form_input--profile">
                     <label class="" for="celular">Celular:</label>
                     <input class="" type="text" name="celular" value="<%= user.celular %>">
                 </div>
-                <div class="">
+                <div class="form_input--profile">
                     <label class="" for="email">Email:</label>
                     <input class="" type="email"  name="email" value="<%= user.email %>" readonly>
                 </div>
-                <div class="">
-                    <h5 class="">Domicilio</h5>
+                <div class="form_input--profile">
+                    <h5 class="h5--profile">Domicilio</h5>
                         <label class="" for="calle">Calle y altura:</label>
-                        <input class="" type="text" cion" name="calle" placeholder="Calle" value="<%= user.calle %>">
-                        <input class="" type="text" cion" name="numero"  placeholder="Número" value="<%= user.numero %>">
+                        <input class="" type="text" name="calle" placeholder="Calle" value="<%= user.calle %>">
+                        <input class="" type="text" name="numero"  placeholder="Número" value="<%= user.numero %>">
 
                         <label class="" for="cp">Código Postal:</label>
                         <input class="" type="text" name="cp" value="<%= user.cp %>">
@@ -46,14 +46,15 @@
                         <label class="" for="piso">N° Piso:</label>
                         <input class="" type="text"  name="piso" value="<%= user.piso %>">
                         
-                        <select class="form__select" name="city" id="city">
+                        <h5 class="h5--profile">Ciudad</h5>
+                        <select class="form__select--profile" name="city" id="city">
                             <option value="" hidden selected>Selecciona tu ciudad</option>
                             <% cities.forEach(city => { %>
                                 <option <%= city === user.city && 'selected'%>  value="<%= city %>"><%= city %></option>
                             <% }) %>
                         </select>
 
-                        <select class="form__select" name="province" id="province">
+                        <select class="form__select--profile" name="province" id="province">
                             <option value="" hidden selected>Selecciona tu provincia</option>
                             <% provinces.forEach(province => { %>
                                 <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
@@ -61,14 +62,14 @@
                         </select>
                     
                 </div>
-                <div class="">
-                    <h5 class="">Tu Avatar</h5>
-                    <label class="" for="image">Selecciona un imagen</label>
-                    <input hidden class="" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
+                <div class="form_input--profile--image">
+                    <h5 class="h5--profile">Tu Avatar</h5>
+                    <label class="input_image--profile" for="image">Selecciona un imagen</label>
+                    <input hidden class="input_image--profile" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
                 </div>
-                <div class="">
-                    <a href="" class="">Cancelar</a>
-                    <button  class="" type="submit">Guardar cambios</button>
+                <div class="div_button--profile">
+                    <a href="" class="cancelar_add--profile">Cancelar</a>
+                    <button  class="guardar_add--profile" type="submit">Guardar cambios</button>
                 </div>
           </form>
         </section>

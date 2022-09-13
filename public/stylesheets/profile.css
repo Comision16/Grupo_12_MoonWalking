@@ -1,0 +1,127 @@
+.h3_profile{
+    color: var(--colorRojo);
+    margin-left: 2%;
+}
+.imagen_profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.imagen_profile img{
+    margin-bottom: 5%;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.form_profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form_input--profile label{
+    font-size: 15px;
+    margin-left: 2%;
+    font-weight: 500;
+}
+.form_input--profile{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form_input--profile input{
+    margin-left: 5%;
+    width: 90%;
+    outline: none;
+    padding: 4px;
+    background-color: var(--colorGrisClaro);
+    border: none;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+}
+.h5--profile{
+    color: var(--colorRojo);
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+.form__select--profile{
+    margin-left: 5%;
+    width: 70%;
+    outline: none;
+    padding: 4px;
+    background-color: var(--colorGrisClaro);
+    border: none;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+}
+.form_input--profile--image{
+    margin-left: 5%;
+    width: 90%;
+}
+.input_image--profile{
+    width: 90%;
+    outline: none;
+    padding: 4px;
+    background-color: var(--colorGrisClaro);
+    border: none;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+}
+/* BUTTON */
+.div_button--profile{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.cancelar_add--profile{
+    background-color: rgb(240, 128, 108);
+    border-radius: 10%;
+    border: none;
+    border-color: aliceblue;
+    height: 30px;
+    width: 76px;
+    box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+}
+.guardar_add--profile{
+    background-color: rgb(148, 220, 148);
+    border-radius: 10%;
+    border-color: aliceblue;
+    border: none;
+    height: 30px;
+    width: 76px;
+    box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+}
+/* TABLET */
+@media (min-width: 768px) {
+
+}
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .h3_profile{
+        font-size: 25px;
+    }
+    .imagen_profile img{
+        width: 200px;
+    }
+    .form_input--profile input{
+        margin-left: 6%;
+        width: 80%;
+        height: 35px;
+    }
+    .form__select--profile{
+        width: 80%;
+    }
+    .cancelar_add--profile{
+        text-align: center;
+        height: 50px;
+        width: 100px;
+    }
+    .guardar_add--profile{
+        text-align: center;
+        height: 50px;
+        width: 100px;
+    }
+    .form_input--profile label{
+        font-size: 20px;
+        height: 35px;
+    }
+}
