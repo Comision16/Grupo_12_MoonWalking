@@ -112,7 +112,6 @@
    },
    {
       "id": 7,
-<<<<<<< HEAD
       "firstName": "Gastón ",
       "lastName": "Rodriguez",
       "dni": "45678952",
@@ -126,19 +125,6 @@
       "city": "",
       "province": "",
       "image": "1663034943807_avatar_.png"
-=======
-      "firstName": "Rama",
-      "lastName": "Quiroga",
-      "dni": null,
-      "celular": null,
-      "email": "ramacicarelli2001@gmail.com",
-      "password": "$2a$10$bIx81fo8JWKPKgTKfwLrE.3ZXTQkp3MZLCzmcr4qda0HT46YS0Qt6",
-      "calle": null,
-      "numero": null,
-      "piso": null,
-      "cp": null,
-      "city": null
->>>>>>> 8d6d98510099a299161b4c4e501ed7aa31bfead5
    },
    {
       "id": 8,
