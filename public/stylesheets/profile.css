@@ -42,6 +42,11 @@
     margin-bottom: 2%;
     margin-left: 2%;
 }
+.h5_profile--avatar{
+    color: var(--colorRojo);
+    margin-bottom: 6%;
+
+}
 .form__select--profile{
     margin-left: 5%;
     width: 70%;
@@ -99,6 +104,7 @@
     .h3_profile{
         font-size: 25px;
     }
+
     .imagen_profile img{
         width: 200px;
     }
