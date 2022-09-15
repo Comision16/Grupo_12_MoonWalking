@@ -227,5 +227,22 @@
       "province": null,
       "image": null,
       "rol": "user"
+   },
+   {
+      "id": 14,
+      "firstName": "rama",
+      "lastName": "quiroga",
+      "dni": "",
+      "celular": "",
+      "email": "ramacicarelli2001@gmail.com",
+      "password": "$2a$10$WwnRKaz0o8nTvB3FV/i/dOn9mb5bdmvxMnj0se/wDbW41cwrqoYAS",
+      "calle": "",
+      "numero": "",
+      "piso": "",
+      "cp": "",
+      "city": "",
+      "province": "",
+      "image": "1663206798430_avatar_.jpg",
+      "rol": "user"
    }
 ]

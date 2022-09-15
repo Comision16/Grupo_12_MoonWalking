@@ -10,9 +10,10 @@
     <%- include('../partials/header') %>
 
     <main>
+        <div class="form_addproduct">
         <section class="main_add_producto">
         <h1 class="h1_agregar_producto">Agregar Producto</h1>
-        <section class="section_agregar_producto">
+        <div class="section_agregar_producto">
             <div class="agregar_producto1">
     <form action=""  method="POST" class="">
             <div class="col-123">
@@ -60,18 +61,18 @@
                 </div>
             </div>
             </select>  
-        </section> 
+        
             <div class="agregar_producto3">
-                <section class="section_agregar_producto1">
+               
                 <div class="col-123 ">
                     <label for="description" class="form-label">Descripción</label>
                     <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none;"></textarea>
                     <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
     
                 </div>
-            </section>
+            
         </div> 
-        
+    </div> 
         <div class="boton_add"> 
         <div class="form__box form__box--flex ">
             <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
@@ -80,7 +81,7 @@
     </div>   
     </form>
     </section>
-   
+</div>
     </main>
     
     <%- include('../partials/footer') %>

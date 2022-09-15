@@ -6,14 +6,17 @@
 <body class="register">
     <%- include('../partials/header') %> 
 
-    <main class="">
-        <section class="">
-          <h3 class="h3_profile">Mi Perfil</h3>
+    <main>
+        
           <figure class="imagen_profile">
             <!--tanto el width como el border radius hay que quitarlo y ponerlo en el css-->
                <img src="/img/users/<%= user.image ? user.image : 'default.jpg' %>" alt="Tu avatar"> 
-          </figure>
+               <div class="h3_profile"><h3>Mi Perfil</h3></div>
+            </figure>
+          
           <form action="/users/update/<%= user.id %>?_method=PUT" class="form_profile" enctype="multipart/form-data" method="POST">
+            <div class="form_perfil">    
+            <div class="form_entero_1">
                 <div class="form_input--profile">
                     <label class="" for="nombre">Nombre:</label>
                     <input class="" type="text" autocomplete="off" name="firstName" value="<%= user.firstName %>">
@@ -34,6 +37,15 @@
                     <label class="" for="email">Email:</label>
                     <input class="" type="email"  name="email" value="<%= user.email %>" readonly>
                 </div>
+                <div class="form_input--profile--image">
+                    <h5 class="h5_profile--avatar">Tu Avatar</h5>
+                    <div class="form_profile--image">
+                        <input class="input_image_profile" type="file" name="image" accept=".jpg, .png, .wepb">
+                      </div>
+                    <input hidden class="input_image--profile" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
+                </div>
+            </div>
+                <div class="form_entero_2">
                 <div class="form_input--profile">
                     <h5 class="h5--profile">Domicilio</h5>
                         <label class="" for="calle">Calle y altura:</label>
@@ -60,19 +72,21 @@
                                 <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
                             <% }) %>
                         </select>
-                    
+                      </div>
+                                   
+                      
+            </div>
+            </div>
+<div class="guardar_profile">
+                    <div class="boton_add"> 
+                    <div class="form__box form__box--flex ">
+                        <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
+                        <button class="guardar_add form__button--send" type="submit">Guardar</button>
+                    </div>  
                 </div>
-                <div class="form_input--profile--image">
-                    <h5 class="h5_profile--avatar">Tu Avatar</h5>
-                    <label class="input_image--profile" for="image">Selecciona una imagen</label>
-                    <input hidden class="input_image--profile" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
-                </div>
-                <div class="div_button--profile">
-                    <a href="" class="cancelar_add--profile">Cancelar</a>
-                    <button  class="guardar_add--profile" type="submit">Guardar cambios</button>
-                </div>
-          </form>
-        </section>
+            </div>        
+            </form>
+        
     </main>
     <%- include('../partials/footer') %>
 </body>
