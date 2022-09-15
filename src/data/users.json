@@ -210,5 +210,22 @@
       "province": null,
       "image": null,
       "rol": "user"
+   },
+   {
+      "id": 13,
+      "firstName": "julieta",
+      "lastName": "lopez",
+      "dni": null,
+      "celular": null,
+      "email": "julietal@gmail.com",
+      "password": "$2a$10$oEvcwV1UFLslpEz6SDPRX.V7UEvK3PyRl0QgZWnjWXO9XwiwJP7FS",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
    }
 ]

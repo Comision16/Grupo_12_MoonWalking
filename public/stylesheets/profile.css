@@ -1,6 +1,15 @@
 .h3_profile{
-    color: var(--colorRojo);
+   /*color: var(--colorRojo);*/
     margin-left: 2%;
+    text-align: left; 
+    font-family: Arial Black; 
+    font-weight: bold; font-size: 30px; 
+    background: #202020; 
+    -webkit-background-clip: text; 
+    -moz-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
 }
 .imagen_profile{
     display: flex;
@@ -95,39 +104,12 @@
     width: 76px;
     box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
 }
+
 /* TABLET */
 @media (min-width: 768px) {
 
 }
 /* DESKTOP */
 @media (min-width: 1024px) {
-    .h3_profile{
-        font-size: 25px;
-    }
 
-    .imagen_profile img{
-        width: 200px;
-    }
-    .form_input--profile input{
-        margin-left: 6%;
-        width: 80%;
-        height: 35px;
-    }
-    .form__select--profile{
-        width: 80%;
-    }
-    .cancelar_add--profile{
-        text-align: center;
-        height: 50px;
-        width: 100px;
-    }
-    .guardar_add--profile{
-        text-align: center;
-        height: 50px;
-        width: 100px;
-    }
-    .form_input--profile label{
-        font-size: 20px;
-        height: 35px;
-    }
 }
