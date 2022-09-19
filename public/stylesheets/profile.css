@@ -119,16 +119,20 @@
 }
 
 /* TABLET */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
 }
 /* DESKTOP */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .form_entero_1{
         background-color: var(--colorGrisClaro);
         margin-bottom: 15px;
         margin-top: 0px;
         border-radius: 15px;
+    }
+    .form_perfil{
+        display: flex;
+        justify-content: center;
     }
     .form_entero_2{
         background-color: var(--colorGrisClaro);
