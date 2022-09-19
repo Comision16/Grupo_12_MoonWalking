@@ -244,5 +244,22 @@
       "province": "",
       "image": "1663206798430_avatar_.jpg",
       "rol": "user"
+   },
+   {
+      "id": 15,
+      "firstName": "mariana",
+      "lastName": "rodriguez",
+      "dni": null,
+      "celular": null,
+      "email": "marianaro@gmail.com",
+      "password": "$2a$10$jCDwhI.Awmu4E73OGfSeaO/htvwv4bdtxhQuTBzKHubu5ltsVSdCi",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
    }
 ]

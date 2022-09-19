@@ -21,60 +21,46 @@
     width: 100px;
     border-radius: 50%;
 }
-
-.form_perfil{
-display: flex;
-justify-content: center;
-}
-
-.form_entero_1{
-    background-color: var(--colorGrisClaro);
-    margin-bottom: 15px;
-    margin-top: 0px;
-    border-radius: 15px;
-}
-.form_entero_2{
-    background-color: var(--colorGrisClaro);
-    margin: 15px;
-    margin-bottom: 15px;
-    margin-top: 0px;
-    border-radius: 15px;
-}
-
+/* FORMULARIO */
 .form_profile{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
 }
 .form_input--profile label{
     font-size: 15px;
     margin-left: 2%;
     font-weight: 500;
-    margin-top: 5px;
-}
-.guardar_profile{
-    margin-right: 20px;
 }
 .form_input--profile{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 8px;
-    width: 300px;
+    gap: 10px;
 }
-.form_input--profile input{
+.form_profile--image{
+    margin-bottom: 5%;
     margin-left: 5%;
     width: 90%;
     outline: none;
     padding: 4px;
-    background-color: #ededed;
+    background-color: var(--colorGrisClaro);
+    border: none;
+    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+}
+.form_input--profile input{
+    margin-bottom: 5%;
+    margin-left: 5%;
+    width: 90%;
+    outline: none;
+    padding: 4px;
+    background-color: var(--colorGrisClaro);
     border: none;
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
 .h5--profile{
     color: var(--colorRojo);
+    margin-bottom: 2%;
     margin-left: 2%;
-    margin-top: 5px;
 }
 .h5_profile--avatar{
     color: var(--colorRojo);
@@ -86,7 +72,7 @@ justify-content: center;
     width: 70%;
     outline: none;
     padding: 4px;
-    background-color: #ededed;
+    background-color: var(--colorGrisClaro);
     border: none;
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
@@ -102,6 +88,8 @@ justify-content: center;
     border: none;
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
+
+
 /* BUTTON */
 .div_button--profile{
     display: flex;
@@ -136,5 +124,79 @@ justify-content: center;
 }
 /* DESKTOP */
 @media (min-width: 1024px) {
-
+    .form_entero_1{
+        background-color: var(--colorGrisClaro);
+        margin-bottom: 15px;
+        margin-top: 0px;
+        border-radius: 15px;
+    }
+    .form_entero_2{
+        background-color: var(--colorGrisClaro);
+        margin: 15px;
+        margin-bottom: 15px;
+        margin-top: 0px;
+        border-radius: 15px;
+    }
+    
+    .form_profile{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .form_input--profile label{
+        font-size: 15px;
+        margin-left: 2%;
+        font-weight: 500;
+        margin-top: 5px;
+    }
+    .guardar_profile{
+        margin-right: 20px;
+    }
+    .form_input--profile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 8px;
+        width: 300px;
+    }
+    .form_input--profile input{
+        margin-left: 5%;
+        width: 90%;
+        outline: none;
+        padding: 4px;
+        background-color: #ededed;
+        border: none;
+        box-shadow: 0px 2px 5px rgb(100, 100, 100);
+    }
+    .h5--profile{
+        color: var(--colorRojo);
+        margin-left: 2%;
+        margin-top: 5px;
+    }
+    .h5_profile--avatar{
+        color: var(--colorRojo);
+        margin-bottom: 6%;
+    
+    }
+    .form__select--profile{
+        margin-left: 5%;
+        width: 70%;
+        outline: none;
+        padding: 4px;
+        background-color: #ededed;
+        border: none;
+        box-shadow: 0px 2px 5px rgb(100, 100, 100);
+    }
+    .form_input--profile--image{
+        margin-left: 5%;
+        width: 90%;
+    }
+    .input_image--profile{
+        width: 90%;
+        outline: none;
+        padding: 4px;
+        background-color: var(--colorGrisClaro);
+        border: none;
+        box-shadow: 0px 2px 5px rgb(100, 100, 100);
+    }
 }
