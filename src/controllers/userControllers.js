@@ -24,15 +24,8 @@ module.exports={
             firstName : firstName.trim(),
             lastName : lastName.trim(),
             dni : null,
-            celular : null,
             email : email.trim(),
             password : bcryptjs.hashSync(password.trim(), 10),
-            calle : null,
-            numero : null,
-            piso : null,
-            cp : null,
-            city : null,
-            province: null,
             image: null,
             rol: 'user'
            }
@@ -105,15 +98,8 @@ module.exports={
             ...req.session.userLogin,
             firstName,
             lastName,
-            dni, 
-            celular,
+            dni,
             email, 
-            calle,
-            numero, 
-            piso, 
-            cp, 
-            city, 
-            province,
             image : req.file ? req.file.filename : req.session.userLogin.image
         }
 
