@@ -45,35 +45,7 @@
                     <input hidden class="input_image--profile" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
                 </div>
             </div>
-                <div class="form_entero_2">
-                <div class="form_input--profile">
-                    <h5 class="h5--profile">Domicilio</h5>
-                        <label class="" for="calle">Calle y altura:</label>
-                        <input class="" type="text" name="calle" placeholder="Calle" value="<%= user.calle %>">
-                        <input class="" type="text" name="numero"  placeholder="Número" value="<%= user.numero %>">
-
-                        <label class="" for="cp">Código Postal:</label>
-                        <input class="" type="text" name="cp" value="<%= user.cp %>">
-
-                        <label class="" for="piso">N° Piso:</label>
-                        <input class="" type="text"  name="piso" value="<%= user.piso %>">
-                        
-                        <h5 class="h5--profile">Ciudad</h5>
-                        <select class="form__select--profile" name="city" id="city">
-                            <option value="" hidden selected>Selecciona tu ciudad</option>
-                            <% cities.forEach(city => { %>
-                                <option <%= city === user.city && 'selected'%>  value="<%= city %>"><%= city %></option>
-                            <% }) %>
-                        </select>
-
-                        <select class="form__select--profile" name="province" id="province">
-                            <option value="" hidden selected>Selecciona tu provincia</option>
-                            <% provinces.forEach(province => { %>
-                                <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
-                            <% }) %>
-                        </select>
-                      </div>
-            </div>
+                
             </div>
                 <div class="guardar_profile">
                  <div class="boton_add"> 

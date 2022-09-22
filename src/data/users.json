@@ -261,5 +261,22 @@
       "province": null,
       "image": null,
       "rol": "user"
+   },
+   {
+      "id": 16,
+      "firstName": "juana",
+      "lastName": "lopez",
+      "dni": null,
+      "celular": null,
+      "email": "juanalopez@gmail.com",
+      "password": "$2a$10$89e0.twofO.juf643o5lOOxUOpbGrrXthYK/WPC8rSNHxAyADOBvq",
+      "calle": null,
+      "numero": null,
+      "piso": null,
+      "cp": null,
+      "city": null,
+      "province": null,
+      "image": null,
+      "rol": "user"
    }
 ]
