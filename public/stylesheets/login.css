@@ -87,11 +87,16 @@
 }
 .error_login{
     color: red;
+    margin-left: 60px;
 }
 /*TABLET*/
 @media (min-width: 768px) {
     .input_login{
         height: 40px;
+    }
+    .error_login{
+        color: red;
+        margin-left: 133px;
     }
 
     .form_login--button button{
@@ -114,6 +119,10 @@
     }
     .form_login--button button{
         width: 200%;
+    }
+    .error_login{
+        color: red;
+        margin-left: 270px;
     }
     .img_fondo{
         border: 20px solid var(--colorGrisClaro);
