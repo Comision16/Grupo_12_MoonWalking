@@ -114,7 +114,7 @@ transition: 1s;
     background: #bcbcbc;
  }
 .burger{
-    display: flex;
+    display: none;
     align-items: center;
     width: 0%;
     padding: 6px;
