@@ -109,6 +109,9 @@ module.exports={
 
     logout : (req, res) => {
         req.session.destroy()
+        res.cookie('userMoonWalking', null, {
+            maxAge : -1 
+        })
         return res.redirect('/')
     } ,
     usersList: (req, res) => {

@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/bin/www --ignore /data/*.json"
+    "start": "node ./src/bin/www"
+  },
+  "nodemonConfig": {
+    "ignore": "*.json"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -21,3 +24,4 @@
     "multer": "^1.4.5-lts.1"
   }
 }
+
