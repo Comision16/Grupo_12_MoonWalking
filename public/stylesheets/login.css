@@ -85,6 +85,12 @@
     text-decoration: none; 
     color: black
 }
+.col-122{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 .error_login{
     color: red;
     margin-left: 60px;
