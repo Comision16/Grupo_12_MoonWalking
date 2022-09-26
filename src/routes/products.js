@@ -6,13 +6,13 @@ const adminsCheck = require('../middlewares/adminsCheck');
 
 /* GET home page. */
 router
-.get('/detalle/:id', adminsCheck, detail)
-.get ('/add', adminsCheck, add)
-.get('/edit/:id', adminsCheck, edit)
-.put('/update/:id', adminsCheck, update)
-.post('/add', adminsCheck, productValidator,store)
+.get('/detalle/:id', detail)
+.get ('/add',add)
+.get('/edit/:id', edit)
+.put('/update/:id', update)
+.post('/add', productValidator,store)
 .get('/carrito', carrito)
 .get('/search',search)
-.delete('/delete/:id', adminsCheck, remove)
+.delete('/delete/:id', remove)
 
 module.exports = router;
