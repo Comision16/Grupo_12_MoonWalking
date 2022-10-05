@@ -12,7 +12,7 @@ const userSessionCheck = require('../middlewares/userSessionCheck');
 const guestsCheck = require('../middlewares/guestsCheck');
 
 router
-    .get('/login', guestsCheck,  login)
+    .get('/login', guestsCheck, login)
     .post('/login',loginValidator ,processLogin)
     .get('/register', guestsCheck, register)
     .post('/register', upload.single('image'), usersValidator, createProfile) 

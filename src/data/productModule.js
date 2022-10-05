@@ -14,9 +14,14 @@ const storeUsers = (products) => {
     fs.writeFileSync(path.join(__dirname,'users.json'), JSON.stringify(products,null,3),'utf-8')
 }
 
+const loadAdmins = ()=>{
+    return JSON.parse(fs.readFileSync(path.join(__dirname,'admins.json'),'utf-8'))
+}
+
 module.exports ={
     loadProducts,
     storeProducts,
     loadUsers,
-    storeUsers
+    storeUsers,
+    loadAdmins
 }

@@ -1,9 +1,13 @@
 const {validationResult} = require('express-validator');
-const { loadUsers, storeUsers } = require('../data/productModule');
+const { loadUsers, storeUsers, loadAdmins } = require('../data/productModule');
 const bcryptjs = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
+const admins = loadAdmins();
+const isAdmin = (id) => {
+    return admins.find(admin => admin.id === id)
+}
 
 module.exports={
     login: (req, res) =>{
@@ -45,13 +49,15 @@ module.exports={
 
         if(errors.isEmpty()){
             let {id, firstName, image, rol} = loadUsers().find(user => user.email === req.body.email)
-            req.session.userLogin = {
+           const admin = isAdmin(id) ? true : false; 
+           req.session.userLogin = {
                 id,
                 firstName,
                 image,
-                rol
+                rol, 
+                admin
             }
-
+            
             if(req.body.remember){ //lo trae express en el app.js
                 res.cookie('userMoonWalking', req.session.userLogin, {
                     maxAge : 10000 * 60 

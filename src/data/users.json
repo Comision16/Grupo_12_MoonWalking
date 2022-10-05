@@ -278,5 +278,15 @@
       "province": null,
       "image": null,
       "rol": "user"
+   },
+   {
+      "id": 17,
+      "firstName": "Lujan",
+      "lastName": "Rodriguez",
+      "dni": null,
+      "email": "lujan.vg@hotmail.com",
+      "password": "$2a$10$l5igFDTQ0yRSG7iKLtXcyuctqfkVdsDO2VPdu.Wk3tFgi0OLi4NLu",
+      "image": null,
+      "rol": "user"
    }
 ]
