@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Iniciar Sesion</title>
+    </head>
 <%- include('../partials/head', {title : 'Login'}) %>
 <body class="body_login">
-    <main class="main_login">
-        <img class="img_fondo" src="/img/fondo.jpeg" alt="">
-        <div class="div_usuario-img">
-        <img class="usuario_img"src="/img/usuario luna blanca.jpg" alt="login">
+    <div class="container-form sign-up">
+        <div class="welcome-back">
+            <div class="message">
+                <img class="img_fondo" src="/img/fondo.jpeg" alt="">
+                <h2>Bienvenido a MoonWalking</h2>
+                <h3 class="log">Una pagina que te hara volar hasta la Luna</h3>
+                <p>¿Todavía no tenes tu cuenta?</p>
+                <a href="/users/register"><button class="sign-up-btn">Registrarse</button></a>
+            </div>
         </div>
-        <form action="/users/login" class="form_login" method="POST">
+        <form action="/users/login" class="formulario" method="POST">
+            <img class="img_fondo" src="/img/fondo.jpeg" alt="">
+            <h2 class="create-account">Iniciar Sesion</h2>
             <div class="col-122">
-                <input class="input_login" type="email" name="email" placeholder="Dirección de email:">
+                <input class="input_login" type="email" name="email" placeholder="Correo Electrónico:">
                 <small class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
              </div>
              <div class="col-122">
                 <input class="input_login" type="password" name="password" placeholder="Contraseña:">
                 <small class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
             </div>
-            <div class="login_remember">
-                <input class="login_input_remember" type="checkbox" id="recordame" name="remember">
-                <label class="" for="remember">Recordame</label>
+            <div class="login_remember1">
+                <p>Recordarme<input class="login_input_remember" type="checkbox" id="recordame" name="remember"></p>
+                
             </div>
             <div class="form_login--button">
-                <button type="submit">INICIAR SESION</button>
-                <p class="registrarse"><a href="./register">Registrarse</a></p>
+                <button type="submit">Iniciar Sesion</button>
              </div>
+             <div class="register__cel">
+                <a  href="/users/register"><button class="register_cel">Registrarse</button></a>
+                <p>¿Todavía no tenes tu cuenta?</p>
+            </div>
         </form>
-    </main>
+    </div>
 </body>
 </html>

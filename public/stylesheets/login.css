@@ -5,18 +5,35 @@
     background-position: center center;
     background-size: cover;
 }*/
+body{
+    background-color: #f5f4f0;
+}
 .main_login{
     position: relative;
 }
+.formulario {
+    width: 400px;
+    height: 500px;
+    padding: 1rem;
+    margin: 2rem;
+    margin-top:100px ;
+    background-color: rgb(51, 51, 51, 0.602);
+    text-align: center;
+    border-radius: 50px;
+}
 .img_fondo{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 105%;
-    opacity: 0.5;
+    top: 0px;
+    left: 17px;
+    width: 45%;
+    height: 45%;
+    opacity: 0.3;
     z-index: -1;
-    border: 10px solid var(--colorGrisClaro);
+    border: none;
+}
+.log{
+    margin-top: 0;
+    margin-bottom: 10%;
 }
 .div_usuario-img{
     display: flex;
@@ -51,17 +68,20 @@
     padding: 4px;
     background-color: var(--colorGrisClaro);
     border: none;
-    box-shadow: 0px 2px 5px rgb(100, 100, 100);
+    box-shadow: 0px 2px 5px rgb(118, 118, 118);
     align-self: center;
 }
 .login_remember{
-    padding-left: 18%;
+    padding-left: 0%;
     font-size: small;
 }
 .form_login--button{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 25%;
+    margin-left: 141px;
+    
     /*margin-left: auto;
     margin-right: auto;
     width: 50%;
@@ -74,12 +94,17 @@
     color: white;
     background-color: var(--colorGrisCasiNegro);
     border: none;
-    width: 130%;
+    width: 142%;
     height: 40px;
     border-radius: 5px;
     align-self: center;
+    cursor: pointer;
+    transition: all .3s ease-in;
+    margin-right: 80px;
 }
-
+.form_login--button :hover{
+    background-color: #7979f5;
+}
 .registrarse{
     text-align: center;
     text-decoration: none; 
@@ -93,7 +118,50 @@
 }
 .error_login{
     color: red;
-    margin-left: 60px;
+}
+@media (max-width: 320px) {
+    .message{
+        display: none;
+    }
+    .img_fondo{
+        position: absolute;
+        top: 0px;
+        width: auto;
+        height: 45%;
+        opacity: 0.3;
+        z-index: -1;
+        border: none;
+    }
+    .register_cel{
+        color: white;
+    background-color: var(--colorGrisCasiNegro);
+    border: none;
+    width: 35%;
+    height: 40px;
+    border-radius: 5px;
+    align-self: center;
+    cursor: pointer;
+    transition: all .3s ease-in;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    }
+    .form_login--button{
+        width: 24%;
+    }
+    .formulario {
+        width: 400px;
+        height: 500px;
+        padding: 1rem;
+        margin: 2rem;
+        margin-top:100px ;
+        background-color: rgb(51, 51, 51, 0.602);
+        text-align: center;
+        border-radius: 50px;
+        margin-right: 45px;
+    }
+    .register__cel p{
+        font-size: x-small;
+    }
 }
 /*TABLET*/
 @media (min-width: 768px) {
@@ -102,13 +170,11 @@
     }
     .error_login{
         color: red;
-        margin-left: 133px;
     }
 
     .form_login--button button{
         width: 150%;
     }
-
     .login_remember{
         padding-left: 18%;
         font-size: medium;
@@ -116,7 +182,9 @@
     .img_fondo{
         height: auto;
     }
-
+    .register__cel{
+        display: none;
+    }
 }
 /*DESKTOP*/
 @media (min-width: 1024px) {
@@ -125,15 +193,146 @@
     }
     .form_login--button button{
         width: 200%;
+        margin: 0;
     }
     .error_login{
         color: red;
-        margin-left: 270px;
     }
-    .img_fondo{
+    /* .img_fondo{
         border: 20px solid var(--colorGrisClaro);
-    }
+    } */
     .img_fondo{
         height: auto;
     }
+    .message {
+        padding: 1rem;
+        padding-top: 0;
+    }
+    .register__cel{
+        display: none;
+    }
+    
+}
+
+.container-form {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    transition:  all .5s ease-out;
+}
+
+.welcome-back {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+}
+
+
+
+.message h2 {
+    font-size: 1.7rem;
+    padding: 1rem 0;
+    padding-bottom: 0;
+}
+
+.message button {
+    padding: 1rem;
+    font-weight: 400;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: white;
+    background-color: var(--colorGrisCasiNegro);
+
+}
+
+.message button:hover {
+    background-color: #7979f5;
+}
+
+
+
+.create-account {
+    padding: 2.7rem 0;
+    font-size: 1.7rem;
+}
+
+.iconos {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.border-icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border: solid thin white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all .3s ease-in;
+}
+
+.border-icon:hover {
+    background-color: #4a4aee;
+    cursor: pointer;
+}
+
+.cuenta-gratis {
+    padding: 2rem 0;
+}
+
+.formulario input {
+    width: 70%;
+    display: block;
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: white;
+    border: none;
+    border-bottom: white thin solid;
+    text-align: center;
+    outline: none;
+    padding: .2rem 0;
+    font-size: .9rem;
+    color: rgb(0, 0, 0);
+}
+
+.formulario input[type="button"] {
+    width: 60%;
+    margin: auto;
+    border: solid thin white;
+    padding: .7rem;
+    border-radius: 2rem;
+    background-color: white;
+    font-weight: 600;
+    margin-top: 3rem;
+    font-size: .8rem;
+    cursor: pointer;
+    color: #222;
+}
+
+.sign-in {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sign-in.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sign-up.active {
+    opacity: 0;
+    visibility: hidden;
 }

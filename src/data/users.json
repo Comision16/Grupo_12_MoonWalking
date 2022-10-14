@@ -232,8 +232,8 @@
       "id": 14,
       "firstName": "rama",
       "lastName": "quiroga",
-      "dni": "",
-      "celular": "",
+      "dni": "43251091",
+      "celular": "1127979242",
       "email": "ramacicarelli2001@gmail.com",
       "password": "$2a$10$WwnRKaz0o8nTvB3FV/i/dOn9mb5bdmvxMnj0se/wDbW41cwrqoYAS",
       "calle": "",
@@ -278,5 +278,16 @@
       "province": null,
       "image": null,
       "rol": "user"
+   },
+   {
+      "id": 17,
+      "firstName": "juan",
+      "lastName": "quiroga",
+      "dni": "92318018",
+      "email": "juanhondafan@gmail.com",
+      "password": "$2a$10$wEVFPxNsTjTt4hLrhAZUQewaeItLePlEMF3aMp/zO1vl1O4pDJVHO",
+      "image": "1664232925368_avatar_.jpg",
+      "rol": "user",
+      "celular": "1127979242"
    }
 ]
