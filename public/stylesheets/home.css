@@ -7,6 +7,7 @@
     flex-direction: row;
     background-color: var(--colorGrisOscuro);
  }
+ 
  .logo_mas_celular{
     width: 20%;
     height: 46px;
@@ -19,7 +20,12 @@
     width: 20%;
     height: 49px;
  }
- 
+ .flecha_arriba_footer{
+    position: fixed;
+    bottom: 10px;
+    right: 1%;
+    opacity: 0.5;
+}
  .logo_mas_celular1 {
     width: 22%;
     height: 46px;
@@ -51,12 +57,6 @@ transition: 1s;
 .agregaCarrito:hover{
     transform:scale( 1.1);
     transition: 0.2s;
-}
-.flecha_arriba_footer{
-    position: fixed;
-    bottom: 10px;
-    right: 2%;
-    opacity: 0.5;
 }
 .flecha_arriba_footer:hover{
     transform:translateY(-10px);
@@ -430,13 +430,61 @@ footer{
     .mas_celular:hover{
         transform:rotate(360deg);
     }
+    .flecha_arriba_footer_cel{
+        position: fixed;
+    bottom: 10px;
+    right: 2%;
+    opacity: 0.5;
+    }
+    .flecha_arriba_footer_cel :hover{
+        transform:translateY(-10px);
+    transition: 1s;
+    }
     .productos{
         display: none;
+    }
+    .Logo{
+        display: none;
+    }
+    .encabezado{
+        height: 80px;
+    }
+    .container{
+        margin-bottom: 25px;
     }
     .burger{
         display: none;
     }
-    
+    .empresa{
+display: none;
+    }
+    .cel_{
+display: none;
+    }
+    .mobileimg{
+        display: none;
+    }
+    .horarios{
+        font-size: xx-small;
+    }
+    .Logo_footer{
+        height: 100px;
+        width: 100px;
+        margin-left: 115px;
+        z-index: auto;
+        position: absolute;
+        top: -8px;
+        opacity: 70%;
+    }
+    .horarios_2{
+        width: 30%;
+      /*text-align: right;*/
+      padding-right: 5px;
+      padding-top: 2px;
+    }
+    .flecha_arriba_footer{
+        display: none;
+    }
 }
 
 /* Tablet */
@@ -445,6 +493,10 @@ footer{
     margin-left: 20%;
     height: 120px;
    }
+   
+   .horarios_2{
+    display: none;
+ }
    .carrucel_logos Img{
     width: 25%;
     height: 70%;
@@ -490,6 +542,7 @@ footer{
         display: none;
         transform: rotate(360deg);
       }
+      
       .logo_mas_celular{
         display: none;
       }
@@ -566,6 +619,9 @@ footer{
     
     }
   }
+    
+  
+    
 
   /* DESKTOP*/
   @media (min-width:1024px){
@@ -588,7 +644,9 @@ footer{
       footer h3{
           font-size: medium;
       }
-  
+      .flecha_arriba_footer_cel{
+        display: none;
+     }
       .empresa{
           width: 22%;
           /*text-align: left;*/
@@ -596,12 +654,7 @@ footer{
           padding-top:20px;
       }
       
-      .horarios{
-          width: 40%;
-          /*text-align: right;*/
-          padding-right: 5px;
-          padding-top: 20px;
-      }
+    
       .Img_redes{
         width: 50px;
         height: 50px;
@@ -610,6 +663,15 @@ footer{
         cursor: pointer;
     
     }
+  }
+  @media (max-whidth:1024px) {
+    .flecha_arriba_footer{
+        width: 40%;
+        /*text-align: right;*/
+        padding-right: -35px;
+        padding-top: 20px;
+    }
+    
   }
 
     
