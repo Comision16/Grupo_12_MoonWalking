@@ -1,7 +1,22 @@
 [
-    "Anto",
-    "Rama",
-    "Lula",
-    "Juli",
-    "Eric"
+    {
+        "id": 1,
+        "userName": "Anto"
+    },
+    {
+        "id": 2,
+        "userName": "Rama"
+    },
+    {
+        "id": 7,
+        "userName": "Lula"
+    },
+    {
+        "id": 4,
+        "userName": "Eric"
+    },
+    {
+        "id": 5,
+        "userName": "Juli"
+    }
 ]

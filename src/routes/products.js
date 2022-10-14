@@ -7,12 +7,12 @@ const adminsCheck = require('../middlewares/adminsCheck');
 /* GET home page. */
 router
 .get('/detalle/:id', detail)
-.get ('/add',add)
-.get('/edit/:id', edit)
-.put('/update/:id', update)
+.get ('/add', adminsCheck, add)
+.get('/edit/:id', adminsCheck, edit)
+.put('/update/:id', adminsCheck, update)
 .post('/add', productValidator,store)
 .get('/carrito', carrito)
 .get('/search',search)
-.delete('/delete/:id', remove)
+.delete('/delete/:id', adminsCheck, remove)
 
 module.exports = router;
