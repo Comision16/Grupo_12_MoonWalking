@@ -1,5 +1,6 @@
 const {loadProducts, storeProducts} = require('../data/productModule');
-const {validationResult} = require('express-validator')
+const {validationResult} = require('express-validator');
+const db = require('../database/models');
 
 
 module.exports = {
