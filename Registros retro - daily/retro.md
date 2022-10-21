@@ -79,3 +79,21 @@ Nadie falta a las dailys y trabajamos todos juntos en equipo.
 
 5. Dejar de hacer.
 Boludear tanto.
+
+## Quinto sprint
+
+1. Comenzar a hacer.
+Volver a utilizar las ramas.
+
+2. Hacer más.
+
+3. Continuar haciendo.
+Hacernos las 3 preguntas de las daily.
+Ver las dificultades de las tareas así podemos dividirlas mejor Mantener la buena comunicación
+Seguir con la buena organización
+Nadie falta a las dailys y trabajamos todos juntos en equipo.
+Juntarnos todos los días
+
+4. Hacer menos.
+
+5. Dejar de hacer.

@@ -1,4 +1,6 @@
+-- En la tabla de usuarios hay un id pedido que no tiene relación porque todavía no creamos ni la tabla de ventas ni la de pedidos porque por ahora Eric dijo que no era necesario
 -- DROP DATABASE IF EXISTS moonwalking ;
+
 CREATE DATABASE IF NOT EXISTS moonwalking DEFAULT CHARACTER SET utf8mb4;
 USE moonwalking;
 
@@ -47,7 +49,22 @@ CREATE TABLE IF NOT EXISTS moonwalking.products_has_sizes (
   products_idProducts INT NOT NULL,
   sizes_idSize INT NOT NULL,
   PRIMARY KEY (products_idProducts, sizes_idSize),
-  FOREIGN KEY (products_idProducts) REFERENCES moonwalking.products (idProducts) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FOREIGN KEY (sizes_idSize) REFERENCES moonwalking.sizes (idSize) ON DELETE NO ACTION ON UPDATE NO ACTION
+  FOREIGN KEY (products_idProducts) REFERENCES moonwalking.products (idProducts) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (sizes_idSize) REFERENCES moonwalking.sizes (idSize) ON DELETE CASCADE ON UPDATE CASCADE
   );
+  
+CREATE TABLE moonwalking.userImages (
+  idImage INT NOT NULL AUTO_INCREMENT,
+  filename VARCHAR(255) NOT NULL,
+  idUser INT NOT NULL,
+  PRIMARY KEY (idImage),
+  FOREIGN KEY (idUser) REFERENCES moonwalking.users (idUser) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
+CREATE TABLE moonwalking.productImages (
+idImage INT NOT NULL AUTO_INCREMENT,
+filename VARCHAR(255) NOT NULL,
+idProduct INT NOT NULL,
+PRIMARY KEY (idImage),
+FOREIGN KEY (idProduct) REFERENCES moonwalking.products (idProducts) ON DELETE CASCADE ON UPDATE CASCADE
+);

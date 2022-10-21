@@ -40,4 +40,4 @@ Lula terminó de hacer la view de product, terminó de el search que empezó ram
 Anto realizó el style de product.
 
 # Impedimentos.
-Es jueves, estamos todos muy cansados.
+No.
