@@ -1,22 +1,19 @@
-const {loadProducts} = require('../data/productModule');
 const db = require('../database/models');
 
-module.exports = {
-    home: (req, res) => {
-        const products = loadProducts();
-        // const associations = 
-        //  {
-        //      include:
-        //      [
-        //          {
-        //            association: 'Rols'
-        //          }
-        //      ]
-        //  }
-        //  db.User.findAll(associations).then((resultado) => {return res.send(resultado)});
+const {loadProducts} = require('../data/productModule')
+
+module.exports={
+    home: (req, res)=>{
+        db.Product.findAll({
+            include : ['category','brand','images']
+        })
+            .then(products => {
+                return res.send(products)
+            })
+            .catch(error => console.log(error))
+        /* const products = loadProducts();
         return res.render('home',{
             products
-        });
-        
+        }); */
     },
 }

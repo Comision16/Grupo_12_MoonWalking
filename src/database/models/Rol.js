@@ -1,37 +1,23 @@
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'Rol';
-
-    const cols = {
-        idRol : {
-            type : dataTypes.INTEGER,
-            primaryKey : true,
-            allowNull : false,
-            autoIncrement : true
-        },
-        admin : {
-            type : dataTypes.BOOLEAN,
-            allowNull : true,
-        },
-        user : {
-            type : dataTypes.BOOLEAN,
-            allowNull : true,
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Rol extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-
-    const config = {
-        tableName : 'rol',
-        timestamps : false,
-        underscored : false
-    }
-    
-    const Rol = sequelize.define(alias, cols, config);
-
-    Rol.associate = (models) => {
-        Rol.hasMany(models.User, {
-            as : 'User',
-            foreignKey: 'idRol'
-        })
-    }
-
-    return Rol
-}
+  }
+  Rol.init({
+    name: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Rol',
+  });
+  return Rol;
+};
