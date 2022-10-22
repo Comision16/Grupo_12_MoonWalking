@@ -1,10 +1,19 @@
+const db = require('../database/models');
+
 const {loadProducts} = require('../data/productModule')
 
 module.exports={
     home: (req, res)=>{
-        const products = loadProducts();
+        db.Product.findAll({
+            include : ['category','brand','images']
+        })
+            .then(products => {
+                return res.send(products)
+            })
+            .catch(error => console.log(error))
+        /* const products = loadProducts();
         return res.render('home',{
             products
-        });
+        }); */
     },
 }

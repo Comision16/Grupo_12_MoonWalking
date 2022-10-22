@@ -1,32 +1,25 @@
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'ProductHasSize';
-
-    const cols = {
-        products_idProducts : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-            references: {
-                model: 'products',
-                key: 'idProducs'
-            }
-        },
-        sizes_idSize : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-            references: {
-                model: 'sizes',
-                key: 'idSize'
-            }
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class ProductHasSize extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-
-    const config = {
-        tableName : 'productsHasSizes',
-        timestamps : false,
-        underscored : false
-    }
-    
-    const ProductHasSize = sequelize.define(alias, cols, config);
-
-    return ProductHasSize
-}
+  }
+  ProductHasSize.init({
+    productId: DataTypes.INTEGER,
+    sizeId: DataTypes.INTEGER,
+    stock: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'ProductHasSize',
+  });
+  return ProductHasSize;
+};

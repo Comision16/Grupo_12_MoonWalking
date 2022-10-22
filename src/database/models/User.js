@@ -1,56 +1,33 @@
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'User';
-    const cols = {
-        idUser : {
-            type : dataTypes.INTEGER,
-            primaryKey : true,
-            allowNull : false,
-            autoIncrement : true
-        },
-        firstName : {
-            type : dataTypes.STRING(45),
-            allowNull : false,
-        },
-        lastName : {
-            type : dataTypes.STRING(45),
-            allowNull : false,
-        },
-        dni : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-        },
-        email : {
-            type : dataTypes.STRING(200),
-            allowNull : false,
-        },
-        password : {
-            type : dataTypes.STRING(200),
-            allowNull : false,
-        },
-        image : {
-            type : dataTypes.STRING(200),
-            allowNull : false,
-        },
-        idRol : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-            references: {
-                model: 'rols',
-                key: 'idRol'
-            }
-        },
-        idPedido : {
-            type : dataTypes.INTEGER,
-            allowNull : true,
-        } 
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      this.belongsTo(models.Rol,{
+        as: 'rol',
+        foreignKey : 'rolId'
+      })
     }
-    const config = {
-        tableName : 'users',
-        timestamps : false,
-        underscored : false
-    }
-
-    const User = sequelize.define(alias, cols, config);
-
-    return User
-}
+  }
+  User.init({
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    dni: DataTypes.INTEGER,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    image: DataTypes.STRING,
+    rolId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'User',
+  });
+  return User;
+};

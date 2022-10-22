@@ -1,26 +1,29 @@
-module.exports = (sequelize, dataTypes) => {
-    const alias = 'Size';
-
-    const cols = {
-        idSize : {
-            type : dataTypes.INTEGER,
-            primaryKey : true,
-            allowNull : false,
-            autoIncrement : true
-        },
-        number : {
-            type : dataTypes.BOOLEAN,
-            allowNull : true,
-        }
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Size extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      this.belongsToMany(models.Product, {
+        as: 'products',
+        through : 'ProductHasSizes',
+        foreignKey : 'sizeId',
+        otherKey : 'productId'
+      })
     }
-
-    const config = {
-        tableName : 'sizes',
-        timestamps : false,
-        underscored : false
-    }
-    
-    const Size = sequelize.define(alias, cols, config);
-
-    return Size
-}
+  }
+  Size.init({
+    number: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Size',
+  });
+  return Size;
+};
