@@ -99,7 +99,6 @@ module.exports = {
         
                 const newProduct = {
                     ...req.body,
-                    id: id + 1,
                     name: name.trim(),
                     price: +price,
                     discount : +discount,
