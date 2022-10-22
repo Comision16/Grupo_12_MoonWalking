@@ -32,10 +32,10 @@
    },
    {
       "id": 2,
-      "firstName": "Lujan",
-      "lastName": "Gutierrez",
-      "dni": 22999444,
-      "celular": 1137850324,
+      "firstName": "Antonella",
+      "lastName": "Pizarro",
+      "dni": "44505757",
+      "celular": "1137850324",
       "email": "lujanvicgutierrez@gmail.com",
       "password": "8989989",
       "calle": "jjjjjjjj",
@@ -44,7 +44,7 @@
       "cp": 1223,
       "city": "Lanus",
       "province": null,
-      "image": "usuario luna blanca.jpg"
+      "image": "1666236988352_avatar_.jpg"
    },
    {
       "id": 3,

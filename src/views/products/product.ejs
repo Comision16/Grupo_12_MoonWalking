@@ -12,12 +12,12 @@
     y el else, que muestre el mensaje de "No se encontraroion productos"-->
         <section>
             <h4 class="h4_resultado">Resultados de la búsqueda:</h4>
-            <% if (products.length> 0) { %>
+            <% if (products.length > 0) { %>
                 <div>
                     <div class="div_padreFor">
-                        <% products.forEach(({id,name,image,price})=> { %>
+                        <% products.forEach(({idProducts,name,image,price})=> { %>
                         <article class="productArticle">
-                            <a href="/products/detalle/<%= id %>">
+                            <a href="/products/detalle/<%= idProducts %>">
                                 <div class="div_img-product"><img class="img_product"
                                     src="/img/zapatillas/<%= image %>" alt=""> </div>
                                     <p class="texto_info-product"><%= name %></p>
