@@ -1,5 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
     const alias = 'User';
+
     const cols = {
         idUser : {
             type : dataTypes.INTEGER,
@@ -51,6 +52,13 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = (models) => {
+        User.belongsTo(models.Rol, {
+            as : 'Rol',
+            foreignKey: 'idRol'
+        })
+    }
 
     return User
 }

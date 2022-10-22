@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false,
             references: {
                 model: 'products',
-                key: 'idProducs'
+                key: 'idProducts'
             }
         },
         sizes_idSize : {
@@ -21,12 +21,14 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const config = {
-        tableName : 'productsHasSizes',
+        tableName : 'products_has_sizes',
         timestamps : false,
         underscored : false
     }
     
     const ProductHasSize = sequelize.define(alias, cols, config);
+
+
 
     return ProductHasSize
 }

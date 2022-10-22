@@ -13,7 +13,7 @@
 
     <main>
         <h1 class="h1_agregar_producto">Editar Producto</h1>
-        <form action="/products/update/<%= product.id %>?_method=PUT"  method="POST">
+        <form action="/products/update/<%= product.idProducts %>?_method=PUT"  method="POST">
 
         <div class="form_addProduct">
        <div class="form_addEntero_1">
@@ -78,7 +78,7 @@
 </div> 
 <div class="boton_add"> 
    <div class="form__box form__box--flex ">
-       <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
+       <button class="cancelar_add "><a href="/" class="form__button form__button--cancel">Cancelar</a></button>
        <button class="guardar_add form__button--send" type="submit">Guardar</button>
    </div>  
 </div>   
