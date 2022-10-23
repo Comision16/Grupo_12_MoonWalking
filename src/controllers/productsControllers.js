@@ -85,34 +85,16 @@ module.exports = {
         db.Product.create(
             {
                 ...req.body,
-                name : name.trim(),
-                price: parseFloat(price),
-                discount : +discount,
-                brand : brand.trim(),
-                image : "zapa 4.jpg",
-                description : description.trim(),
-                category : category.trim()
+                name : req.body.name.trim(),
+                price: +req.body.price,
+                discount : +req.body.discount,
+                description : req.body.description.trim(),
             })
             .then(() => {
                 const errors = validationResult(req);
-                if(errors.isEmpty()){
-                    const products = loadProducts();
-                const{name,brand,price,discount} = req.body;
-        
-                const id = products[products.length -1].id;
-        
-                const newProduct = {
-                    ...req.body,
-                    name: name.trim(),
-                    price: +price,
-                    discount : +discount,
-                    brand : brand.trim(),
-                    image : "zapa 4.jpg"
-                } 
-                const productsNew = [...products,newProduct];
-        
-                storeProducts(productsNew)
-                return res.redirect('/')
+                if(!errors.isEmpty()){
+                   return res.redirect('/')
+                   
                 } else{
                     const products = loadProducts();
                     return res.render('./products/productAdd',{
@@ -132,7 +114,7 @@ module.exports = {
             {
                 where:
                 {
-                    idProducts: req.params.id
+                    id: req.params.id
                 }
             })
             .then(() => res.redirect('/'))
@@ -168,11 +150,4 @@ module.exports = {
 			})
 			.catch((error) => console.log(error));
 	}
-    //     const products = loadProducts();
-    //     const result = products.filter(product => product.name.toLowerCase().includes(req.query.keywords.toLowerCase()))
-    //     return res.render('./products/product',{
-    //         products : result,
-    //         keywords : req.query.keywords
-    //     })
-    // }
  }

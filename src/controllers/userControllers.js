@@ -29,7 +29,7 @@ module.exports = {
         email: email.trim(),
         password: bcryptjs.hashSync(password.trim(), 10),
         image: "test.png",
-        idRol: 1,
+        rolId: 2,
       })
         .then(() => {
           res.redirect("/users/login");
@@ -136,7 +136,7 @@ module.exports = {
       {
           where:
           {
-              idUser: +req.params.id
+              id: +req.params.id
           }
       })
       .then((user) =>
