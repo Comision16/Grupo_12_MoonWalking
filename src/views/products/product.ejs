@@ -15,9 +15,9 @@
             <% if (products.length > 0) { %>
                 <div>
                     <div class="div_padreFor">
-                        <% products.forEach(({idProducts,name,image,price})=> { %>
+                        <% products.forEach(({id,name,image,price})=> { %>
                         <article class="productArticle">
-                            <a href="/products/detalle/<%= idProducts %>">
+                            <a href="/products/detalle/<%= id %>">
                                 <div class="div_img-product"><img class="img_product"
                                     src="/img/zapatillas/<%= image %>" alt=""> </div>
                                     <p class="texto_info-product"><%= name %></p>

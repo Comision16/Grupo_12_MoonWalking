@@ -141,34 +141,6 @@ module.exports = {
     },
     search : async (req,res) => {
         let { keywords } = req.query;
-
-        /*try {
-            const products = await db.Product.findAll({
-                include : [
-                    {
-                        association : 'Product'
-                    }
-                ],
-                where : {
-                    [Op.or] : [
-                        {
-                            name : {
-                                [Op.substring] : keywords
-                            }
-                        }, 
-                        {
-                            description : {
-                                [Op.substring] : keywords
-                            }
-                        }
-                    ]
-                }
-            })
-            return res.render('./products/product', {products})
-        } catch (error) {
-            console.log(error)
-            return res.send(error)
-        }*/
        
 		db.Product.findAll({
 			where: {
@@ -185,7 +157,7 @@ module.exports = {
 					},
 				],
 			},
-			 include: ['image'],
+			 include: ['images'],
 		})
 			.then((result) => {
 				return res.render("./products/product", {
