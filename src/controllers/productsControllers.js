@@ -32,7 +32,7 @@ module.exports = {
             }
         })
         .then(() => {
-            return res.redirect('./products/detalle/' + product.id);
+            return res.redirect('/products/detalle/' + product.id);
         })
         .catch(error => console.log(error))
     
@@ -161,7 +161,7 @@ module.exports = {
 		})
 			.then((result) => {
 				return res.render("./products/product", {
-					result,
+					products: result,
 					toThousand,
 					keywords,
 				});
