@@ -71,7 +71,7 @@ module.exports = {
             },
             include: [
                 {
-                    association: 'Rol'
+                    association: 'rol'
                 }
             ]
         })      
@@ -79,14 +79,14 @@ module.exports = {
           console.log("|||||||||||||||||||||||||| CONSOLE LOG");
           console.log(user);
 
-          let { idUser, firstName, image } = user;
+          let { id, firstName, image } = user;
           
           req.session.userLogin = {
-            id: idUser,
+            id,
             firstName,
             image,
-            rol: user.Rol,
-            admin: user.Rol.admin,
+            rol : user.rol,
+            admin : user.rol.name == 'Admin' ? true : false
           };
 
           if (req.body.remember) {

@@ -8,7 +8,9 @@ module.exports={
             include : ['category','brand','images']
         })
             .then(products => {
-                return res.send(products)
+                return res.render('home',{
+                    products
+                })
             })
             .catch(error => console.log(error))
         /* const products = loadProducts();

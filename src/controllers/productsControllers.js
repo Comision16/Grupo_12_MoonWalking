@@ -2,6 +2,7 @@ const {loadProducts, storeProducts} = require('../data/productModule');
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
 const { Op } = require('sequelize');
+const { reverse } = require('../data/cities');
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
@@ -15,20 +16,23 @@ module.exports = {
         .catch(error => console.log(error))
     },
     update : (req,res) => {
-        const{name,brand,price,discount,size,section} = req.body;
-
+        const{name,price,discount,description} = req.body;
+        // return res.send(req.body);
         const product = {
-            idProducts,
+            id : req.params.id,
             name : name.trim(),
-            brand : brand.trim(),
             price : +price,
-            discount : +discount,
-            section,
-            size : +size
+            discount,
+            description
         }
-        db.Product.update(product)
+        db.Product.update(product, {
+            where:
+            {
+                id: req.params.id
+            }
+        })
         .then(() => {
-            return res.redirect('./products/detalle/' + product.idProducts);
+            return res.redirect('./products/detalle/' + product.id);
         })
         .catch(error => console.log(error))
     
@@ -59,7 +63,7 @@ module.exports = {
           include:
            [
            {
-             association: 'Size'
+             association: 'sizes'
            }
          ]
         }

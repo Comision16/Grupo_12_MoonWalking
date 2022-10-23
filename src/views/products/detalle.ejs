@@ -25,8 +25,8 @@
                     <div class="talles">
                         <p class="p_talle"><%= product.size %></p>
                     </div>
-                    <a class="agregaCarrito" href="/products/edit/<%=product.idProducts %>">Editar</a>
-                    <form action="/products/delete/<%=product.idProducts %>?_method=DELETE" method="POST">
+                    <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
+                    <form action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
                         <button class="Eliminar-producto" type="submit">Eliminar</button>
                     </form>
                 </div>
