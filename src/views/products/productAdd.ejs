@@ -13,7 +13,7 @@
 
     <main>
              <h1 class="h1_agregar_producto">Agregar Producto</h1>
-             <form action=""  method="POST" class="">
+             <form action=""   enctype="multipart/form-data" method="POST" class="">
 
              <div class="form_addProduct">
             <div class="form_addEntero_1">
@@ -35,6 +35,11 @@
                 <label for="discount" class="form-label">Descuento</label>
                 <input type="number" class="form-controlAdd" id="discount" name="discount">
                 <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+
+            </div>
+            <div class="col-123  col-md-6 mb-3">
+                <label for="image" class="form-label">Imagen</label>
+                <input type="file" class="form-controlAdd" id="image" name="image" accept=".jpg, .png, .wepb">
 
             </div>
         </div>

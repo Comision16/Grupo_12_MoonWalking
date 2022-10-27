@@ -3,6 +3,7 @@ var router = express.Router();
 const {detail, store, add, carrito, search, update, edit,remove} = require('../controllers/productsControllers');
 const productValidator = require('../validations/productValidator');
 const adminsCheck = require('../middlewares/adminsCheck');
+const upload = require('../middlewares/uploadFiles');
 
 /* GET home page. */
 router
@@ -10,7 +11,7 @@ router
 .get ('/add', adminsCheck, add)
 .get('/edit/:id', adminsCheck, edit)
 .put('/update/:id', adminsCheck, update)
-.post('/add', productValidator,store)
+.post('/add', upload.single('image') ,productValidator,store)
 .get('/carrito', carrito)
 .get('/search',search)
 .delete('/delete/:id', adminsCheck, remove)
