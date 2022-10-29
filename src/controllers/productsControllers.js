@@ -10,10 +10,21 @@ module.exports = {
     carrito: (req, res)=>{
         return res.render('./products/carrito')
     },
-    edit : (req,res) => {
-        db.Product.findByPk(+req.params.id)
-        .then(product => {console.log(product);res.render('./products/productEdit', { product })})
-        .catch(error => console.log(error))
+    edit : async (req,res) => {
+        try
+        {  
+            const product = await db.Product.findByPk(+req.params.id);
+            const brands = await db.Brand.findAll();
+            const categories = await db.Category.findAll();
+            const sizes = await db.Size.findAll();
+
+            res.render('./products/productEdit', { product, brands, categories, sizes })
+        }
+        catch(error)
+        {
+            console.log(error);
+            return res.send(error);
+        }
     },
     update : (req,res) => {
         const{name,price,discount,description} = req.body;
@@ -23,7 +34,10 @@ module.exports = {
             name : name.trim(),
             price : +price,
             discount,
-            description
+            description,
+            dues: 1,
+            brandId: +req.body.brandId,
+            categoryId: +req.body.categoryId
         }
         db.Product.update(product, {
             where:
@@ -57,19 +71,31 @@ module.exports = {
         storeProducts(productModify);
         return res.redirect('/products/detalle/'+ req.params.id)*/
     },
-    detail: (req, res) => {
+    detail: async (req, res) => {
         const associations = 
         {
           include:
            [
            {
              association: 'sizes'
+           },
+           {
+             association: 'images'
            }
          ]
         }
-        db.Product.findByPk(req.params.id, associations)
-        .then(product => res.render('./products/detalle', { product }))
-        .catch(err => console.log(err))
+
+        try
+        {
+            const product = await db.Product.findByPk(req.params.id, associations);
+
+            return res.render('./products/detalle', {product});
+        }
+        catch(error)
+        {
+            console.log(error);
+            res.send(error);
+        }
 
         // const products = loadProducts();
         // const product = products.find(product => product.id === +req.params.id);
@@ -78,28 +104,56 @@ module.exports = {
         //     product
         // })
     }, 
-    add : (req,res) => {
-        return res.render('./products/productAdd')
+    add : async(req,res) => {
+        try
+        {
+            const brands = await db.Brand.findAll();
+            const categories = await db.Category.findAll();
+            const sizes = await db.Size.findAll();
+
+            return res.render('./products/productAdd', {brands, categories, sizes})
+        }
+        catch(error)
+        {
+            console.log(error);
+            return res.send(error);
+        }
     },
-    store : (req,res) => {
+    store : async (req,res) => {
+        const errors = validationResult(req);
+       if(!errors.isEmpty())
+       {
+            try
+            {
+                const brands = await db.Brand.findAll();
+                const categories = await db.Category.findAll();
+                const sizes = await db.Size.findAll();
+
+                return res.render('./products/productAdd',
+                {
+                errors : errors.mapped(),
+                brands, categories, sizes
+                })
+            }
+            catch(error)
+            {
+                console.log(error);
+                res.send(error);
+            }
+        }
+
         db.Product.create(
             {
-                ...req.body,
                 name : req.body.name.trim(),
                 price: +req.body.price,
-                discount : +req.body.discount,
                 description : req.body.description.trim(),
+                discount : +req.body.discount,
+                dues: 1,
+                brandId: +req.body.brandId,
+                categoryId: +req.body.categoryId
             })
             .then(() => {
-                const errors = validationResult(req);
-                if(!errors.isEmpty()){
-                   return res.redirect('/')
-                   
-                } else{
-                    const products = loadProducts();
-                    return res.render('./products/productAdd',{
-                    errors : errors.mapped()
-                })}  
+                return res.redirect('/')
             })
             .catch(err => console.log(err));   
         

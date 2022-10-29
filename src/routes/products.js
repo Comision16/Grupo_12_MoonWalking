@@ -9,7 +9,7 @@ const uploadProducts = require('../middlewares/uploadFileProducts');
 router
 .get('/detalle/:id', detail)
 .get ('/add', adminsCheck, add)
-.get('/edit/:id', adminsCheck, edit)
+.get('/edit/:id', uploadProducts.single('image'),adminsCheck, edit)
 .put('/update/:id', adminsCheck, update)
 .post('/add', uploadProducts.single('image'), productValidator, store)
 .get('/carrito', carrito)

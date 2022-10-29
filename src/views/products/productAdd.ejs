@@ -47,26 +47,33 @@
         <div class="form_addEntero_2">
             <div class="col-123  col-md-6 mb-3">
                 <label for="brand" class="form-label">Marca</label>
-                <input type="text" class="form-controlAdd" id="brand" name="brand">
+                <select name="brandId" id="brand">
+                    <% brands.forEach(brand => { %>
+                        <option value="<%= brand.id %>"><%= brand.name %></option>
+                    <% }) %>
+                </select>
                 <small class="error_login"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
 
             </div>
             <div class="col-123  col-md-6 mb-3">
                 <label for="Talle" class="form-label">Talle</label>
-                <input type="text" class="form-controlAdd" id="talle" name="talle">
+                <select name="talle" id="Talle">
+                    <% sizes.forEach(size => { %>
+                        <option value="<%= size.id %>"><%= size.number %></option>
+                    <% }) %>
+                </select>
                 <small class="error_login"><%= locals.errors && errors.talle ? errors.talle.msg : null %></small>
 
             </div>
 
             <div class="col-123  col-md-6 mb-3">
                 <label for="category" class="form-label">Categoría</label>
-                <select class="form-select col-11" aria-label="Default select example" id="category" name="category">
-                    <option value="" selected hidden>Seleccione...</option>
-                    <option value="Deportivo">Deportivo</option>
-                    <option value="Urbano">Urbano</option>
-                    <small class="error_login"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
-                </select>  
-                </div>
+                <select name="categoryId" id="category">
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.name %></option>
+                    <% }) %>
+                </select>
+            </div>
             
             
         

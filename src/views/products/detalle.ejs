@@ -16,7 +16,7 @@
                     <p class="precio">Precio $<%= product.price %></p>
                     <p class="cuotas">Hasta 6 cuotas sin interés</p>
                     <p class="cuotasDe">Cuotas <%= product.dues %> </p>
-                    <img class="imagenDetalle" src="/img/zapatillas/<%= product.image %>"
+                    <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
                         alt="">
                 </div>
             </article>

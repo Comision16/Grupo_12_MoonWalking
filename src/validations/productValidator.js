@@ -27,17 +27,13 @@ module.exports= [
         max: 200
      }).withMessage('Deben ser entre 10 a 200 caracteres'),
 
-     check('brand')
-     .notEmpty().withMessage('Campo obligatorio').bail()
-     .isLength({
-        min: 4,
-        max: 10
-     }).withMessage('Deben ser entre 4 a 10 caracteres'),
+     check('brandId')
+     .notEmpty().withMessage('Campo obligatorio'),
 
      check('talle')
      .notEmpty().withMessage('Campo obligatorio'),
 
-     check('category')
+     check('categoryId')
      .notEmpty().withMessage('Campo obligatorio'),
 
      
