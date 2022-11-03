@@ -11,8 +11,7 @@ module.exports = {
         return res.render('./products/carrito')
     },
     edit : async (req,res) => {
-        try
-        {  
+        try{  
             const product = await db.Product.findByPk(+req.params.id);
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
@@ -20,18 +19,17 @@ module.exports = {
 
             res.render('./products/productEdit', { product, brands, categories, sizes })
         }
-        catch(error)
-        {
+        catch(error){
             console.log(error);
             return res.send(error);
         }
     },
     update : (req,res) => {
         const{name,price,discount,description} = req.body;
-        // return res.send(req.body);
+        
         const product = {
             id : req.params.id,
-            name : name.trim(),
+            name : name?.trim(),
             price : +price,
             discount,
             description,
@@ -39,6 +37,7 @@ module.exports = {
             brandId: +req.body.brandId,
             categoryId: +req.body.categoryId
         }
+        return res.send(req.body)
         db.Product.update(product, {
             where:
             {
@@ -49,27 +48,6 @@ module.exports = {
             return res.redirect('/products/detalle/' + product.id);
         })
         .catch(error => console.log(error))
-    
-
-        /*const products = loadProducts();
-        const {id} = req.params;
-        const{name,brand,price,discount,size,section} = req.body;
-        const productModify = products.map(product =>{
-            if (product.id === +id){
-                return {
-                    ...product,
-                    name : name.trim(),
-                    brand : brand.trim(),
-                    price : +price,
-                    discount : +discount,
-                    section,
-                    size : +size
-                }
-            }
-            return product
-        })
-        storeProducts(productModify);
-        return res.redirect('/products/detalle/'+ req.params.id)*/
     },
     detail: async (req, res) => {
         const associations = 
@@ -91,18 +69,10 @@ module.exports = {
 
             return res.render('./products/detalle', {product});
         }
-        catch(error)
-        {
+        catch(error){
             console.log(error);
             res.send(error);
         }
-
-        // const products = loadProducts();
-        // const product = products.find(product => product.id === +req.params.id);
-
-        // return res.render('./products/detalle',{
-        //     product
-        // })
     }, 
     add : async(req,res) => {
         try
@@ -113,8 +83,7 @@ module.exports = {
 
             return res.render('./products/productAdd', {brands, categories, sizes})
         }
-        catch(error)
-        {
+        catch(error){
             console.log(error);
             return res.send(error);
         }
@@ -159,11 +128,6 @@ module.exports = {
         
     },
     remove : (req,res) => {
-        // const products = loadProducts();
-        // const productsModify = products.filter(product => product.id !== +req.params.id)
-        // storeProducts(productsModify);
-
-        // return res.redirect('/')
         db.Product.destroy(
             {
                 where:
