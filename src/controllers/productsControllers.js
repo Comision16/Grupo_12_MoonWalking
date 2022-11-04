@@ -7,7 +7,7 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
 module.exports = {
-    carrito: (req, res)=>{
+    carrito: (req, res) => {
         return res.render('./products/carrito')
     },
     edit : async (req,res) => {
@@ -25,7 +25,7 @@ module.exports = {
         }
     },
     update : (req,res) => {
-        const{name,price,discount,description} = req.body;
+        const {name, price, discount, description} = req.body;
         
         const product = {
             id : req.params.id,
@@ -63,8 +63,7 @@ module.exports = {
          ]
         }
 
-        try
-        {
+        try{
             const product = await db.Product.findByPk(req.params.id, associations);
 
             return res.render('./products/detalle', {product});
@@ -90,10 +89,9 @@ module.exports = {
     },
     store : async (req,res) => {
         const errors = validationResult(req);
-       if(!errors.isEmpty())
-       {
-            try
-            {
+
+       if(!errors.isEmpty()){
+            try {
                 const brands = await db.Brand.findAll();
                 const categories = await db.Category.findAll();
                 const sizes = await db.Size.findAll();
@@ -104,8 +102,7 @@ module.exports = {
                 brands, categories, sizes
                 })
             }
-            catch(error)
-            {
+            catch(error) {
                 console.log(error);
                 res.send(error);
             }

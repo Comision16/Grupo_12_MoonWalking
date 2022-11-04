@@ -30,8 +30,8 @@
     <div class="flechas_2">
     </div>
 
-<% products.forEach(({id,name,image,price}) => { %>
-    <article><a href="/products/detalle/<%= id %>"><div class="disponible_logo"><img class="Img" src="/img/zapatillas/<%= image %>" alt=""><div class="Disponible"><p>Disponible!</p></div></div> <p class="texto_info"><%= name %> </p><p class="texto_info">$<%= price %></p></a></article>
+<% products.forEach(({id,name,images,price}) => { %>
+    <article><a href="/products/detalle/<%= id %>"><div class="disponible_logo"><img class="Img" src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'zapa 1.jpg' %>" alt=""><div class="Disponible"><p>Disponible!</p></div></div> <p class="texto_info"><%= name %> </p><p class="texto_info">$<%= price %></p></a></article>
 <% }) %>
 
 
