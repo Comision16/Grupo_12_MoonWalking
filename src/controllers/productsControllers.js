@@ -37,7 +37,7 @@ module.exports = {
             brandId: +req.body.brandId,
             categoryId: +req.body.categoryId
         }
-        return res.send(req.body)
+        //return res.send(req.body)
         db.Product.update(product, {
             where:
             {
