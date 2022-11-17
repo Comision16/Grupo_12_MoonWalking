@@ -76,8 +76,8 @@ module.exports = {
             ]
         })      
         .then((user) => {
-          console.log("|||||||||||||||||||||||||| CONSOLE LOG");
-          console.log(user);
+          //console.log("|||||||||||||||||||||||||| CONSOLE LOG");
+          //console.log(user);
 
           let { id, firstName, image } = user;
           

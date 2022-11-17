@@ -26,16 +26,15 @@ const apiProductsControllers = {
     },
    
     getOne : async (req, res) => {
-         const {id} = req.params.id
-        
+        //const {id} = req.params.id
         try {
-            if(isNaN(id)){
+           /* if(isNaN(id)){
                 let error = new Error('El id debe ser un numero');
                     error.status = 400;
                     throw error
-            }
+            }*/
             let product = await db.Product.findByPk(req.params.id); //o products
-            if(!product){
+           /* if(!product){
                 let error = new Error('No encontramos unas zapatillas con ese ID')
                 error.status = 404
                 throw error
@@ -46,8 +45,8 @@ const apiProductsControllers = {
                         msg : 'No encontramos una zapatilla con ese ID'
                     },
                     data : null
-                })*/
-        }
+                })
+        }*/
         return res.status(200).json({
             ok : true,
             meta : {

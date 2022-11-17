@@ -3,10 +3,7 @@ const db = require("../../database/models");
 module.exports = {
     listAll : async (req, res) => {
         try {
-            let users = await db.User.findAll({ //verificar como poner los attributes de users
-                attributes : 
-                   
-                });
+            let users = await db.User.findAll();
             return res.status(200).json({
                 ok : true,
                 meta : {
@@ -22,22 +19,34 @@ module.exports = {
             })
         } 
     },
-   
+    
     getOne : async (req, res) => {
-         const {id} = req.params.id
-        
-        try {
-            if(isNaN(id)){
+        //const {id} = req.params.id
+        try {     
+            //const {id} = req.userToken;
+            let id = (req.params.id); 
+            const info = {
+                attributes : {
+                    exclude : ['password', 'createdAt','updatedAt', 'deletedAt', 'id']
+                },
+                include : [
+                    {
+                        association : 'rol',
+                        attributes : ['name']
+                    }
+                ]
+            }/*
+            if(!isNaN(id)){
                 let error = new Error('El id debe ser un numero');
                     error.status = 400;
                     throw error
             }
-            let product = await db.Product.findByPk(req.params.id); //o products
-            if(!product){
+            if(!user){
                 let error = new Error('No encontramos un usuario con ese ID')
                 error.status = 404
                 throw error
-        }
+        }*/
+        let user = await db.User.findByPk(id, info);
         return res.status(200).json({
             ok : true,
             meta : {
