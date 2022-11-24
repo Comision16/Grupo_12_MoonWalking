@@ -4,6 +4,7 @@ const bcryptjs = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 const db = require("../database/models");
+const {sign} = require('jsonwebtoken');
 
 const admins = loadAdmins();
 const isAdmin = (id) => {
@@ -34,12 +35,16 @@ module.exports = {
         .then(() => {
           res.redirect("/users/login");
         })
+         
         .catch((err) => console.log(err));
     } else {
       return res.render("users/register", {
         errors: errors.mapped(),
         old: req.body,
       });
+
+      
+
     }
 
     // if(errors.isEmpty()){
@@ -97,6 +102,7 @@ module.exports = {
           }
           return res.redirect("./profile");
         })
+        
         .catch((err) => console.log(err));
     } else {
       return res.render("./users/login", {

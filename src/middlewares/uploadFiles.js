@@ -12,6 +12,7 @@ const storageUsers = multer.diskStorage({
     } 
 });
 
-const upload = multer ({ storage : storageUsers });
 
-module.exports = upload;
+const uploadUser = multer ({ storage : storageUsers });
+
+module.exports = uploadUser;
