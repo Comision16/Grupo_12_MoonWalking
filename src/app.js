@@ -17,10 +17,6 @@ var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var authRouter = require('./routes/auth');
 
-var apiProductsRouter = require('./routes/api/apiProducts');
-var apiUsersRouter = require('./routes/api/apiUsers');
-var apiAuthRouter = require('./routes/api/apiAuth');
-
 var app = express();
 
 // view engine setup
@@ -49,9 +45,8 @@ app.use('/products', productsRouter);
 app.use('/auth', authRouter);
 
 
-app.use('/api/products', apiProductsRouter)
-app.use('/api/users', apiUsersRouter)
-app.use('/api/auth', apiAuthRouter)
+app.use('/api/products/', require('./routes/api/apiProducts'))
+app.use('/api/users/', require('./routes/api/apiUsers'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

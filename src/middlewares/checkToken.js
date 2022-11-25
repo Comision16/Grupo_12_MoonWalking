@@ -1,6 +1,5 @@
 const { sendSequelizeError, createError } = require("../helpers");
-const {verify} = require('jsonwebtoken')
-
+const {verify} = require('jsonwebtoken');
 const checkToken = (req,res,next) => {
 
     try {
