@@ -15,11 +15,11 @@
         <h4 class="h4_register">Ingrese sus datos.</h4>
         <form action="/users/register" class="form_register" enctype="multipart/form-data" method="POST">
             <div class="form_input">
-            <input type="text" name="firstName" placeholder="Nombre" value="<%= locals.old && old.firstName %>">
+            <input id="firstName" type="text" name="firstName" placeholder="Nombre" value="<%= locals.old && old.firstName %>">
              <small class="errors"><%= locals.errors && errors.firstName ? errors.firstName.msg : null %></small>
             </div>
             <div class="form_input">
-            <input type="text" name="lastName" placeholder="Apellido" value="<%= locals.old && old.lastName %>">
+            <input id="lastName" type="text" name="lastName" placeholder="Apellido" value="<%= locals.old && old.lastName %>">
              <small class="errors"><%= locals.errors && errors.lastName ? errors.lastName.msg : null %></small>
             </div>
             <div class="form_input">
@@ -30,11 +30,11 @@
             <input type="tel" name="celular" placeholder="Celular">
             </div> -->
             <div class="form_input">
-            <input type="email" name="email" placeholder="Email" value="<%= locals.old && old.email %>">
+            <input id="email" type="email" name="email" placeholder="Email" value="<%= locals.old && old.email %>">
              <small class="errors"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
             </div>
             <div class="form_input">
-            <input type="password" name="password" placeholder="Contraseña" value="<%= locals.old && old.password %>">
+            <input id="password" type="password" name="password" placeholder="Contraseña" value="<%= locals.old && old.password %>">
              <small class="errors"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
             </div>
             <div class="form_input">
@@ -79,7 +79,7 @@
             </select> 
               </div> -->
               <div class="form_register--image">
-                <input class="input_image" type="file" name="image" accept=".jpg, .png, .wepb">
+                <input id="imageAvatar" class="input_image" type="file" name="image" accept=".jpg, .png, .wepb">
               </div>
             <div class="form_register--button">
             <button type="submit">Continuar</button>
@@ -90,4 +90,6 @@
    <%- include('../partials/footer') %>
 
 </body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script defer src="/js/validacionRegistro.js"></script>
 </html>
