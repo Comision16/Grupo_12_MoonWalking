@@ -64,8 +64,7 @@ $("form")
       showConfirmButton: false,
       timer: 1500,
     });
-  })
-  .then((result) => {
+  }) .then((result) => {
     if (result.isConfirmed) {
       this.submit();
     }
