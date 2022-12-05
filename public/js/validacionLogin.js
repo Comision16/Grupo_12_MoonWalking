@@ -58,27 +58,6 @@ const verifyEmail = async (email) => {
   }
 };
 
-const verifyPassword = async (password) => {
-  try {
-    let response = await fetch("/api/users/verify-password", {
-      method: "POST",
-      body: JSON.stringify({
-        email : userEmail,
-        password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    let result = await response.json();
-
-    return !result.verified;
-  } catch (error) {
-    console.error;
-  }
-};
-
 $("formLogin").addEventListener("submit", function (e) {
   e.preventDefault();
   let error = false;
@@ -116,9 +95,6 @@ $("emailLogin").addEventListener("blur", async function ({ target }) {
     switch (true) {
       case !this.value.trim():
         msgError("errorPassword", "La contraseña es obligatoria", target);
-        break;
-        case await verifyPassword(this.value):
-        msgError("errorPassword", "La contraseña es incorrecta", target);
         break;
       default:
         validField("errorPassword", target);
