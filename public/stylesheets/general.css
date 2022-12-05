@@ -12,3 +12,11 @@
     --colorGrisOscuro: #707070;
     --colorGrisCasiNegro: #3A3938; 
 }
+
+.valid{
+    color : green
+}
+
+.invalid{
+    color:#FB372C
+}

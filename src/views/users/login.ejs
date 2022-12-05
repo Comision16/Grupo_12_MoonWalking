@@ -15,16 +15,16 @@
                 <a href="/users/register"><button class="sign-up-btn">Registrarse</button></a>
             </div>
         </div>
-        <form action="/users/login" class="formulario" method="POST">
+        <form action="/users/login" id="formLogin" class="formulario" method="POST">
             <img class="img_fondo" src="/img/fondo.jpeg" alt="">
             <h2 class="create-account">Iniciar Sesion</h2>
             <div class="col-122">
-                <input class="input_login" type="email" name="email" placeholder="Correo Electrónico:">
-                <small class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+                <input class="input_login" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico:">
+                <small id="errorEmail" class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
              </div>
              <div class="col-122">
-                <input class="input_login" type="password" name="password" placeholder="Contraseña:">
-                <small class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+                <input class="input_login" type="password" name="password" id="passwordLogin" placeholder="Contraseña:">
+                <small id="errorPassword" class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
             </div>
             <div class="login_remember1">
                 <p>Recordarme<input class="login_input_remember" type="checkbox" id="recordame" name="remember"></p>
@@ -39,5 +39,6 @@
             </div>
         </form>
     </div>
+    <script src="/js/validacionLogin.js"></script>
 </body>
 </html>

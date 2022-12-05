@@ -1,6 +1,7 @@
 const { validationResult } = require("express-validator");
 const { loadUsers, storeUsers, loadAdmins } = require("../data/productModule");
 const bcryptjs = require("bcryptjs");
+const {createError} = require("../helpers")
 const fs = require("fs");
 const path = require("path");
 const db = require("../database/models");
@@ -81,8 +82,8 @@ module.exports = {
             ]
         })      
         .then((user) => {
-          //console.log("|||||||||||||||||||||||||| CONSOLE LOG");
-          //console.log(user);
+               
+          if (!user) throw createError(404, 'El usuario no pudo ser encontrado');
 
           let { id, firstName, image } = user;
           
