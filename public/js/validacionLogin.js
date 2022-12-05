@@ -14,14 +14,16 @@ const exRegs = {
   exRegMax: /^.{5,10}$/,
 };
 
+let userEmail 
+
 const msgError = (element, msg, target) => {
   $(element).innerText = msg;
-  $(element).classList.add("invalid");
+  target.classList.add("invalid");
 };
 
 const validField = (element, target) => {
   $(element).innerText = null;
-  $(element).classList.add("invalid");
+  target.classList.remove("invalid");
 };
 
 let validPass = (element, exReg, value) => {
@@ -48,27 +50,48 @@ const verifyEmail = async (email) => {
     });
 
     let result = await response.json();
+    
+    if(!result.verified) userEmail = email
+    return !result.verified;
+  } catch (error) {
+    console.error;
+  }
+};
 
-    return result.verified;
+const verifyPassword = async (password) => {
+  try {
+    let response = await fetch("/api/users/verify-password", {
+      method: "POST",
+      body: JSON.stringify({
+        email : userEmail,
+        password: password,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let result = await response.json();
+
+    return !result.verified;
   } catch (error) {
     console.error;
   }
 };
 
 $("formLogin").addEventListener("submit", function (e) {
-  console.log([e])
-    e.preventDefault();
-    let error = false;
+  e.preventDefault();
+  let error = false;
 
-    const elements = this.elements;
-    for (let i = 0; i < elements.length - 2; i++) {
-        
+  const elements = this.elements;
+  for (let i = 0; i < elements.length - 2; i++) {
         if(!elements[i].value.trim() || elements[i].classList.contains('invalid')){
           elements[i].classList.add('invalid'); 
            error = true;
         }
     }
 
+  console.log(elements, error)
   !error && this.submit()
   })
 
@@ -80,7 +103,7 @@ $("emailLogin").addEventListener("blur", async function ({ target }) {
       case !exRegs.exRegEmail.test(this.value):
         msgError("errorEmail", "El email es inválido", target);
         break;
-      case await !verifyEmail(this.value):
+      case await verifyEmail(this.value):
         msgError("errorEmail", "El email no está registrado", target);
         break;
       default:
@@ -89,10 +112,13 @@ $("emailLogin").addEventListener("blur", async function ({ target }) {
     }
   });
   
-  $("passwordLogin").addEventListener("blur", function ({ target }) {
+  $("passwordLogin").addEventListener("blur", async function ({ target }) {
     switch (true) {
       case !this.value.trim():
         msgError("errorPassword", "La contraseña es obligatoria", target);
+        break;
+        case await verifyPassword(this.value):
+        msgError("errorPassword", "La contraseña es incorrecta", target);
         break;
       default:
         validField("errorPassword", target);
