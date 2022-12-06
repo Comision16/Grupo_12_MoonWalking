@@ -1,4 +1,5 @@
 console.log('Brishito Pasión');
+const inputVal = document.querySelectorAll('.validateInput');
 const $ = (element) => document.getElementById(element);
 
 const exRegs = {
@@ -18,13 +19,18 @@ let userEmail
 
 const msgError = (element, msg, target) => {
   $(element).innerText = msg;
+  $(element).classList.add("invalid")
   target.classList.add("invalid");
 };
 
 const validField = (element, target) => {
-  $(element).innerText = null;
-  target.classList.remove("invalid");
+    $(element).classList.remove("valid");
+    $(element).classList.add("invalid");
+    target.classList.remove("valid");
+    target.classList.add("invalid");
+
 };
+
 
 let validPass = (element, exReg, value) => {
   if (!exReg.test(value)) {
@@ -62,16 +68,28 @@ $("formLogin").addEventListener("submit", function (e) {
   e.preventDefault();
   let error = false;
 
-  const elements = this.elements;
+  inputVal.forEach(field =>
+    {
+      console.log(!field.value.trim(), field.classList.contains('invalid'))
+        if(!field.value.trim() || field.classList.contains('invalid'))
+        {
+            field.classList.add('invalid');
+            //document.querySelector('#errorSubmit').innerText = 'Completa todo';
+            error = true;
+        }
+    })
+
+  console.log(inputVal, error)
+  /*const elements = this.elements;
   for (let i = 0; i < elements.length - 2; i++) {
         if(!elements[i].value.trim() || elements[i].classList.contains('invalid')){
           elements[i].classList.add('invalid'); 
            error = true;
         }
-    }
+    }*/
 
-  console.log(elements, error)
-  !error && this.submit()
+  //console.log(elements, error)
+  //!error && this.submit()
   })
 
 $("emailLogin").addEventListener("blur", async function ({ target }) {
@@ -88,7 +106,7 @@ $("emailLogin").addEventListener("blur", async function ({ target }) {
       default:
         validField("errorEmail", target);
         break;
-    }
+    } //console.log(target)
   });
   
   $("passwordLogin").addEventListener("blur", async function ({ target }) {
@@ -99,6 +117,6 @@ $("emailLogin").addEventListener("blur", async function ({ target }) {
       default:
         validField("errorPassword", target);
         break;
-    }
+    }console.log(target)
   });
   
