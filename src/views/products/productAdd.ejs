@@ -13,7 +13,7 @@
 
     <main>
              <h1 class="h1_agregar_producto">Agregar Producto</h1>
-             <form action=""   enctype="multipart/form-data" method="POST" class="">
+             <form id="form-addProducts" action=""   enctype="multipart/form-data" method="POST" class="">
 
              <div class="form_addProduct">
             <div class="form_addEntero_1">
@@ -22,6 +22,7 @@
                 <label for="name" class="form-label">Nombre</label>
                 <input type="text" class="form-controlAdd" id="name" name="name" >
                 <small class="error_login"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                <small id="errorNombre" class="error_login"></small>
 
             </div>
             
@@ -29,17 +30,20 @@
                 <label for="price" class="form-label">Precio</label>
                 <input type="number" class="form-controlAdd" id="price" name="price" >
                 <small class="error_login"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                <small id="errorNumber" class="error_login"></small>
 
             </div>
             <div class="col-123  col-md-6 mb-3">
                 <label for="discount" class="form-label">Descuento</label>
                 <input type="number" class="form-controlAdd" id="discount" name="discount">
                 <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                <small id="errorDiscount" class="error_login"></small>
 
             </div>
             <div class="col-123  col-md-6 mb-3">
                 <label for="image" class="form-label">Imagen</label>
                 <input type="file" class="form-controlAdd" id="image" name="image" accept=".jpg, .png, .wepb">
+                <small id="errorImage" class="error_login"></small>
 
             </div>
         </div>
@@ -83,7 +87,8 @@
                     <label for="description" class="form-label">Descripción</label>
                     <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none;"></textarea>
                     <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
-    
+                    <small id="errorDescription" class="error_login"></small>
+
                 </div>
             </div>
         <!-- </div>  -->
@@ -99,6 +104,7 @@
 </main>
     
     <%- include('../partials/footer') %>
+    <script src="/js/validacionProductAdd.js"></script>
 
 </body>
 
