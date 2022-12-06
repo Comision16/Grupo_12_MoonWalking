@@ -37,7 +37,6 @@ module.exports = [
     .notEmpty()
     .withMessage("Debes completar el campo obligatorio")
     .bail()
-    .isNumeric({ no_symbols: true }).withMessage("No debe incluir símbolos").bail()
     .isLength({min: 5,
     max: 10}).withMessage("La contraseña debe incluir entre 5 y 10 caracteres"),
     body('password2')
