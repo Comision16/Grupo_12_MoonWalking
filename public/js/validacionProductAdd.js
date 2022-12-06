@@ -17,7 +17,7 @@ const validField = (element, target) => {
 $('name').addEventListener('blur', function({target}) {
     switch (true) {
         case !this.value.trim():
-            msgError('errorNombre', 'El nombre es obligarotio', target)
+            msgError('errorNombre', 'El nombre es obligatorio', target)
         break;
          case this.value.trim().length < 5 : 
          msgError('errorNombre', 'Debe contener al menos 5 caracteres', target)
