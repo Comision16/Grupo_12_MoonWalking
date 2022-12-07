@@ -20,11 +20,11 @@
             <h2 class="create-account">Iniciar Sesion</h2>
             <div class="col-122">
                 <input class="input_login validateInput" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico:">
-                <small id="errorEmail" class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+                <small id="error" class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
              </div>
              <div class="col-122">
                 <input class="input_login validateInput" type="password" name="password" id="passwordLogin" placeholder="Contraseña:">
-                <small id="errorPassword" class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+                <small id="error" class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
             </div>
             <div class="login_remember1">
                 <p>Recordarme<input class="login_input_remember" type="checkbox" id="recordame" name="remember"></p>

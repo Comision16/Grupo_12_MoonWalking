@@ -68,16 +68,15 @@ $("formLogin").addEventListener("submit", function (e) {
   e.preventDefault();
   let error = false;
 
-  inputVal.forEach(field =>
-    {
-      console.log(!field.value.trim(), field.classList.contains('invalid'))
-        if(!field.value.trim() || field.classList.contains('invalid'))
-        {
-            field.classList.add('invalid');
-            //document.querySelector('#errorSubmit').innerText = 'Completa todo';
-            error = true;
-        }
-    })
+  inputVal.forEach(field => {
+    if (!field.value.trim() || field.classList.contains('invalid')) {
+      field.classList.add('invalid')
+      error = true
+      document.getElementById('error').innerText = 'Complete los campos correctamente'
+    }
+    console.log(inputVal, error);
+    !error && $('formLogin').submit()
+  });
 
   console.log(inputVal, error)
   /*const elements = this.elements;
