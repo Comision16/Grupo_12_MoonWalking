@@ -4,6 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 const methodOverride = require('method-override');
 const session = require('express-session');
@@ -29,6 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..','public')));
 
+
+app.use(cors());
 app.use(methodOverride('_method'))
 app.use(session({
   secret : 'MoonWalking',
@@ -47,6 +50,8 @@ app.use('/auth', authRouter);
 
 app.use('/api/products/', require('./routes/api/apiProducts'))
 app.use('/api/users/', require('./routes/api/apiUsers'))
+app.use('/api/categories/', require('./routes/api/apiCategories'))
+app.use('/api/ext', require('./routes/api/apiExt'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const {listAll, getOne} = require('../../controllers/api/apiProductsControllers');
+const {listAll, getOne, getImg} = require('../../controllers/api/apiProductsControllers');
 
 router
     .get('/', listAll)
-    .get('/:id', getOne)/*
-    .get('/image/:img', getAvatar)*/
+    .get('/:id', getOne)
+    .get('/img/:filename', getImg)
 
 module.exports = router;

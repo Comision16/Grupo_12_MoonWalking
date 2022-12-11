@@ -1,15 +1,22 @@
 const db = require("../../database/models");
+const path = require('path');
 
 module.exports = {
     listAll : async (req, res) => {
         try {
-            let users = await db.User.findAll();
+            // let users = await db.User.findAll();
+
+            let {count, rows : users} = await db.User.findAndCountAll({
+                attributes : ['id', 'firstName', 'email', 'image']
+            })
             return res.status(200).json({
                 ok : true,
-                meta : {
-                    total : users.length,
-                },
-                data : users, 
+                // meta : {
+                //     total : users.length,
+                // },
+                total : count,
+                // data : users, 
+                users
             });
         } catch (error) {
             console.log(error)
@@ -21,9 +28,8 @@ module.exports = {
     },
     
     getOne : async (req, res) => {
-        //const {id} = req.params.id
+        
         try {     
-            //const {id} = req.userToken;
             let id = (req.params.id); 
             const info = {
                 attributes : {
@@ -35,17 +41,7 @@ module.exports = {
                         attributes : ['name']
                     }
                 ]
-            }/*
-            if(!isNaN(id)){
-                let error = new Error('El id debe ser un numero');
-                    error.status = 400;
-                    throw error
             }
-            if(!user){
-                let error = new Error('No encontramos un usuario con ese ID')
-                error.status = 404
-                throw error
-        }*/
         let user = await db.User.findByPk(id, info);
         return res.status(200).json({
             ok : true,
@@ -65,14 +61,7 @@ module.exports = {
                 msg : error.message
             })
         }
-    },/*,
-    getAvatar : async (req, res) => {
-        try {
-            
-        } catch (error) {
-            console.log(error)
-        }
-    }*/
+    },
     verifyEmail : async (req,res) => {
         console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',req.body)
         try {
@@ -95,4 +84,8 @@ module.exports = {
             })
         }
     },
+    getImg: async (req, res) =>
+    {
+        return res.sendFile(path.join(__dirname, '..','..', '..', 'public','img','users', req.params.filename));
+    }
 }

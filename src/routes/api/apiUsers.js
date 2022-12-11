@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const {listAll, getOne, verifyEmail} = require('../../controllers/api/apiUserControllers');
+const {listAll, getOne, verifyEmail, getImg} = require('../../controllers/api/apiUserControllers');
 const {checkToken} = require('../../middlewares/checkToken');
 router
-    .get('/', checkToken,  listAll)
+    .get('/'/* , checkToken  */ ,listAll) //en el medio va checktoken
     .get('/:id', getOne)
     .post('/verify-email', verifyEmail)
-    /*.get('/avatar/:img', getAvatar)*/
+    .get('/img/:filename', getImg)
 
 module.exports = router
