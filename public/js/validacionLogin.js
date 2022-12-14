@@ -15,7 +15,7 @@ const exRegs = {
   exRegMax: /^.{5,10}$/,
 };
 
-let userEmail 
+let userEmail
 
 const msgError = (element, msg, target) => {
   $(element).innerText = msg;
@@ -24,21 +24,21 @@ const msgError = (element, msg, target) => {
 };
 
 const validField = (element, target) => {
-    $(element).classList.remove("valid");
-    $(element).classList.add("invalid");
-    target.classList.remove("valid");
-    target.classList.add("invalid");
+  $(element).classList.remove("invalid");
+  $(element).classList.add("valid");
+  target.classList.remove("invalid");
+  target.classList.add("valid");
 
 };
 
 
 let validPass = (element, exReg, value) => {
   if (!exReg.test(value)) {
-      $(element).classList.add("invalid");
-      $(element).classList.remove("valid");
+    $(element).classList.add("invalid");
+    $(element).classList.remove("valid");
   } else {
-      $(element).classList.add("valid");
-      $(element).classList.remove("invalid");
+    $(element).classList.add("valid");
+    $(element).classList.remove("invalid");
   }
 };
 
@@ -56,15 +56,15 @@ const verifyEmail = async (email) => {
     });
 
     let result = await response.json();
-    
-    if(!result.verified) userEmail = email
+
+    if (!result.verified) userEmail = email
     return !result.verified;
   } catch (error) {
     console.error;
   }
 };
 
-$("formLogin").addEventListener("submit", function (e) {
+$('formLogin').addEventListener('submit', async (e) => {
   e.preventDefault();
   let error = false;
 
@@ -78,44 +78,26 @@ $("formLogin").addEventListener("submit", function (e) {
     !error && $('formLogin').submit()
   });
 
-  console.log(inputVal, error)
-  /*const elements = this.elements;
-  for (let i = 0; i < elements.length - 2; i++) {
-        if(!elements[i].value.trim() || elements[i].classList.contains('invalid')){
-          elements[i].classList.add('invalid'); 
-           error = true;
-        }
-    }*/
-
-  //console.log(elements, error)
-  //!error && this.submit()
-  })
+})
 
 $("emailLogin").addEventListener("blur", async function ({ target }) {
-    switch (true) {
-      case !this.value.trim():
-        msgError("errorEmail", "Ingrese un email", target);
-        break;
-      case !exRegs.exRegEmail.test(this.value):
-        msgError("errorEmail", "El email es inválido", target);
-        break;
-      case await verifyEmail(this.value):
-        msgError("errorEmail", "El email no está registrado", target);
-        break;
-      default:
-        validField("errorEmail", target);
-        break;
-    } //console.log(target)
-  });
-  
-  $("passwordLogin").addEventListener("blur", async function ({ target }) {
-    switch (true) {
-      case !this.value.trim():
-        msgError("errorPassword", "La contraseña es obligatoria", target);
-        break;
-      default:
-        validField("errorPassword", target);
-        break;
-    }console.log(target)
-  });
-  
+  switch (true) {
+    case !this.value.trim():
+      msgError("errorEmail", "Ingrese un email", target);
+      break;
+    default:
+      validField("errorEmail", target);
+      break;
+  }
+});
+
+$("passwordLogin").addEventListener("blur", async function ({ target }) {
+  switch (true) {
+    case !this.value.trim():
+      msgError("errorPassword", "La contraseña es obligatoria", target);
+      break;
+    default:
+      validField("errorPassword", target);
+      break;
+  }
+});
