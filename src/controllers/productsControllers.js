@@ -10,6 +10,7 @@ module.exports = {
     carrito: (req, res) => {
         return res.render('./products/carrito')
     },
+
     edit : async (req,res) => {
         try{  
             const product = await db.Product.findByPk(+req.params.id);
@@ -24,6 +25,7 @@ module.exports = {
             return res.send(error);
         }
     },
+
     update : (req,res) => {
         const {name, price, discount, description} = req.body;
         
@@ -49,6 +51,7 @@ module.exports = {
         })
         .catch(error => console.log(error))
     },
+
     detail: async (req, res) => {
         const associations = 
         {
@@ -73,6 +76,7 @@ module.exports = {
             res.send(error);
         }
     }, 
+
     add : async(req,res) => {
         try
         {
@@ -87,6 +91,7 @@ module.exports = {
             return res.send(error);
         }
     },
+
     store : async (req,res) => {
         const errors = validationResult(req);
 
@@ -124,6 +129,7 @@ module.exports = {
             .catch(err => console.log(err));   
         
     },
+
     remove : (req,res) => {
         db.Product.destroy(
             {
@@ -136,6 +142,7 @@ module.exports = {
             .catch(err => console.log(err));
         
     },
+    
     search : async (req,res) => {
         let { keywords } = req.query;
        

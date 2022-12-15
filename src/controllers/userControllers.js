@@ -16,9 +16,11 @@ module.exports = {
   login: (req, res) => {
     return res.render("./users/login");
   },
+  
   register: (req, res) => {
     return res.render("./users/register");
   },
+
   createProfile: (req, res) => {
     const errors = validationResult(req);
     const { firstName, lastName, email, password } = req.body;
@@ -43,31 +45,9 @@ module.exports = {
         errors: errors.mapped(),
         old: req.body,
       });
-
-      
-
     }
-
-    // if(errors.isEmpty()){
-    //    const {firstName, lastName, email, password} = req.body;
-    //    const users = loadUsers();
-
-    //    const newUser = {
-    //     id : users[users.length -1] ? users[users.length -1].id + 1 : 1,
-    //     firstName : firstName.trim(),
-    //     lastName : lastName.trim(),
-    //     dni : null,
-    //     email : email.trim(),
-    //     password : bcryptjs.hashSync(password.trim(), 10),
-    //     image: null,
-    //     rol: 'user'
-    //    }
-    //    const userModify = [...users, newUser];
-    //    storeUsers(userModify);
-    //    return res.redirect('/users/login')
-
-    // }
   },
+  
   processLogin: (req, res) => {
   const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -111,6 +91,7 @@ module.exports = {
       });
     }
   },
+
    profile: (req, res) => {
     db.User.findByPk(req.session.userLogin.id)
       .then((user) => {
@@ -130,6 +111,7 @@ module.exports = {
       provinces: require("../data/provinces"),
     }); */
   },
+
   updateChangesProfile: (req, res) => {
     //guardar los cambios
     db.User.update(
@@ -201,6 +183,7 @@ module.exports = {
     });
     return res.redirect("/");
   },
+
   usersList: (req, res) => {
     return res.render("./users/usersList");
   },

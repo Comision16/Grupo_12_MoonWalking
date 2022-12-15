@@ -276,6 +276,9 @@ footer h3 {
     .form_register--select select {
         width: 100%;
     }
+    #btn-show-pass{
+        margin-top: 2%;
+    }
 
 }
 
@@ -314,6 +317,7 @@ footer h3 {
         padding-right: 5px;
         padding-top: 20px;
     }
+
 }
 
 

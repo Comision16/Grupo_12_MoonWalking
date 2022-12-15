@@ -101,3 +101,14 @@ $("passwordLogin").addEventListener("blur", async function ({ target }) {
       break;
   }
 });
+
+$("btn-show-passW").addEventListener("click", ({ target }) => {
+  if (target.localName === "i") {
+    target.classList.toggle("fa-eye");
+    $("passwordLogin").type = $("passwordLogin").type === "text" ? "password" : "text";
+  } else {
+    target.childNodes[0].classList.toggle("fa-eye");
+    $("passwordLogin").type = $("passwordLogin").type === "text" ? "password" : "text";
+  }
+});
+
