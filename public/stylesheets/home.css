@@ -446,11 +446,14 @@ footer{
     .Logo{
         display: none;
     }
-    .encabezado{
+    /* .encabezado{
         height: 80px;
-    }
+    } */
     .container{
         margin-bottom: 25px;
+        /* width: 0%;
+        margin-left: none;
+        margin-right: none; */
     }
     .burger{
         display: none;

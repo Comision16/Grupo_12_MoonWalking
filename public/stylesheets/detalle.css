@@ -6,6 +6,10 @@
     transform: translate(-3%, 15%);
     padding: 6px;
  }
+ .editar_eliminar{
+    display: flex;
+    justify-content: center;
+ }
  .Eliminar-producto{
     background-color: rgb(240, 128, 108);
     border: none;
@@ -16,7 +20,8 @@
     cursor: pointer;
     align-items: center;
     box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
-    
+    width: 63px;
+    margin-left: 5px;
 }
  .input_buscador{
     outline: none;
@@ -65,6 +70,15 @@
 
 
 /* MAIN */
+.classSizes{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -30px;
+}
+.talle_3{
+    margin-left: 5px;
+}
 .mainDetalle{
     align-items: center;
     font-size: small;
@@ -364,7 +378,22 @@ footer h3{
         padding: 20px 5px
     }
 }
-
+/* TABLET */
+@media (min-width:768px){
+    .Eliminar-producto{
+        background-color: rgb(240, 128, 108);
+        border: none;
+        border-radius: 10%;
+        width: 100%;
+        /*eight: 35px;*/
+        padding: 10px;
+        cursor: pointer;
+        align-items: center;
+        box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+        width: 75px;
+        margin-left: 5px;
+    }
+}
 /* DESKTOP*/
 @media (min-width:1024px){
 
@@ -373,6 +402,26 @@ footer h3{
     .mainDetalle{
         font-size: medium;
         justify-content: space-evenly;
+    }
+    .classSizes{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -70px;
+        right: -50px;
+    }
+    .Eliminar-producto{
+        background-color: rgb(240, 128, 108);
+        border: none;
+        border-radius: 10%;
+        width: 100%;
+        /*eight: 35px;*/
+        padding: 10px;
+        cursor: pointer;
+        align-items: center;
+        box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+        width: 75px;
+        margin-left: 5px;
     }
     .lineaSeparadora{
         display: none;

@@ -8,44 +8,41 @@
 <body>
     <%- include('../partials/header') %>
     <main class="mainDetalle">
+       <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
+            </ol>
+        </nav>
         <section>
             <hr class="lineaSeparadora">
             <article class="foto">
                 <div class="sect1">
                     <p class="nombreArt"><%= product.name %></p>
                     <p class="precio">Precio $<%= product.price %></p>
-                    <p class="cuotas">Hasta 6 cuotas sin interés</p>
-                    <p class="cuotasDe">Cuotas <%= product.dues %> </p>
+                    <p class="cuotasDe">Hasta <%= product.dues %> cuotas sin interés</p>
+                    
                     <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
                         alt="">
+                        <div class="classSizes">
+                            <label for="Talle" class="form-label">Talle</label>
+                            <select class="talle_3" name="talle" id="Talle">
+                                <% product.sizes.forEach(size => { %>
+                                    <option value="<%= size.id %>"><%= size.number %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="editar_eliminar">
+                        <% if (locals.userLogin && locals.userLogin.admin) { %>
+                            <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
+                            <form id=centrarBotonEliminar"" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+                                <button class="Eliminar-producto" type="submit">Eliminar</button>
+                            </form>
+                           <% }else{%>
+                            
+                            <% } %>
+                        </div>
                 </div>
-            </article>
-            <article>
-                <div class="sect2">
-                    <div class="talles">
-                        <p class="p_talle"><%= product.size %></p>
-                    </div>
-                    
-                </div>
-                
-                <% if (locals.userLogin && locals.userLogin.admin) { %>
-                    <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
-                    <form id=centrarBotonEliminar"" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
-                        <button class="Eliminar-producto" type="submit">Eliminar</button>
-                    </form>
-                   <% }else{%>
-                    <div class="classSizes">
-                        <label for="Talle" class="form-label">Talle</label>
-                        <select name="talle" id="Talle">
-                            <% product.sizes.forEach(size => { %>
-                                <option value="<%= size.id %>"><%= size.number %></option>
-                            <% }) %>
-                        </select>
-                    </div>
-                    <% } %>
-
-
-
 
             </article>
         </section>
