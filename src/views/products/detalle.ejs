@@ -76,9 +76,67 @@
                     <li><img class="Img" src="/img/urbano/zapa 3.jpg" alt="">   
                 </ul>
             </div>
-        </section>
+            <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
+            <form action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+              <button class="Eliminar-producto" type="submit" id="btnEliminar">Eliminar</button>
+            </form>
+          </div>
+        </article>
+      </section>
+      <section class="info">
+        <hr class="lineaSeparadora" />
+        <article class="descripcionpagoenvio">
+          <ul class="ul">
+            <li>◦Envío gratis</li>
+            <li>◦Pagá hasta en 6 cuotas sin interés</li>
+          </ul>
+        </article>
+        <hr class="lineaSeparadora" />
+        <article>
+          <p class="descripcion">Descripción</p>
+          <p class="descripcionDetallada"><%= product.description %></p>
+        </article>
+      </section>
+      <section class="carrucel">
+        <p id="opciones">También te puede gustar</p>
+        <div class="slaider-frame">
+          <ul>
+            <li><img class="Img" src="/img/zapatillas/zapa 1.jpg" alt="" /></li>
+            <li><img class="Img" src="/img/zapatillas/zapa 2.jpg" alt="" /></li>
+            <li><img class="Img" src="/img/zapatillas/zapa 3.jpg" alt="" /></li>
+            <li><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt="" /></li>
+            <li><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt="" /></li>
+            <li><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt="" /></li>
+          </ul>
+        </div>
+      </section>
     </main>
     <%- include('../partials/footer') %>
-</body>
+  </body>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+   const btn = document.getElementById('btnEliminar')
 
+    btn.addEventListener("click", () => {
+      Swal.fire({
+        title: "¿Estas seguro que deseas eliminar el producto?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        denyButtonText: "Cancel",
+        customClass: {
+          actions: "my-actions",
+          cancelButton: "order-1 right-gap",
+          confirmButton: "order-2",
+          denyButton: "order-3",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Saved!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Changes are not saved", "", "info");
+        }
+      });
+    });
+  </script>
 </html>
