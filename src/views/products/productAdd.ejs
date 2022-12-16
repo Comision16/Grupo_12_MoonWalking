@@ -19,7 +19,7 @@
             <div class="form_addEntero_1">
     <div class="add_control">
             <div class="col-123">
-                <label for="name" class="form-label">Nombre</label>
+                <label for="name" class="form-label-add">Nombre</label>
                 <input type="text" class="form-controlAdd" id="name" name="name" >
                 <small class="error_login"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                 <small id="errorNombre" class="error_login"></small>
@@ -27,21 +27,21 @@
             </div>
             
             <div class="col-123  " >
-                <label for="price" class="form-label">Precio</label>
+                <label for="price" class="form-label-add">Precio</label>
                 <input type="number" class="form-controlAdd" id="price" name="price" >
                 <small class="error_login"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                 <small id="errorNumber" class="error_login"></small>
 
             </div>
             <div class="col-123  col-md-6 mb-3">
-                <label for="discount" class="form-label">Descuento</label>
+                <label for="discount" class="form-label-add">Descuento</label>
                 <input type="number" class="form-controlAdd" id="discount" name="discount">
                 <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                 <small id="errorDiscount" class="error_login"></small>
 
             </div>
             <div class="col-123  col-md-6 mb-3">
-                <label for="image" class="form-label">Imagen</label>
+                <label for="image" class="form-label-add">Imagen</label>
                 <input type="file" class="form-controlAdd" id="image" name="image" accept=".jpg, .png, .wepb">
                 <small id="errorImage" class="error_login"></small>
 
@@ -50,8 +50,8 @@
         </div>
         <div class="form_addEntero_2">
             <div class="col-123  col-md-6 mb-3">
-                <label for="brand" class="form-label">Marca</label>
-                <select name="brandId" id="brand">
+                <label for="brand" class="form-label-add">Marca</label>
+                <select name="brandId" id="brand" class="select-add">
                     <% brands.forEach(brand => { %>
                         <option value="<%= brand.id %>"><%= brand.name %></option>
                     <% }) %>
@@ -60,8 +60,8 @@
 
             </div>
             <div class="col-123  col-md-6 mb-3">
-                <label for="Talle" class="form-label">Talle</label>
-                <select name="talle" id="Talle"> Elegí el talle correspondiente
+                <label for="Talle" class="form-label-add">Talle</label>
+                <select name="talle" id="Talle" class="select-add"> Elegí el talle correspondiente
                     <% sizes.forEach(size => { %>
                         <option value="<%= size.id %>"><%= size.number %></option>
                     <% }) %>
@@ -71,8 +71,8 @@
             </div>
 
             <div class="col-123  col-md-6 mb-3">
-                <label for="category" class="form-label">Categoría</label>
-                <select name="categoryId" id="category">
+                <label for="category" class="form-label-add">Categoría</label>
+                <select name="categoryId" id="category" class="select-add">
                     <% categories.forEach(category => { %>
                         <option value="<%= category.id %>"><%= category.name %></option>
                     <% }) %>
@@ -84,7 +84,7 @@
             <!-- <div class="agregar_producto3"> -->
                
                 <div class="col-description ">
-                    <label for="description" class="form-label">Descripción</label>
+                    <label for="description" class="form-label-add">Descripción</label>
                     <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none;"></textarea>
                     <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
                     <small id="errorDescription" class="error_login"></small>
