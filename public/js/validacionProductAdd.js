@@ -93,3 +93,5 @@ $('image').addEventListener("blur", function ({ target }) {
         break;
     }
   });
+
+  

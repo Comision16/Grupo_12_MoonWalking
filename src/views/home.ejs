@@ -31,7 +31,7 @@
     </div>
 
 <% products.forEach(({id,name,images,price}) => { %>
-    <article><a href="/products/detalle/<%= id %>"><div class="disponible_logo"><img class="Img" src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'zapa 1.jpg' %>" alt=""><div class="Disponible"><p>Disponible!</p></div></div> <p class="texto_info"><%= name %> </p><p class="texto_info">$<%= price %></p></a></article>
+    <article><a href="/products/detalle/<%= id %>"><div class="disponible_logo"><img class="Img" src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'defaultProduct.jpeg' %>" alt=""><div class="Disponible"><p>Disponible!</p></div></div> <p class="texto_info"><%= name %> </p><p class="texto_info">$<%= price %></p></a></article>
 <% }) %>
 
 
