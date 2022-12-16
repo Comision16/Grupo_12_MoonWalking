@@ -119,6 +119,10 @@ body{
 .error_login{
     color: red;
 }
+
+.homelogin{
+    margin: 10px;
+}
 @media (max-width: 320px) {
     .message{
         display: none;

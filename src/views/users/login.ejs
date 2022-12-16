@@ -5,6 +5,9 @@
     </head>
 <%- include('../partials/head', {title : 'Login'}) %>
 <body class="body_login">
+    <header>
+        <a class="homelogin" href="/">Home</a>
+    </header>
     <div class="container-form sign-up">
         <div class="welcome-back">
             <div class="message">
@@ -20,15 +23,15 @@
             <h2 class="create-account">Iniciar Sesion</h2>
             <div class="col-122">
                 <input class="input_login validateInput" type="email" name="email" id="emailLogin" placeholder="Correo Electrónico:">
-                <small id="error" class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
+                <small id="errorEmail" class="error_login"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
              </div>
              <div class="col-122">
                 <input class="input_login validateInput" type="password" name="password" id="passwordLogin" placeholder="Contraseña:">
-                <small id="error" class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+                <small id="errorPassword" class="error_login"><%= locals.errors && errors.password ? errors.password.msg : null %></small>
+                <span class="input-group-text" style="cursor: pointer;" id="btn-show-passW"><i class="fa-solid fa-eye-slash"></i></span>
             </div>
             <div class="login_remember1">
                 <p>Recordarme<input class="login_input_remember" type="checkbox" id="recordame" name="remember"></p>
-                
             </div>
             <div class="form_login--button">
                 <button type="submit">Iniciar Sesion</button>
@@ -39,6 +42,7 @@
             </div>
         </form>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/validacionLogin.js"></script>
 </body>
 </html>

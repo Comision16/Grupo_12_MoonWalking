@@ -97,3 +97,74 @@ Juntarnos todos los días
 4. Hacer menos.
 
 5. Dejar de hacer.
+
+(A partir de acá los subo todos juntos porque los venía anotando en un block de notas pero nunca lo pasé acá, perdón.)
+## Sexto sprint
+
+1. Comenzar a hacer.
+Utilizar las ramas.
+
+2. Hacer más.
+Hacernos las 3 preguntas de las daily.
+Mejorar la comunicación
+
+3. Continuar haciendo.
+Ver las dificultades de las tareas así podemos dividirlas mejor 
+Seguir con la buena organización
+Nadie falta a las dailys y trabajamos todos juntos en equipo.
+Juntarnos todos los días
+
+4. Hacer menos.
+
+5. Dejar de hacer.
+
+## Octavo sprint (parte 1)
+1. Comenzar a hacer.
+Utilizar las ramas.
+Nadie falta a las dailys y trabajamos todos juntos en equipo.
+
+2. Hacer más.
+Hacernos las 3 preguntas de las daily.
+Mejorar la comunicación (que respondan los mensajes)
+Seguir con la buena organización
+Juntarnos todos los días
+
+3. Continuar haciendo.
+Ver las dificultades de las tareas así podemos dividirlas mejor 
+
+4. Hacer menos.
+
+5. Dejar de hacer.
+
+## Septimo sprint
+
+1. Comenzar a hacer
+Juntarnos nuevamente
+Utilizar las ramas
+
+2. Hacer más. 
+Mejorar la comunicación
+
+3. Continuar haciendo. 
+Ver las dificultades de las tareas así podemos dividirlas mejor.
+
+4. Hacer menos.
+ 
+5. Dejar de hacer.
+
+
+## Octavo sprint (segunda parte)
+1. Comenzar a hacer
+Juntarnos nuevamente
+Utilizar las ramas
+
+2. Hacer más. 
+Mejorar la comunicación, responder los mensajes.
+Avisar cuando se suben cambios / lo primero a hacer es hacer un git pull por si las dudas
+
+3. Continuar haciendo. 
+Ver las dificultades de las tareas así podemos dividirlas mejor.
+
+4. Hacer menos.
+ 
+5. Dejar de hacer.

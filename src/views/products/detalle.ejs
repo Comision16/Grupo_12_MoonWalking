@@ -27,6 +27,84 @@
           <div class="sect2">
             <div class="talles">
               <p class="p_talle"><%= product.size %></p>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <%- include('../partials/head', {title : 'Detalle'}) %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main class="mainDetalle">
+        <section>
+            <hr class="lineaSeparadora">
+            <article class="foto">
+                <div class="sect1">
+                    <p class="nombreArt"><%= product.name %></p>
+                    <p class="precio">Precio $<%= product.price %></p>
+                    <p class="cuotas">Hasta 6 cuotas sin interés</p>
+                    <p class="cuotasDe">Cuotas <%= product.dues %> </p>
+                    <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
+                        alt="">
+                </div>
+            </article>
+            <article>
+                <div class="sect2">
+                    <div class="talles">
+                        <p class="p_talle"><%= product.size %></p>
+                    </div>
+                    
+                </div>
+                
+                <% if (locals.userLogin && locals.userLogin.admin) { %>
+                    <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
+                    <form id=centrarBotonEliminar"" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+                        <button class="Eliminar-producto" type="submit">Eliminar</button>
+                    </form>
+                   <% }else{%>
+                    <div class="classSizes">
+                        <label for="Talle" class="form-label">Talle</label>
+                        <select name="talle" id="Talle">
+                            <% product.sizes.forEach(size => { %>
+                                <option value="<%= size.id %>"><%= size.number %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <% } %>
+
+
+
+
+            </article>
+        </section>
+        <section class="info">
+            <hr class="lineaSeparadora">
+            <article class="descripcionpagoenvio">
+                <ul class="ul">
+                    <li> ◦Envío gratis</li>
+                    <li> ◦Pagá hasta en 6 cuotas sin interés</li>
+                </ul>
+            </article>
+            <hr class="lineaSeparadora">
+            <article>
+                <p class="descripcion">Descripción</p>
+                <p class="descripcionDetallada"><%= product.description %></p>                
+            </article>
+        </section>
+        <section class="carrucel">
+            <p id="opciones">También te puede gustar</p>
+            <div class="slaider-frame">
+                <ul>
+                    <li><img class="Img" src="/img/zapatillas/zapa 1.jpg" alt=""> 
+                    <li><img class="Img" src="/img/zapatillas/zapa 2.jpg" alt=""> 
+                    <li><img class="Img" src="/img/zapatillas/zapa 3.jpg" alt=""> 
+                    <li><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt="">
+                    <li><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt=""> 
+                    <li><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt="">
+                    <!-- para desktop -->
+                    <li><img class="Img" src="/img/urbano/zapa 1.jpg" alt="">  
+                    <li><img class="Img" src="/img/urbano/zapa 2.jpg" alt="">     
+                    <li><img class="Img" src="/img/urbano/zapa 3.jpg" alt="">   
+                </ul>
             </div>
             <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
             <form action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
@@ -68,7 +146,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
    const btn = document.getElementById('btnEliminar')
-   
+
     btn.addEventListener("click", () => {
       Swal.fire({
         title: "¿Estas seguro que deseas eliminar el producto?",

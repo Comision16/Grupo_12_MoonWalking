@@ -1,4 +1,4 @@
-console.log("prueba");
+console.log("Holis");
 const $ = (element) => document.querySelector(element);
 const exRegs = {
   exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
@@ -190,7 +190,7 @@ $("#password2").addEventListener("blur", function ({ target }) {
     case !this.value.trim():
       msgError("#errorPassword2", "Debes verificar la contraseña", target);
       break;
-    case this.value.trim() !== $('pass').value.trim():
+    case this.value.trim() !== $('#password').value.trim():
       msgError(
         "#errorPassword2",
         "Las contraseñas no coinciden",
