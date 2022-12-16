@@ -1,0 +1,8 @@
+<% if (locals.userLogin && locals.userLogin.admin) { %>
+    <a class="mas_celular" href="/products/add"><i class="fa-solid fa-2x fa-circle-plus " ></i></a>
+    <% } else if (locals.userLogin) { %>
+   <div class="logo_mas_pc"><a class="" href="/users/logout"><i class="fa-sharp fa-3x fa-solid fa-arrow-right-from-bracket"></i>Salir</a></div>
+    <% }else{%>
+    <a class="logo_mas" href="/users/login"> <img src="/img/usuario luna blanca.jpg" alt="" height="30"></a>
+    <% } %>
+  
