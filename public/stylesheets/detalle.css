@@ -1,4 +1,14 @@
 /* HEADER */
+.classSizes{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -30px;
+}
+.talle_3{
+    margin-left: 5px;
+}
+
 .container{
     justify-content: flex-start;
     left: -37%;
@@ -91,9 +101,6 @@
     display: none;
 }
 
-.cuotas{
-    display: none;
-}
 .cuotasDe{
     display: none;
 }
@@ -460,7 +467,8 @@ footer h3{
         padding-left: 50%;
         padding-top: 195px;
         display: block;
-        font-size:x-small;
+        font-size:small;
+
        }
     /* HASTA ACA*/
     .descripcionDetallada{

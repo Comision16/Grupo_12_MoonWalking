@@ -8,27 +8,20 @@
 <body>
     <%- include('../partials/header') %>
     <main class="mainDetalle">
+       <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
+            </ol>
+        </nav>
         <section>
             <hr class="lineaSeparadora">
             <article class="foto">
                 <div class="sect1">
                     <p class="nombreArt"><%= product.name %></p>
                     <p class="precio">Precio $<%= product.price %></p>
-                    <p class="cuotas">Hasta 6 cuotas sin interés</p>
-                    <p class="cuotasDe">Cuotas <%= product.dues %> </p>
-                    <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
-                        alt="">
-                </div>
-            </article>
-            <article>
-                <div class="sect2">
-                    <div class="talles">
-                        <p class="p_talle"><%= product.size %></p>
-                    </div>
-                    
-                </div>
-                
-                <% if (locals.userLogin && locals.userLogin.admin) { %>
+                    <p class="cuotasDe">Hasta <%= product.dues %> cuotas sin interés</p>
+                     <% if (locals.userLogin && locals.userLogin.admin) { %>
                     <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
                     <form id=centrarBotonEliminar"" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
                         <button class="Eliminar-producto" type="submit">Eliminar</button>
@@ -43,9 +36,9 @@
                         </select>
                     </div>
                     <% } %>
-
-
-
+                    <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
+                        alt="">
+                </div>
 
             </article>
         </section>
