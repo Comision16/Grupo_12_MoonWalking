@@ -24,7 +24,7 @@ module.exports = {
 
             const {productId} = req.body;
 
-            let item = req.session.orderCart.items.find(item => item.product?.id === +productId);
+            let item = req.session.orderCart.items.find(item => item.product && item.product.id === +productId);
 
             if(item) {
 
