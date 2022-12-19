@@ -18,15 +18,17 @@ module.exports = {
         }
     },
     addItem : async (req,res) => {
+
+        console.log('>>>>>>',req.body)
         try {
 
-            const {id} = req.body;
+            const {productId} = req.body;
 
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
+            let item = req.session.orderCart.items.find(item => item.product?.id === +productId);
 
             if(item) {
 
-                await db.Cart.update(
+                await db.Item.update(
                     {
                         quantity : item.quantity + 1
                     },
@@ -53,13 +55,14 @@ module.exports = {
 
             }else {
 
-               const newCart = await db.Cart.create({
+               const newCart = await db.Item.create({
                     quantity : 1,
-                    productId : id,
+                    productId : +productId,
+                    userId : req.session.userLogin.id,
                     orderId : req.session.orderCart.id
                });
 
-               const cartItem = await db.Cart.findByPk(newCart.id, {
+               const cartItem = await db.Item.findByPk(newCart.id, {
                 attributes : ['id','quantity'],
                 include : [
                   {
@@ -98,12 +101,12 @@ module.exports = {
 
         try {
 
-            const {id} = req.params;
+            const {productId} = req.body;
 
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
+            let item = req.session.orderCart.items.find(item => item.product.id === +productId);
 
             if(item.quantity === 1){
-                await db.Cart.destroy({
+                await db.Item.destroy({
                     where :{
                         id : item.id
                     }
@@ -117,7 +120,7 @@ module.exports = {
                    }
             }else{
 
-                await db.Cart.update(
+                await db.Item.update(
                     {
                         quantity : item.quantity - 1
                     },

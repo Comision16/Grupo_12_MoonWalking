@@ -1,65 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Mi Perfil</title>
-    </head>
-    <%- include('../partials/head', { title : 'Perfil de usuario'}) %> 
 
-<body class="register">
-    <%- include('../partials/header') %> 
+<%- include('../partials/head', { title : 'Perfil de usuario' }) %>
 
-    <main>
-        
-          <figure class="imagen_profile">
-            <!--tanto el width como el border radius hay que quitarlo y ponerlo en el css-->
-               <img src="/img/users/<%= user.image ? user.image : 'default.jpg' %>" alt="Tu avatar"> 
-               <div class="h3_profile"><h3>Mi Perfil</h3></div>
-            </figure>
-          
-          <form action="/users/update/<%= user.id %>?_method=PUT" class="form_profile" enctype="multipart/form-data" method="POST">
-            <div class="form_perfil">    
-            <div class="form_entero_1">
-                <div class="form_input--profile">
-                    <label class="" for="nombre">Nombre:</label>
-                    <input class="" type="text" autocomplete="off" name="firstName" value="<%= user.firstName %>">
+    <body class="register">
+        <%- include('../partials/header') %>
+
+            <main class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6  col-lg-4 mx-auto my-3">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data"
+                                    method="POST">
+                                    <figure class="imagen_profile">
+                                        <!--tanto el width como el border radius hay que quitarlo y ponerlo en el css-->
+                                        <div class="position-relative">
+                                            <img id="imgPrev"
+                                                src="/img/users/<%= user.image ? user.image : 'default.jpg' %>"
+                                                alt="Tu avatar">
+                                            <label  for="image"
+                                                class="btn btn-sm btn-success position-absolute bottom-0 end-0"><i
+                                                    class="fas fa-image "></i></label>
+                                        </div>
+
+                                        <div class="h3_profile">
+                                            <h3>Mi Perfil</h3>
+                                        </div>
+                                    </figure>
+
+                                    <div class="form_entero_1">
+                                        <div class="form_input--profile">
+                                            <label class="" for="nombre">Nombre:</label>
+                                            <input class="" type="text" autocomplete="off" name="firstName"
+                                                value="<%= user.firstName %>">
+                                        </div>
+                                        <div class="form_input--profile">
+                                            <label class="" for="apellido">Apellido:</label>
+                                            <input class="" type="text" name="lastName" value="<%= user.lastName %>">
+                                        </div>
+
+                                        <!-- <div class="form_input--profile">
+                                <label class="" for="celular">Celular:</label>
+                                <input class="" type="text" name="celular" value="<%= user.celular %>">
+                            </div>-->
+                                        <div class="form_input--profile">
+                                            <label class="" for="email">Email:</label>
+                                            <input class="" type="email" name="email" value="<%= user.email %>"
+                                                readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mx-auto">
+                                        <div class="  ">
+                                            <input hidden class="input_image--profile" type="file" name="image"
+                                                id="image" accept=".jpg, .png, .wepb">
+                                            <button class="button--profile btn btn-outline-secondary my-2"> <a href="/"
+                                                    class="text-dark">Cancelar</a></button>
+                                            <button class="button--profile btn btn-outline-dark my-2"
+                                                type="submit">Guardar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form_input--profile">
-                    <label class="" for="apellido">Apellido:</label>
-                    <input class="" type="text" name="lastName" value="<%= user.lastName %>">
-                </div>
-                <div class="form_input--profile">
-                    <label class="" for="dni">DNI:</label>
-                    <input class="" type="text" name="dni" value="<%= user.dni %>">
-                </div>
-              <!-- <div class="form_input--profile">
-                    <label class="" for="celular">Celular:</label>
-                    <input class="" type="text" name="celular" value="<%= user.celular %>">
-                </div>-->
-                <div class="form_input--profile">
-                    <label class="" for="email">Email:</label>
-                    <input class="" type="email"  name="email" value="<%= user.email %>" readonly>
-                </div>
-                <div class="form_input--profile--image">
-                    <h5 class="h5_profile--avatar">Tu Avatar</h5>
-                    <div class="form_profile--image">
-                        <input class="input_image_profile" type="file" name="image" accept=".jpg, .png, .wepb">
-                      </div>
-                    <input hidden class="input_image--profile" type="file" name="image" id="image" accept=".jpg, .png, .wepb">
-                </div>
-            </div>
-                
-            </div>
-                <div class="guardar_profile">
-                 <div class="boton_add"> 
-                    <div class="form__box form__box--flex ">
-                        <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
-                        <button class="guardar_add form__button--send" type="submit">Guardar</button>
-                    </div>  
-                 </div>
-                </div>        
-            </form>
-    </main>
-    <%- include('../partials/footer') %>
-</body>
+
+
+
+            </main>
+            <%- include('../partials/footer') %>
+                <script>
+                    const imgPrev = document.getElementById('imgPrev');
+                    const inputImage = document.getElementById('image');
+
+                    inputImage.addEventListener('change', ({ target }) => {
+                        const reader = new FileReader();
+
+                        reader.readAsDataURL(target.files[0])
+                        reader.onload = () => {
+                            imgPrev.src = reader.result
+                        }
+
+                    })
+                </script>
+    </body>
 
 </html>

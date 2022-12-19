@@ -5,6 +5,11 @@
     background-position: center center;
     background-size: cover;
 }*/
+.viewPass{
+    position: absolute;
+    top: 2px;
+    right: 22px;
+}
 body{
     background-color: #f5f4f0;
 }
@@ -61,7 +66,6 @@ body{
     gap: 20px;
 }
 .input_login{
-    margin-left: 5%;
     width: 70%;
     height: 30px;
     outline: none;
@@ -76,31 +80,30 @@ body{
     font-size: small;
 }
 .form_login--button{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 25%;
-    margin-left: 141px;
-    
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* width: 25%; */
+    /* margin-left: 141px; */
     /*margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 40px;
     padding: 10px;
     margin-top: 1%;*/
-    align-self: center;
+    /* align-self: center; */
 }
 .form_login--button button{
     color: white;
     background-color: var(--colorGrisCasiNegro);
     border: none;
-    width: 142%;
+    width: 90%;
     height: 40px;
     border-radius: 5px;
     align-self: center;
     cursor: pointer;
     transition: all .3s ease-in;
-    margin-right: 80px;
+    /* margin-right: 80px; */
 }
 .form_login--button :hover{
     background-color: #7979f5;
@@ -150,18 +153,18 @@ body{
     margin-bottom: 10px;
     }
     .form_login--button{
-        width: 24%;
+        /* width: 24%; */
     }
     .formulario {
-        width: 400px;
+        width: 300px;
         height: 500px;
         padding: 1rem;
         margin: 2rem;
-        margin-top:100px ;
+        margin-top:100px;
         background-color: rgb(51, 51, 51, 0.602);
         text-align: center;
         border-radius: 50px;
-        margin-right: 45px;
+        /* margin-right: 45px; */
     }
     .register__cel p{
         font-size: x-small;
@@ -177,7 +180,7 @@ body{
     }
 
     .form_login--button button{
-        width: 150%;
+        /* width: 150%; */
     }
     .login_remember{
         padding-left: 18%;
@@ -196,7 +199,7 @@ body{
         height: 50px;
     }
     .form_login--button button{
-        width: 200%;
+        /* width: 200%; */
         margin: 0;
     }
     .error_login{
@@ -207,19 +210,29 @@ body{
     } */
     .img_fondo{
         height: auto;
+        top: -25px;
+        left: 60px;
     }
     .message {
         padding: 1rem;
         padding-top: 0;
     }
+
+.viewPass {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
     .register__cel{
         display: none;
     }
     
 }
 
+
+
 .container-form {
-    width: 90%;
+    /* width: 90%; */
     height: 90vh;
     display: flex;
     justify-content: space-around;
@@ -230,7 +243,7 @@ body{
     display: flex;
     align-items: center;
     text-align: center;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 
@@ -297,7 +310,7 @@ body{
 }
 
 .formulario input {
-    width: 70%;
+    width: 90%;
     display: block;
     margin: auto;
     margin-bottom: 2rem;

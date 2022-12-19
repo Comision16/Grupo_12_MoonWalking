@@ -1,11 +1,11 @@
 const { validationResult } = require("express-validator");
 const { loadUsers, storeUsers, loadAdmins } = require("../data/productModule");
 const bcryptjs = require("bcryptjs");
-const {createError} = require("../helpers")
+const { createError } = require("../helpers");
 const fs = require("fs");
 const path = require("path");
 const db = require("../database/models");
-const {sign} = require('jsonwebtoken');
+const { sign } = require("jsonwebtoken");
 
 const admins = loadAdmins();
 const isAdmin = (id) => {
@@ -16,7 +16,7 @@ module.exports = {
   login: (req, res) => {
     return res.render("./users/login");
   },
-  
+
   register: (req, res) => {
     return res.render("./users/register");
   },
@@ -38,7 +38,7 @@ module.exports = {
         .then(() => {
           res.redirect("/users/login");
         })
-         
+
         .catch((err) => console.log(err));
     } else {
       return res.render("users/register", {
@@ -47,32 +47,32 @@ module.exports = {
       });
     }
   },
-  
+
   processLogin: (req, res) => {
-  const errors = validationResult(req);
+    const errors = validationResult(req);
     if (errors.isEmpty()) {
-        db.User.findOne({
-            where: {
-                email: req.body.email
-            },
-            include: [
-                {
-                    association: 'rol'
-                }
-            ]
-        })      
+      db.User.findOne({
+        where: {
+          email: req.body.email,
+        },
+        include: [
+          {
+            association: "rol",
+          },
+        ],
+      })
         .then((user) => {
-               
-          if (!user) throw createError(404, 'El usuario no pudo ser encontrado');
+          if (!user)
+            throw createError(404, "El usuario no pudo ser encontrado");
 
           let { id, firstName, image } = user;
-          
+
           req.session.userLogin = {
             id,
             firstName,
             image,
-            rol : user.rol,
-            admin : user.rol.name == 'Admin' ? true : false
+            rol: user.rol,
+            admin: user.rol.name == "Admin" ? true : false,
           };
 
           if (req.body.remember) {
@@ -81,9 +81,49 @@ module.exports = {
               maxAge: 10000 * 60,
             });
           }
-          return res.redirect("./profile");
+
+          /* carrito */
+          db.Order.findOne({
+            where: {
+              userId: req.session.userLogin.id,
+              status: 1,
+            },
+            include: [
+              {
+                association: "items",
+                attributes: ["id", "quantity"],
+                include: [
+                  {
+                    association: "product",
+                    attributes: ["id", "name", "price", "discount"],
+                    include: ["images"],
+                  },
+                ],
+              },
+            ],
+          }).then((order) => {
+            if (order) {
+              req.session.orderCart = {
+                id: order.id,
+                amount: order.amount,
+                items: order.items,
+              };
+            } else {
+              db.Order.create({
+                amount: 0,
+                userId: req.session.userLogin.id,
+                status: 1,
+              }).then((order) => {
+                req.session.orderCart = {
+                  id: order.id,
+                  amount: order.amount,
+                  items: [],
+                };
+              });
+            }
+            return res.redirect("/");
+          });
         })
-        
         .catch((err) => console.log(err));
     } else {
       return res.render("./users/login", {
@@ -92,14 +132,13 @@ module.exports = {
     }
   },
 
-   profile: (req, res) => {
+  profile: (req, res) => {
     db.User.findByPk(req.session.userLogin.id)
       .then((user) => {
         return res.render("./users/profile", {
           user,
           cities: require("../data/cities"),
           provinces: require("../data/provinces"),
-         
         });
       })
       .catch((err) => console.log(err));
@@ -116,24 +155,23 @@ module.exports = {
     //guardar los cambios
     db.User.update(
       {
-          firstName: req.body.firstName?.trim(),
-          lastName: req.body.lastName?.trim(),
-          dni: req.body.dni,
-          email: req.body.email?.trim(),
-          image: req.file ? req.file.filename : req.session.userLogin.image
+        firstName: req.body.firstName?.trim(),
+        lastName: req.body.lastName?.trim(),
+        dni: req.body.dni,
+        email: req.body.email?.trim(),
+        image: req.file ? req.file.filename : req.session.userLogin.image,
       },
       {
-          where:
-          {
-              id: +req.params.id
-          }
-      })
-      .then((user) =>
-      {
+        where: {
+          id: +req.params.id,
+        },
+      }
+    )
+      .then((user) => {
         req.session.userLogin = {
           // guarda la info en userLogin
           ...req.session.userLogin,
-          firstName : user.firstName,
+          firstName: user.firstName,
           lastName: user.lastName,
           dni: user.dni,
           email: user.email,
@@ -169,9 +207,8 @@ module.exports = {
 
         return res.redirect("/users/profile");
       })
-      .catch(err => 
-      {
-        console.log(err)
+      .catch((err) => {
+        console.log(err);
         return res.send(err);
       });
   },

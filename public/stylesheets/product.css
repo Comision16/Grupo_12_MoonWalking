@@ -1,14 +1,11 @@
 .h4_resultado{
     color: var(--colorRojo);
-    margin-top: 3%;
-    margin-left: 3%;
 }
 .div_padreFor{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
-    margin-top: 4%;
 }
 
 .div_img-product{

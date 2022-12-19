@@ -1,7 +1,7 @@
 const {loadProducts, storeProducts} = require('../data/productModule');
 const {validationResult} = require('express-validator');
 const db = require('../database/models');
-const { Op } = require('sequelize');
+const { Op, literal } = require('sequelize');
 const { reverse } = require('../data/cities');
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -13,7 +13,9 @@ module.exports = {
 
     edit : async (req,res) => {
         try{  
-            const product = await db.Product.findByPk(+req.params.id);
+            const product = await db.Product.findByPk(+req.params.id,{
+                include : ['images']
+            });
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
             const sizes = await db.Size.findAll();
@@ -53,23 +55,24 @@ module.exports = {
     },
 
     detail: async (req, res) => {
-        const associations = 
-        {
-          include:
-           [
-           {
-             association: 'sizes'
-           },
-           {
-             association: 'images'
-           }
-         ]
-        }
-
+      
         try{
-            const product = await db.Product.findByPk(req.params.id, associations);
+            const product = await db.Product.findByPk(req.params.id, {
+                include: ['images', 'brand', 'category']
+            });
 
-            return res.render('./products/detalle', {product});
+            const relacionados = await db.Product.findAll({
+                where : {
+                    [Op.or] : {
+                        categoryId : product.category,
+                        brandId : product.brandId
+                    }
+                },
+                order : [literal('rand()')],
+                include : ['images','brand','category']
+            })
+
+            return res.render('./products/detalle', {product,relacionados});
         }
         catch(error){
             console.log(error);
@@ -144,25 +147,50 @@ module.exports = {
     },
     
     search : async (req,res) => {
-        let { keywords } = req.query;
+        let { keywords, brand } = req.query;
+        let queryOptions;
+        if(brand) {
+           queryOptions =  {
+                where: {
+                    [Op.or]: [
+                        {
+                            name: {
+                                [Op.substring]: keywords,
+                            },
+                        },
+                        {
+                            description: {
+                                [Op.substring]: keywords,
+                            },
+                        },
+                        {
+                            brandId : req.query.brand
+                        }
+                    ],
+                },
+                 include: ['images','brand','category'],
+            }
+        }else {
+            queryOptions = {
+                where: {
+                    [Op.or]: [
+                        {
+                            name: {
+                                [Op.substring]: keywords,
+                            },
+                        },
+                        {
+                            description: {
+                                [Op.substring]: keywords,
+                            },
+                        },
+                    ],
+                },
+                 include: ['images','brand','category'],
+            }
+        }
        
-		db.Product.findAll({
-			where: {
-				[Op.or]: [
-					{
-						name: {
-							[Op.substring]: keywords,
-						},
-					},
-					{
-						description: {
-							[Op.substring]: keywords,
-						},
-					},
-				],
-			},
-			 include: ['images'],
-		})
+		db.Product.findAll(queryOptions)
 			.then((result) => {
 				return res.render("./products/product", {
 					products: result,
