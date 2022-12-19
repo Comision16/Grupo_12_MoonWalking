@@ -1,93 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>MoonWalking</title>
-    </head>
-<%- include('./partials/head', {title : 'Home'}) %>
 
-<body>
-    <%- include('./partials/header') %>
-    <main>
-        <section class="carrucel">
-            <div class="slaider-frame">
-                <ul>
-                    <li><img class="Img" src="/img/zapatillas/zapa 1.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 2.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 3.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt="">
-                    <li><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt="">
-                    <!-- para desktop -->
-                    <li><img class="Img" src="/img/urbano/zapa 1.jpg" alt="">  
-                    <li><img class="Img" src="/img/urbano/zapa 2.jpg" alt="">     
-                    <li><img class="Img" src="/img/urbano/zapa 3.jpg" alt="">   
-                </ul>
-            </div>
-        </section>
-    <section class="Deportivo">
-        <h4>Deportivo</h4>
-        <div class="imagenes_zapatillas">
-    <div class="flechas_2">
-    </div>
+<%- include('./partials/head', {title : 'MoonWalking | Home' }) %>
 
-<% products.forEach(({id,name,images,price}) => { %>
-    <article><a href="/products/detalle/<%= id %>"><div class="disponible_logo"><img class="Img" src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'defaultProduct.jpeg' %>" alt=""><div class="Disponible"><p>Disponible!</p></div></div> <p class="texto_info"><%= name %> </p><p class="texto_info">$<%= price %></p></a></article>
-<% }) %>
+    <body class="home">
+        <%- include('./partials/header') %>
+            <main class="container">
 
 
-            <div class="flechas_2">
-        </div>
-    </div>
-    </section>
-    <section class="carrucel_logos">
-        <div class="slaider-frame">
-            <ul>
-                <li><img class="Img_logo" src="/img/marcas/logo_puma.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/adidas a color.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/logo_nike.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/logo_convers.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/rebook color.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/logo_vans.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/logo_armour.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/logo_nb.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/filacolor.jpg" alt=""></li>
-                <li><img class="Img" src="/img/marcas/jordan air.jpg" alt=""></li>
-            </ul>
-        </div>
-    </section>
-    <section class="urbano">
-        <h4 class="h4">Urbano</h4>
-        <div class="imagenes_zapatillas">
+                <section class="products">
 
-            <article><div class="proximamente_logo"><img class="Img" src="/img/urbano/zapa 1.jpg" alt=""> <div class="Proximamente"><p>En Breve</p></div></div><p class="texto_info">Nike Air Force 1 07 Lv8</p><p class="texto_info">$27.999</p></article>             
-            <article><div class="proximamente_logo"><img class="Img" src="/img/urbano/zapa 2.jpg" alt=""> <div class="Proximamente"><p>En Breve</p></div></div><p class="texto_info">Converse Chuck</p><p class="texto_info">$14.850</p></article>
-            <article><div class="proximamente_logo"><img class="Img" src="/img/urbano/zapa 3.jpg" alt=""> <div class="Proximamente"><p>En Breve</p></div></div><p class="texto_info">Fila Rush</p><p class="texto_info">$16.000</p></article>
-     
-    </div>
-    </section>
-    <section class="productos">
-        <h4 class="h4">Productos</h4>
-        <div class="imagenes_zapatillas">
-            
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 10.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Vans Sk8-Hi</p><p class="texto_info">$17.550</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 11.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Puma Cali Star Wn S</p><p class="texto_info">$18.499</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Vans Ultra Range</p><p class="texto_info">$24.000</p></article>
-    </div>
-        <div class="imagenes_zapatillas">
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 8.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Vans Safari Multi Era</p><p class="texto_info">$10.900</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa jordan.jpg" alt=""> <div class="Proximamente"><p>En Breve</p></div></div><p class="texto_info">Jordan Air 1 Mid Se</p><p class="texto_info">$34.999</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt=""> <div class="Proximamente"><p>En Breve</p></div></div><p class="texto_info">Puma Mayze Women</p><p class="texto_info">$19.999</p></article>
-    </div>
-    <div class="imagenes_zapatillas">
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 9.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Reebok Classic Leather</p><p class="texto_info">$17.000</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Topper Loli</p><p class="texto_info">$11.499</p></article>
-        <article><div class="proximamente_logo"><img class="Img" src="/img/zapatillas/zapa 7.jpg" alt=""><div class="Proximamente"><p>En Breve</p></div></div> <p class="texto_info">Puma Muse X-3 Metallic</p><p class="texto_info">$18.770</p></article>
-    </div>
+                    <div class="d-flex justify-content-center gap-3 my-5">
+
+                        <button onclick="getProduct(2)" class="btn btn-outline-dark" style="width:300px">
+                            Deportivo
+                        </button>
+                        <button onclick="getProduct(1)" class="btn btn-outline-dark" style="width:300px">
+                            Urbano
+                        </button>
+
+                    </div>
+                    <div class="row mt-4" id="box-products" style="max-width: 1200px;">
+                        <% deportivo.forEach(({id,name,images,price,brand})=> { %>
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <a href="/products/detalle/<%= id %>">
+                                    <div class="cardProduct">
+                                        <img class="img-fluid"
+                                            src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'defaultProduct.jpeg' %>"
+                                            alt="">
+                                        <div class="logotipo" >
+                                            <img class="img-fluid" src="/img/marcas/<%= brand.image %> " alt="">
+                                        </div>
+                                        <hr>
+                                        <article>
+                                            <h4 class="">
+                                                <%= name %>
+                                            </h4>
+                                            <h2 class="text-end">$ <%= price %>
+                                            </h2>
+                                        </article>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <% }) %>
+                    </div>
+
+                </section>
 
 
-    </section>
-    </main>
-    <%- include('./partials/footer') %>
 
-</body>
+                <section class="carrucel_logos">
+                    <div class="slaider-frame">
+                        <ul>
+                            <% brands.forEach(brand => { %>
+                                <li><a class="Img p-3" href="/products/search?brand=<%= brand.id %>"><img class="img-fluid"   src="/img/marcas/<%= brand.image %>" alt=""></a></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="productos">
+                    <h2 class="">Ofertas</h2>
+
+                    <div class="row mt-4" id="box-products" style="max-width: 1200px;">
+                        <% ofertas.forEach(({id,name,images,price, discount})=> { %>
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <a href="/products/detalle/<%= id %>">
+                                    <div class="cardProduct">
+                                        <img class="img-fluid"
+                                            src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'defaultProduct.jpeg' %>"
+                                            alt="">
+                                        <div
+                                            class="disponible <%= discount > 30 ? 'text-bg-primary' : 'text-bg-info' %> ">
+                                            <p>
+                                                <%= discount %>% OFF
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <article>
+                                            <h4 class="">
+                                                <%= name %>
+                                            </h4>
+                                            <div class="d-flex align-items-end justify-content-between">
+                                                <h4 class="m-0 text-danger"><s>$ <%= price %></s> </h4>
+                                                <h3 class="text-end m-0">$ <%= price %>
+                                                </h3>
+                                            </div>
+
+                                        </article>
+                                    </div>
+
+                                </a>
+                            </div>
+
+                            <% }) %>
+                    </div>
+
+                </section>
+            </main>
+            <%- include('./partials/footer') %>
+
+                <script>
+
+                    const getProduct = async (category) => {
+                        try {
+
+                            let response = await fetch('/api/products/category?category=' + category)
+                            let result = await response.json()
+                            console.log(result)
+                            document.getElementById('box-products').innerHTML = null;
+
+                            result.products.forEach(({images, name,id, price, brand}) => {
+                                document.getElementById('box-products').innerHTML += `
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <a href="/products/detalle/${id}">
+                                    <div class="cardProduct">
+                                        <img class="img-fluid"
+                                            src="/img/zapatillas/${images.length > 0 ? images[0].file : 'defaultProduct.jpeg'}"
+                                            alt="">
+                                        <div class="logotipo" >
+                                            <img class="img-fluid" src="/img/marcas/${brand.image}" alt="">
+                                        </div>
+                                        <hr>
+                                        <article>
+                                            <h4 class="">
+                                                ${name}
+                                            </h4>
+                                            <h2 class="text-end">$ ${price}
+                                            </h2>
+                                        </article>
+                                    </div>
+                                </a>
+                            </div>
+                                `
+                            });
+
+                        } catch (error) {
+                            console.error
+                        }
+                    }
+                </script>
+
+    </body>
+
 </html>

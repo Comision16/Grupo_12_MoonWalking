@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Productos</title>
-    </head>
+
 <%- include('../partials/head',{ title: 'Producto' }) %>
 
-<body>
+<body class="home">
     <%- include('../partials/header') %>
-    <main>
-    <!--Acá tiene que ir un if/else, el if que muestre los productos dependiendo de la keyword dada, 
+    <main class="container">
+        <!--Acá tiene que ir un if/else, el if que muestre los productos dependiendo de la keyword dada, 
     y el else, que muestre el mensaje de "No se encontraroion productos"-->
-        <section>
-            <h4 class="h4_resultado">Resultados de la búsqueda:</h4>
+    <section class="products">
             <% if (products.length > 0) { %>
-                <div>
-                    <div class="div_padreFor">
-                        <% products.forEach(({id,name,image,price})=> { %>
-                        <article class="productArticle">
-                            <a href="/products/detalle/<%= id %>">
-                                <div class="div_img-product"><img class="img_product"
-                                    src="/img/zapatillas/<%= image %>" alt=""> </div>
-                                    <p class="texto_info-product"><%= name %></p>
-                                    <p class="texto_info-product"><%= price %></p>
-                              </a>
-                            
-                        </article>
-                    <div>
+                <div class="row mt-4" id="box-products" style="max-width: 1200px;">
+                    <% products.forEach(({id,name,images,price,brand})=> { %>
+                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                        <a href="/products/detalle/<%= id %>">
+                            <div class="cardProduct">
+                                <img class="img-fluid"
+                                    src="/img/zapatillas/<%= (images && images.length > 0) ? images[0].file : 'defaultProduct.jpeg' %>"
+                                    alt="">
+                                <div class="logotipo" >
+                                    <img class="img-fluid" src="/img/marcas/<%= brand.image %> " alt="">
+                                </div>
+                                <hr>
+                                <article>
+                                    <h4 class="">
+                                        <%= name %>
+                                    </h4>
+                                    <h2 class="text-end">$ <%= price %>
+                                    </h2>
+                                </article>
+                            </div>
+                        </a>
+                    </div>
+
+                    <% }) %>
                 </div>
-            <% }) %>
+            </section>
+
             <% }else{ %>
-                <div class="productBusqueda">
-                    No hay productos para la búsqueda 
-                    <span>
-                    <%= keywords %>
-                    </span>
+                <div class="row mt-4">
+                  <div class="col-12 col-md-8  mx-auto">
+                    <img class="img-fluid" src="/img/nostock.png" alt="">
+                  </div>
+                    
+                    
+                    
                 </div>
             <% } %>
 
-        </section>
     </main>
 </body>
 </html>

@@ -1,68 +1,92 @@
 <header>
-        
-    <div class="barraenvios">
-        <p>Envio gratis a todo el país - Cuotas sin interés</p>
-    </div>
 
-    <div class="encabezado">
-     <div class="logo_burguer">   
-        <div class="burger">
-            <i class="fa-solid fa-bars"></i>
-            
-        </div>
-    </div>
-    <div class="container">
-       <form action="/products/search" method="GET"><input class="input_buscador" name="keywords" type="text" placeholder="Buscar">
-        <div class="btn">
-            <i class="fa fa-search"></i>
-        </div>
+  <div class="encabezado p-3 pt-0">
+    
+    <a href="/"><img src="/design/Logo.jpg" width="100px" alt="logo" ></a>
+   
+    <form action="/products/search" method="GET" class="mb-3 mb-md-0 d-flex position-relative formSearch">
+      <input class="form-control" name="keywords" type="text" placeholder="Buscar" style="padding-right: 35px;">
+      <button class="border-0 bg-transparent" style="position: absolute; right: 15px; top: 8px;">
+        <i class="fa fa-search"></i>
+      </button>
+
     </form>
-    </div>
-        <div class="logo">
-        <a href="/"><img class="Logo" src="/design/Logo.jpg" alt="logo" height="0"></a>
-    </div>
-    
-    
-        <div class="Buscador">
-        <form class="form_buscador" action="/products/search" method="GET">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" name="keywords" placeholder="Buscador">               
-           </form>
-        </div>
-        <div class="carrito">
-            <!--para agregar productos-->
-            <% if (locals.userLogin && locals.userLogin.admin) { %>
-            <a class="mas_celular" href="/products/add"><i class="fa-solid fa-2x fa-circle-plus " ></i></a>
-            <a class="mas_tablet_pc" href="/products/add"><i class="fa-solid fa-3x fa-circle-plus"></i></a>
-            <!--para agregar productos-->
-            <hr class="barra_hr"> 
-            <!--perfil -->
-            <div   class="logo_mas_pc1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt="" height="30">Perfil</a></div>
-            <div   class="logo_mas_celular1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt="" height="30"></a></div>
-            <!-- perfil -->
-            <hr class="barra_hr"> 
-            <!--logout -->
-            <div class="logo_mas_celular"><a class="" href="/users/logout"><i class="fa-sharp fa-2x fa-solid fa-arrow-right-from-bracket"></i></a></div>
-            <div class="logo_mas_pc"><a class="" href="/users/logout"><i class="fa-sharp fa-3x fa-solid fa-arrow-right-from-bracket"></i>Salir</a></div>
-            <!-- logout -->
-            <% } else if (locals.userLogin) { %>
-            <a class="carrito_mas" href="/products/carrito"><img src="/img/carrito.jpg" alt="" height="30"></a>
-            <hr class="barra_hr">
-            <!--perfil -->
-            <div   class="logo_mas_pc1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt="" height="30">Perfil</a></div>
-            <div   class="logo_mas_celular1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt="" height="30"></a></div>
-            <!-- perfil -->
-            <hr class="barra_hr"> 
-            <!--logout -->
-            <div class="logo_mas_celular"><a class="" href="/users/logout"><i class="fa-sharp fa-2x fa-solid fa-arrow-right-from-bracket"></i></a></div>
-            <div class="logo_mas_pc"><a class="" href="/users/logout"><i class="fa-sharp fa-3x fa-solid fa-arrow-right-from-bracket"></i>Salir</a></div>
-            <!-- logout -->
-            <% }else{%>
-            <!-- para visitantes -->
-            <a class="logo_mas" href="/users/login"> <img src="/img/usuario luna blanca.jpg" alt="" height="30"></a>
-            <% } %>
-            <!-- para visitantes -->
-        </div>
-    </div>
-</header>
 
+    <div class="carrito">
+      <% if (locals.userLogin && locals.userLogin.admin) { %>
+         <!--agregar producto -->
+         <div class="logo_mas_pc1"><a href="/products/add"><i
+          class="fa-solid fa-2x  fa-plus"></i><p>Nuevo</p></a></div>
+        <!-- agregar producto -->
+        <hr class="barra_hr">
+  
+        <!--perfil -->
+        <div class="logo_mas_pc1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt=""
+              height="30">Perfil</a></div>
+        <!-- perfil -->
+        <hr class="barra_hr">
+        <!--logout -->
+      
+        <div class="logo_mas_pc"><a class="" href="/users/logout"><i
+              class="fa-sharp fa-2x fa-solid fa-arrow-right-from-bracket"></i>Salir</a></div>
+        <!-- logout -->
+        <% } else if (locals.userLogin) { %>
+          <div><a href="" id="btn-cart" class="logo_mas_pc1" data-bs-toggle="modal" data-bs-target="#cartModal"> <i
+                class="fa-solid fa-2x  fa-shopping-basket"></i><p>Carrito</p></a></div>
+          <hr class="barra_hr">
+          <!--perfil -->
+          <div class="logo_mas_pc1"><a class="" href="/users/profile"><img src="/img/usuario luna blanca.jpg" alt=""
+                height="30">Perfil</a></div>
+          <!-- perfil -->
+          <hr class="barra_hr">
+          <!--logout -->
+          <div class="logo_mas_pc1"><a class="" href="/users/logout"><i
+                class="fa-sharp fa-2x fa-solid fa-arrow-right-from-bracket"></i><p>Salir</p> </a></div>
+       
+          <!-- logout -->
+          <% }else{%>
+            <!-- para visitantes -->
+            <a class="" href="/users/login"> <img src="/img/usuario luna blanca.jpg" alt="" height="80px"></a>
+            <% } %>
+              <!-- para visitantes -->
+    </div>
+  </div>
+
+
+
+</header>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="cartModalLabel">Mi Compra</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body table-responsive" id="box-cart">
+        <table class="table" id="cart-box">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex justify-content-between gap-2">
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Seguir comprando</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

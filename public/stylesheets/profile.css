@@ -1,15 +1,15 @@
 .h3_profile{
-   /*color: var(--colorRojo);*/
-    /* margin-left: 2%; */
-    text-align: left; 
-    font-family: Arial Black; 
-    font-weight: bold; font-size: 30px; 
-    background: #202020; 
-    -webkit-background-clip: text; 
-    -moz-background-clip: text; 
-    background-clip: text; 
-    color: transparent; 
-    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+text-align: left;
+font-family: Arial Black;
+font-weight: bold;
+font-size: 30px;
+background: #202020;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+color: transparent;
+text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+margin-top: 20px;
 }
 .imagen_profile{
     display: flex;
@@ -29,17 +29,16 @@
 }
 .form_input--profile label{
     font-size: 15px;
-    margin-left: 2%;
     font-weight: 500;
 }
 .form_input--profile{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 15px;
 }
 .form_profile--image{
-    margin-bottom: 5%;
-    margin-left: 5%;
+
     width: 90%;
     outline: none;
     padding: 4px;
@@ -48,9 +47,7 @@
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
 .form_input--profile input{
-    margin-bottom: 5%;
-    margin-left: 5%;
-    width: 90%;
+    /* width: 90%; */
     outline: none;
     padding: 4px;
     background-color: var(--colorGrisClaro);
@@ -59,16 +56,12 @@
 }
 .h5--profile{
     color: var(--colorRojo);
-    margin-bottom: 2%;
-    margin-left: 2%;
 }
 .h5_profile--avatar{
     color: var(--colorRojo);
-    margin-bottom: 6%;
 
 }
 .form__select--profile{
-    margin-left: 5%;
     width: 70%;
     outline: none;
     padding: 4px;
@@ -77,7 +70,6 @@
     box-shadow: 0px 2px 5px rgb(100, 100, 100);
 }
 .form_input--profile--image{
-    margin-left: 5%;
     width: 90%;
 }
 .input_image--profile{
@@ -96,8 +88,7 @@
     flex-direction: row;
     gap: 10px;
     justify-content: center;
-    margin-bottom: 5%;
-    margin-top: 5%;
+
 }
 .cancelar_add--profile{
     background-color: rgb(240, 128, 108);
@@ -118,36 +109,17 @@
     box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
 }
 
+.button--profile {
+    width: 100%;
+}
+
 
 
 /* TABLET Y DESKTOP */
 @media (min-width: 768px) {
-    .form_entero_1{
-        background-color: var(--colorGrisClaro);
-        margin-bottom: 15px;
-        margin-top: 0px;
-        border-radius: 15px;
-    }
-    .form_perfil{
-        display: flex;
-        justify-content: center;
-    }
-    .form_entero_2{
-        background-color: var(--colorGrisClaro);
-        margin: 15px;
-        margin-bottom: 15px;
-        margin-top: 0px;
-        border-radius: 15px;
-    }
-    
-    .form_profile{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .form_input--profile label{
+
+      .form_input--profile label{
         font-size: 15px;
-        margin-left: 2%;
         font-weight: 500;
         margin-top: 5px;
     }
@@ -157,13 +129,11 @@
     .form_input--profile{
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        /* gap: 15px; */
         margin-bottom: 8px;
-        width: 300px;
     }
     .form_input--profile input{
-        margin-left: 5%;
-        width: 90%;
+        width: 100%;
         outline: none;
         padding: 4px;
         background-color: #ededed;
@@ -172,7 +142,6 @@
     }
     .h5--profile{
         color: var(--colorRojo);
-        margin-left: 2%;
         margin-top: 5px;
     }
     .h5_profile--avatar{
@@ -181,7 +150,6 @@
     
     }
     .form__select--profile{
-        margin-left: 5%;
         width: 70%;
         outline: none;
         padding: 4px;
@@ -190,7 +158,6 @@
         box-shadow: 0px 2px 5px rgb(100, 100, 100);
     }
     .form_input--profile--image{
-        margin-left: 5%;
         width: 90%;
     }
     .input_image--profile{
@@ -201,4 +168,6 @@
         border: none;
         box-shadow: 0px 2px 5px rgb(100, 100, 100);
     }
+
+  
 }

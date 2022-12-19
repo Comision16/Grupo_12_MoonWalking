@@ -1,4 +1,10 @@
 /* Header  */
+header a, .home a {
+    color : black;
+}
+.formSearch {
+    width: 100%;
+}
 .encabezado{
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +19,7 @@
     height: 46px;
  }
  .logo_mas_pc {
-    width: 20%;
+    width: 5%;
     height: 46px;
  }
  .logo_mas_pc1 {
@@ -62,13 +68,7 @@ transition: 1s;
     transform:translateY(-10px);
     transition: 1s;
 }
- .container{
-    justify-content: flex-start;
-    left: -37%;
-    top: 4%;
-    transform: translate(-3%, 15%);
-    padding: 6px;
- }
+
  .input_buscador{
     outline: none;
     box-sizing: border-box;
@@ -85,34 +85,7 @@ transition: 1s;
  ::placeholder{
     color: grey;
  }
- .btn{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 51px;
-    height: 47px;
-    background-color: var(--colorGrisOscuro);
-    line-height: 40px;
-    border-radius: 25%; 
-    text-align: center;
-    cursor: pointer;
-    transition: .5s;
- }
- .btn i{
-    font-size:23px ;
-    color: white;
-    line-height: 47px;
-    transition: all .7s ease;
- }
- .container:hover input{
-    width: 250px;
- }
- .container:hover i{
-    transform:  rotate(-360deg);
- }
- .btn:hover{
-    background: #bcbcbc;
- }
+
 .burger{
     display: none;
     align-items: center;
@@ -131,15 +104,16 @@ transition: 1s;
 .carrito{
     text-align: center;
     display: flex;
+    /* align-items: center; */
     flex-direction: row;
-    margin-right: 2%;
+    /* margin-right: 2%; */
     justify-content: center;
+    /* margin-top: 20px; */
 }
 .carrito img{
    border-radius: 50%;
-   width: 100%;
+   /* width: 100%; */
    height: 35px;
-   
 }
 .barra_hr{
     width: 1px;
@@ -148,7 +122,7 @@ transition: 1s;
     margin-right: 10px;
     background-color:  black;
     border: none;
-     }
+    }
 
 .barraenvios{
     background-color: var(--colorGrisCasiBlanco);
@@ -197,6 +171,94 @@ transition: 1s;
 
 
 /* Main */
+
+.home .logotipo{
+    position: absolute;
+    border-radius: 50%;
+    background-color: #FFF;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    top: -20px;
+    right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home .logotipo img{
+  width: 62px;
+}
+
+.home .carousel-marcas {
+    position: relative;
+    margin: 0 40px;
+  }
+  .home .carousel-marcas .carousel-container {
+    padding: 0 20px;
+  }
+  .home .carousel-marcas article {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+  .home .carousel-marcas .glider-next,
+  .home .carousel-marcas .glider-prev {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    top: calc(50% - 35px);
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background: none;
+    opacity: 20%;
+  }
+  .home .carousel-marcas .glider-next:hover,
+  .home .carousel-marcas .glider-prev:hover {
+    opacity: 100%;
+  }
+  .home .carousel-marcas .glider-prev {
+    left: -30px;
+  }
+  .home .carousel-marcas .glider-next {
+    right: -30px;
+  }
+  .home .carousel-marcas .carousel-elements {
+    overflow: hidden;
+  }
+  .home .carousel-marcas .glider-dot {
+    background-color: white;
+    opacity: 0.2;
+    display: none;
+  }
+  .home .carousel-marcas .glider-dot:hover {
+    opacity: 0.5;
+  }
+  .home .carousel-marcas .glider-dot.active {
+    opacity: 1;
+  }
+
+.home .cardProduct {
+    width: 100%;
+    box-shadow: 0 0 10px black;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 450px;
+}
+
+.home article {
+    height: 100px;
+}
+
+
+
 .flechas{
     display: flex;
     justify-content: space-between;
@@ -246,12 +308,10 @@ transition: 1s;
   width: 100%;
   margin: auto;
   overflow: hidden;
-  
- 
 }
 .slaider-frame img{
     width: 75px;
-    height: 100%;
+   /*  height: 100%; */
     box-shadow: 1px 1px 6px grey;
     
     
@@ -264,13 +324,13 @@ transition: 1s;
 }
 .slaider-frame ul{
     display: flex;
-    width: 300%;
+    width: 100%;
     padding: 0;
-    animation: cambio 20s infinite alternate; 
+    animation: cambio 10s infinite alternate; 
 }
 .slaider-frame li{
-    background-color: rgb(230, 227, 227);
-    width: 36%;
+    /* background-color: rgb(230, 227, 227); */
+    width: 300px;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -278,14 +338,12 @@ transition: 1s;
     flex-direction: column;
 }
 .carrucel_logos img{
-    width: 69%;
+    width: 300px;
     height: 70%;
-    
 }
 .carrucel_logos{
-    margin: 5px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 5px auto;
+  
 }
 /* Proximamente */
 .Proximamente{
@@ -306,33 +364,32 @@ transition: 1s;
 .proximamente_logo{
     position: relative;
 }
-.disponible_logo{
-    position: relative;
-}
-.Disponible p{
-    font-size:9px;
+
+
+.disponible p{
+    font-size: 20px;
     text-align: center;
 }
-.Disponible{
-    width: 51px;
-    height: 20px;
+.disponible{
+    width: 123px;
+    height: 29px;
     border-radius: 5px;
     /* right: 0; */
-    left: 50px;
-    top: 10px;
+    right: -8px;
+    top: 21px;
     background: rgb(152, 230, 145);
     position: absolute;
     transform: rotate(30deg);
 }
 @keyframes cambio {
     0%{margin-left: 0;}
-    20%{margin-left: 0;}
 
-    25%{margin-left: -100%;}
-    45%{margin-left: -100%;}
+    50%{margin-left: -100%;}
 
-    50%{margin-left: -200%;}
-    70%{margin-left: -200%;}
+    100%{margin-left: -170%;}
+
+    
+    
     
 }
 /* redes */
@@ -425,7 +482,7 @@ footer{
         display: none;
     }
    .logo_mas_pc1{
-    display: none;
+    /* display: none; */
    }
     .mas_celular:hover{
         transform:rotate(360deg);
@@ -446,12 +503,10 @@ footer{
     .Logo{
         display: none;
     }
-    .encabezado{
+    /* .encabezado{
         height: 80px;
-    }
-    .container{
-        margin-bottom: 25px;
-    }
+    } */
+
     .burger{
         display: none;
     }
@@ -489,6 +544,15 @@ display: none;
 
 /* Tablet */
 @media (min-width: 768px){
+
+    .formSearch {
+        width: 49%;
+    }
+  
+    .carrito{
+     
+        margin-top: 0px;
+    }
    .Logo{
     margin-left: 20%;
     height: 120px;
@@ -497,43 +561,44 @@ display: none;
    .horarios_2{
     display: none;
  }
-   .carrucel_logos Img{
-    width: 25%;
-    height: 70%;
-}
-   .carrito img{
-    width: 100%;
-    height: 46px;
-   }
-   /* .slaider-frame img{
-    width: 89px;
-    height: 188%;
-   } */
+
+    .carrito img{
+    /* width: 80%; */
+    /* height: 46px; */
+    }
+
    .urbano{
     display: none;
    }
    .barra_hr{
     height: 46px;
    }
-   .container{
-    display: none;
-   }
+
    .texto_info {
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     text-align: center;
 }
 .slaider-frame img{
-    width: 100px;
+    width: 200px;
     height: 100%;
     box-shadow: 1px 1px 6px grey;
-    
-    
 }
  }
 
   /* TABLET */
   @media (min-width:768px){
+
+    .home .cardProduct {
+        margin: 0 auto;
+        width: 92%;
+    }
+    .home .cardProduct article {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
       .datos{
           line-height: 1.5;
           font-size: medium;
@@ -621,10 +686,30 @@ display: none;
   }
     
   
-    
+
 
   /* DESKTOP*/
   @media (min-width:1024px){
+
+    .slaider-frame img{
+        width: 300px;
+      
+    }
+
+    .home .cardProduct {
+        height: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .home .cardProduct article {
+        height: 100px;
+    }
+    .carrito{
+     
+/* margin-top: 20px; */
+    }
+
       .datos{
           line-height: 1.5;
           font-size: medium;

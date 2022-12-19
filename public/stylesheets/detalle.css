@@ -9,12 +9,10 @@
     margin-left: 5px;
 }
 
-.container{
-    justify-content: flex-start;
-    left: -37%;
-    top: 4%;
-    transform: translate(-3%, 15%);
-    padding: 6px;
+
+ .editar_eliminar{
+    display: flex;
+    justify-content: center;
  }
  .Eliminar-producto{
     background-color: rgb(240, 128, 108);
@@ -26,7 +24,8 @@
     cursor: pointer;
     align-items: center;
     box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
-    
+    width: 63px;
+    margin-left: 5px;
 }
  .input_buscador{
     outline: none;
@@ -44,37 +43,19 @@
  ::placeholder{
     color: grey;
  }
- .btn{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 51px;
-    height: 47px;
-    background-color: var(--colorGrisOscuro);
-    line-height: 40px;
-    border-radius: 25%; 
-    text-align: center;
-    cursor: pointer;
-    transition: .5s;
- }
- .btn i{
-    font-size:23px ;
-    color: white;
-    line-height: 47px;
-    transition: all .7s ease;
- }
- .container:hover input{
-    width: 250px;
- }
- .container:hover i{
-    transform:  rotate(-360deg);
- }
- .btn:hover{
-    background: #bcbcbc;
- }
+
 
 
 /* MAIN */
+.classSizes{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -30px;
+}
+.talle_3{
+    margin-left: 5px;
+}
 .mainDetalle{
     align-items: center;
     font-size: small;
@@ -371,7 +352,22 @@ footer h3{
         padding: 20px 5px
     }
 }
-
+/* TABLET */
+@media (min-width:768px){
+    .Eliminar-producto{
+        background-color: rgb(240, 128, 108);
+        border: none;
+        border-radius: 10%;
+        width: 100%;
+        /*eight: 35px;*/
+        padding: 10px;
+        cursor: pointer;
+        align-items: center;
+        box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+        width: 75px;
+        margin-left: 5px;
+    }
+}
 /* DESKTOP*/
 @media (min-width:1024px){
 
@@ -380,6 +376,26 @@ footer h3{
     .mainDetalle{
         font-size: medium;
         justify-content: space-evenly;
+    }
+    .classSizes{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -70px;
+        right: -50px;
+    }
+    .Eliminar-producto{
+        background-color: rgb(240, 128, 108);
+        border: none;
+        border-radius: 10%;
+        width: 100%;
+        /*eight: 35px;*/
+        padding: 10px;
+        cursor: pointer;
+        align-items: center;
+        box-shadow: 0px 1px 10px #888, 0px 0px 14px #888;
+        width: 75px;
+        margin-left: 5px;
     }
     .lineaSeparadora{
         display: none;
