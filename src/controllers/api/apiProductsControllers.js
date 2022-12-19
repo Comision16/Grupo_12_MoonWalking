@@ -1,5 +1,6 @@
 const db = require("../../database/models");
 const path = require('path');
+const { literal } = require("sequelize");
 
 const apiProductsControllers = {
     listAll : async (req, res) => {
@@ -70,6 +71,32 @@ const apiProductsControllers = {
     getImg: async (req, res) =>
     {
         return res.sendFile(path.join(__dirname, '..','..', '..', 'public','img','zapatillas', req.params.filename));
+    },
+     /* APIS */
+     byCategory : async (req,res) => {
+        try {
+
+            let products = await db.Product.findAll({
+                include : ['category','brand','images'],
+                where : {
+                    categoryId : req.query.category
+                },
+                limit : 4,
+                order :[ literal('rand()')]
+            })
+
+            return res.status(200).json({
+                ok : true,
+                products
+            })
+            
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok : false,
+                products : null,
+                msg : error.message || 'upsss, error!'
+            })
+        }
     }
 }
 

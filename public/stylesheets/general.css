@@ -20,3 +20,8 @@
 .invalid{
     color:#FB372C
 }
+
+a{ 
+    text-decoration: none !important;
+    color: black ;
+}

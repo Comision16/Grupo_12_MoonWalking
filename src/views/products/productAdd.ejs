@@ -7,105 +7,120 @@
     title : 'Agregar producto'
 }) %>
 
-<body>
+<body class="productAdd">
 
     <%- include('../partials/header') %>
 
-    <main>
-             <h1 class="h1_agregar_producto">Agregar Producto</h1>
-             <form id="form-addProducts" action=""   enctype="multipart/form-data" method="POST" class="">
-
-             <div class="form_addProduct">
-            <div class="form_addEntero_1">
-    <div class="add_control">
-            <div class="col-123">
-                <label for="name" class="form-label-add">Nombre</label>
-                <input type="text" class="form-controlAdd" id="name" name="name" >
-                <small class="error_login"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
-                <small id="errorNombre" class="error_login"></small>
-
-            </div>
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto my-4">
+                <div class="card">
+                    <div class="card-body">
+                            <h3 class="text-dark">Agregar producto</h3>
+                            <hr>
+                        <form id="form-addProducts" action=""   enctype="multipart/form-data" method="POST" class="row">
+           
+                       <div class="form_input--profile  col-12 ">
+                           <label for="name" class="form-label-add">Nombre</label>
+                           <input type="text" class="form-controlAdd w-100" id="name" name="name" >
+                           <small class="error_login"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                           <small id="errorNombre" class="error_login"></small>
+           
+                       </div>
+                       
+                       <div class="form_input--profile  col-12 col-md-6" >
+                           <label for="price" class="form-label-add">Precio</label>
+                           <input type="number" class="form-controlAdd  w-100" id="price" name="price" >
+                           <small class="error_login"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                           <small id="errorNumber" class="error_login"></small>
+           
+                       </div>
+                       <div class="form_input--profile col-12 col-md-6">
+                           <label for="discount" class="form-label-add">Descuento</label>
+                           <input type="number" class="form-controlAdd w-100" id="discount" name="discount">
+                           <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                           <small id="errorDiscount" class="error_login"></small>
+           
+                       </div>
+                      
+                
+                       <div class="form_input--profile col-12 col-md-6">
+                           <label for="brand" class="form-label-add">Marca</label>
+                           <select name="brandId" id="brand" class="form-controlAdd w-100">
+                               <% brands.forEach(brand => { %>
+                                   <option value="<%= brand.id %>"><%= brand.name %></option>
+                               <% }) %>
+                           </select>
+                           <small class="error_login"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
+           
+                       </div>
+                      <!--  <div class="form_input--profile col-12 col-md-6">
+                           <label for="Talle" class="form-label-add">Talle</label>
+                           <select name="talle" id="Talle" class="select-add"> Elegí el talle correspondiente
+                               <% sizes.forEach(size => { %>
+                                   <option value="<%= size.id %>"><%= size.number %></option>
+                               <% }) %>
+                           </select>
+                           <small class="error_login"><%= locals.errors && errors.talle ? errors.talle.msg : null %></small>
+           
+                       </div> -->
+           
+                       <div class="form_input--profile col-12 col-md-6">
+                           <label for="category" class="form-label-add">Categoría</label>
+                           <select name="categoryId" id="category" class="form-controlAdd w-100">
+                               <% categories.forEach(category => { %>
+                                   <option value="<%= category.id %>"><%= category.name %></option>
+                               <% }) %>
+                           </select>
+                       </div>
+                       
+                  
+                       <!-- <div class="agregar_producto3"> -->
+                          
+                        <div class="form_input--profile col-12">
+                            <label for="description" class="form-label-add">Descripción</label>
+                               <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none; width: 100%;"></textarea>
+                               <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
+                               <small id="errorDescription" class="error_login"></small>
+           
+                           </div>
+                           <div class="form_input--profile col-12 col-md-6">
+                            <label for="image" class="form-label-add">Imagen</label>
+                            <input type="file" class="form-controlAdd  w-100" id="image" name="image" accept=".jpg, .png, .wepb">
+                            <small id="errorImage" class="error_login"></small>
             
-            <div class="col-123  " >
-                <label for="price" class="form-label-add">Precio</label>
-                <input type="number" class="form-controlAdd" id="price" name="price" >
-                <small class="error_login"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
-                <small id="errorNumber" class="error_login"></small>
-
-            </div>
-            <div class="col-123  col-md-6 mb-3">
-                <label for="discount" class="form-label-add">Descuento</label>
-                <input type="number" class="form-controlAdd" id="discount" name="discount">
-                <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
-                <small id="errorDiscount" class="error_login"></small>
-
-            </div>
-            <div class="col-123  col-md-6 mb-3">
-                <label for="image" class="form-label-add">Imagen</label>
-                <input type="file" class="form-controlAdd" id="image" name="image" accept=".jpg, .png, .wepb">
-                <small id="errorImage" class="error_login"></small>
-
-            </div>
-        </div>
-        </div>
-        <div class="form_addEntero_2">
-            <div class="col-123  col-md-6 mb-3">
-                <label for="brand" class="form-label-add">Marca</label>
-                <select name="brandId" id="brand" class="select-add">
-                    <% brands.forEach(brand => { %>
-                        <option value="<%= brand.id %>"><%= brand.name %></option>
-                    <% }) %>
-                </select>
-                <small class="error_login"><%= locals.errors && errors.brand ? errors.brand.msg : null %></small>
-
-            </div>
-            <div class="col-123  col-md-6 mb-3">
-                <label for="Talle" class="form-label-add">Talle</label>
-                <select name="talle" id="Talle" class="select-add"> Elegí el talle correspondiente
-                    <% sizes.forEach(size => { %>
-                        <option value="<%= size.id %>"><%= size.number %></option>
-                    <% }) %>
-                </select>
-                <small class="error_login"><%= locals.errors && errors.talle ? errors.talle.msg : null %></small>
-
-            </div>
-
-            <div class="col-123  col-md-6 mb-3">
-                <label for="category" class="form-label-add">Categoría</label>
-                <select name="categoryId" id="category" class="select-add">
-                    <% categories.forEach(category => { %>
-                        <option value="<%= category.id %>"><%= category.name %></option>
-                    <% }) %>
-                </select>
-            </div>
-            
-            
-        
-            <!-- <div class="agregar_producto3"> -->
-               
-                <div class="col-description ">
-                    <label for="description" class="form-label-add">Descripción</label>
-                    <textarea class="form-control1" id="description" name="description" rows="3" style="resize: none;"></textarea>
-                    <small class="error_login"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
-                    <small id="errorDescription" class="error_login"></small>
-
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img src="" id="imgPrev" alt="" class="img-fluid">
+                        </div>
+                   <!-- </div>  -->
+                   <div class="form__box form__box--flex ">
+                       <button class="btn btn-outline-secondary "> <a href="/" class="text-dark">Cancelar</a></button>
+                       <button class="btn btn-outline-dark" type="submit">Guardar</button>
+                   </div>  
+               </div>   
+           
+           </form>    
+                    </div>
                 </div>
             </div>
-        <!-- </div>  -->
-    </div> 
-    <div class="boton_add"> 
-        <div class="form__box form__box--flex ">
-            <button class="cancelar_add "> <a href="/" class="form__button form__button--cancel">Cancelar</a></button>
-            <button class="guardar_add form__button--send" type="submit">Guardar</button>
-        </div>  
-    </div>   
-
-</form>    
+        </div>
+            
 </main>
     
     <%- include('../partials/footer') %>
     <script src="/js/validacionProductAdd.js"></script>
-
+    <script>
+        const inputImage = document.getElementById('image');
+        const imgPrev = document.getElementById('imgPrev')
+        inputImage.addEventListener('change', ({target}) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(target.files[0]);
+            reader.onload = () => {
+                            imgPrev.src = reader.result
+                        }
+        })
+    </script>
 </body>
 
 </html>

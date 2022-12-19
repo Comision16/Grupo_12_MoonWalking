@@ -23,7 +23,6 @@
 .select-add{
     background-color: #E5E5E5;
     width: 90%;
-    margin-left: 2%;
     height: 10%;
 }
 .form_addProduct{
@@ -31,20 +30,7 @@
     justify-content: center;
     flex-direction: column;
 }
-.col-11{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    justify-content: space-between;
-    padding: 5px;
-    margin-left: 5%;
-    width: 90%;
-    outline: none;
-    padding: 4px;
-    background-color: #ededed;
-    border: none;
-    box-shadow: 0px 2px 5px rgb(100 100 100);
-}
+
 
 .form_addEntero_1{
     margin-bottom: 10px;
@@ -52,7 +38,6 @@
     border-radius: 15px;
 }
 .form-controlAdd{
-    margin-left: 2%;
     width: 90%;
     outline: none;
     padding: 4px;
@@ -86,7 +71,6 @@
 .form-control1{
     width: 290px;
     height: 80px;
-    margin-left: 2%;
     width: 90%;
     outline: none;
     padding: 4px;
@@ -136,7 +120,6 @@
             border-radius: 15px;
             height: 275px;
             width: 260px;
-            margin-right: 30px;
     }
     .form_addEntero_2{
         background-color: var(--colorGrisClaro);
@@ -163,13 +146,11 @@
         flex-direction: column;
         flex-wrap: wrap;
         width: 230px;
-        margin-left: 20px;
     }
     
     .form-control1{
         width: 206px;
         height: 80px;
-        margin-left: 5%;
     width: 90%;
     outline: none;
     padding: 4px;

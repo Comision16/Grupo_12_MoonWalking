@@ -7,109 +7,76 @@
 </head>
 <body>
     <%- include('../partials/header') %>
-    <main class="mainDetalle">
-       <nav aria-label="breadcrumb">
+    <main class="container">
+       <nav aria-label="breadcrumb" class="my-3">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
             </ol>
         </nav>
-        <section>
-            <hr class="lineaSeparadora">
-            <article class="foto">
-                <div class="sect1">
-                    <p class="nombreArt"><%= product.name %></p>
-                    <p class="precio">Precio $<%= product.price %></p>
-                    <p class="cuotasDe">Hasta <%= product.dues %> cuotas sin interés</p>
-                    
-                    <img class="imagenDetalle" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'zapa 1.jpg'%>"
-                        alt="">
-                        <div class="classSizes">
-                            <label for="Talle" class="form-label">Talle</label>
-                            <select class="talle_3" name="talle" id="Talle">
-                                <% product.sizes.forEach(size => { %>
-                                    <option value="<%= size.id %>"><%= size.number %></option>
-                                <% }) %>
-                            </select>
-                        </div>
-                        <div class="editar_eliminar">
-                        <% if (locals.userLogin && locals.userLogin.admin) { %>
-                            <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
-                            <form id=centrarBotonEliminar"" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
-                                <button class="Eliminar-producto" type="submit">Eliminar</button>
-                            </form>
-                           <% }else{%>
-                            
-                            <% } %>
-                        </div>
-                </div>
+        <section class="container">
+            <article class="card my-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4">
+                    <img class="img-fluid" src="/img/zapatillas/<%= (product.images && product.images.length > 0) ? product.images[0].file : 'defaultProduct.jpeg'%>" alt="">
+                  </div>
+                <div class="col-12 col-md-6 col-lg-8">
+                  <div class="d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                      <h3 class=""><%= product.name %></h3>
+                      <h2 class="text-end">$<%= product.price %></h2>
 
+                    </div>
+                    <hr>
+
+                    <div>
+                      <h5 class="">Descripción</h5>
+                      <p class=""><%= product.description %></p>  
+                  </div>
+                  <div class="d-flex">
+                    <% if (locals.userLogin && locals.userLogin.admin) { %>
+        
+                        <a class="btn btn-outline-success mx-3"  href="/products/edit/<%=product.id %>">Editar</a>
+                        <form id="centrarBotonEliminar" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-outline-danger" type="submit">Eliminar</button>
+                        </form>
+                       <% }else if(locals.userLogin){%>
+                        <button class="btn btn-outline-dark" onclick="addCartItem('<%=product.id%>')">Agregar al carrito</button>
+  
+                        <% } %>
+                    </div>     
+                </div>
+                </div>
+           
+              </div>
+
+              </div>
+            </article>
+            <article class="card mb-4">
+              <div class="card-body">
+                <h4 >También te puede gustar</h4>
+                <hr>
+                <div class="carrucel">
+                 
+                  <div class="slaider-frame">
+                    <ul>
+                      <% relacionados.forEach(product => { %>
+                        <li>
+                          <img class="Img" src="/img/zapatillas/<%= product.images[0] && product.images[0].file %> " alt="" />
+                        </li>
+                      <% }) %>
+                    
+                    
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </article>
         </section>
-        <section class="info">
-            <hr class="lineaSeparadora">
-            <article class="descripcionpagoenvio">
-                <ul class="ul">
-                    <li> ◦Envío gratis</li>
-                    <li> ◦Pagá hasta en 6 cuotas sin interés</li>
-                </ul>
-            </article>
-            <hr class="lineaSeparadora">
-            <article>
-                <p class="descripcion">Descripción</p>
-                <p class="descripcionDetallada"><%= product.description %></p>                
-            </article>
-        </section>
-        <section class="carrucel">
-            <p id="opciones">También te puede gustar</p>
-            <div class="slaider-frame">
-                <ul>
-                    <li><img class="Img" src="/img/zapatillas/zapa 1.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 2.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 3.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt="">
-                    <li><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt=""> 
-                    <li><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt="">
-                    <!-- para desktop -->
-                    <li><img class="Img" src="/img/urbano/zapa 1.jpg" alt="">  
-                    <li><img class="Img" src="/img/urbano/zapa 2.jpg" alt="">     
-                    <li><img class="Img" src="/img/urbano/zapa 3.jpg" alt="">   
-                </ul>
-            </div>
-            <a class="agregaCarrito" href="/products/edit/<%=product.id %>">Editar</a>
-            <form action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
-              <button class="Eliminar-producto" type="submit" id="btnEliminar">Eliminar</button>
-            </form>
-          </div>
-        </article>
-      </section>
-      <section class="info">
-        <hr class="lineaSeparadora" />
-        <article class="descripcionpagoenvio">
-          <ul class="ul">
-            <li>◦Envío gratis</li>
-            <li>◦Pagá hasta en 6 cuotas sin interés</li>
-          </ul>
-        </article>
-        <hr class="lineaSeparadora" />
-        <article>
-          <p class="descripcion">Descripción</p>
-          <p class="descripcionDetallada"><%= product.description %></p>
-        </article>
-      </section>
-      <section class="carrucel">
-        <p id="opciones">También te puede gustar</p>
-        <div class="slaider-frame">
-          <ul>
-            <li><img class="Img" src="/img/zapatillas/zapa 1.jpg" alt="" /></li>
-            <li><img class="Img" src="/img/zapatillas/zapa 2.jpg" alt="" /></li>
-            <li><img class="Img" src="/img/zapatillas/zapa 3.jpg" alt="" /></li>
-            <li><img class="Img" src="/img/zapatillas/zapa 4.jpg" alt="" /></li>
-            <li><img class="Img" src="/img/zapatillas/zapa 5.jpg" alt="" /></li>
-            <li><img class="Img" src="/img/zapatillas/zapa 6.jpg" alt="" /></li>
-          </ul>
-        </div>
-      </section>
+
+      
+   
     </main>
     <%- include('../partials/footer') %>
   </body>
@@ -117,7 +84,7 @@
   <script>
    const btn = document.getElementById('btnEliminar')
 
-    btn.addEventListener("click", () => {
+    btn && btn.addEventListener("click", () => {
       Swal.fire({
         title: "¿Estas seguro que deseas eliminar el producto?",
         showDenyButton: true,
