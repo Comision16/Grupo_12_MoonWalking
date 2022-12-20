@@ -24,9 +24,9 @@ $('name').addEventListener('blur', function({target}) {
          case this.value.trim().length < 5 : 
          msgError('errorNombre', 'Debe contener al menos 5 caracteres', target)
          break;
-         case !exRegs.exRegAlfa.test(this.value):
-            msgError('errorNombre', 'El nombre debe tener solo letras', target)
-            break;
+        // case !exRegs.exRegAlfa.test(this.value):
+          //  msgError('errorNombre', 'El nombre debe tener solo letras', target)
+         //   break;
         default:
             validField('errorNombre', target)
             break;
@@ -66,9 +66,9 @@ $('description').addEventListener('blur', function({target}) {
          case this.value.trim().length < 20 : 
          msgError('errorDescription', 'Debe contener al menos 20 caracteres', target)
          break;
-         case !exRegs.exRegAlfa.test(this.value):
-            msgError('errorDescription', 'El nombre debe tener solo letras', target)
-            break;
+         //case !exRegs.exRegAlfa.test(this.value):
+            //msgError('errorDescription', 'El nombre debe tener solo letras', target)
+           // break;
         default:
             validField('errorDescription', target)
             break;

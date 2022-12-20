@@ -83,8 +83,8 @@
                                                 <%= name %>
                                             </h4>
                                             <div class="d-flex align-items-end justify-content-between">
-                                                <h4 class="m-0 text-danger"><s>$ <%= price %></s> </h4>
-                                                <h3 class="text-end m-0">$ <%= price %>
+                                                <h4 class="m-0 text-danger" style="font-size: 150%"><s>$ <%= price %></s> </h4>
+                                                <h3 class="text-end m-0">$ <%= price - (price / 100 * discount).toFixed(0) %>
                                                 </h3>
                                             </div>
 

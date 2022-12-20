@@ -16,22 +16,21 @@ module.exports= [
      check('discount')
      .isNumeric({
         no_symbols : true
-     })//.withMessage('Debe ser un numero entero').bail()
+     })//.withMessage('Debe ser un numero entero')
+     .bail()
      .isInt({
         max: 100
      }),//.withMessage('No puede ser mayor que 100%'),
 
      check('description')
-     .notEmpty()//.withMessage('Campo obligatorio').bail()
+     .notEmpty()//.withMessage('Campo obligatorio')
+     .bail()
      .isLength({
         min: 10,
         max: 200
      }),//.withMessage('Deben ser entre 10 a 200 caracteres'),
 
      check('brandId')
-     .notEmpty(),//.withMessage('Campo obligatorio'),
-
-     check('talle')
      .notEmpty(),//.withMessage('Campo obligatorio'),
 
      check('categoryId')
