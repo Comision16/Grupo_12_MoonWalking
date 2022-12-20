@@ -4,8 +4,8 @@
     
     <a href="/"><img src="/design/Logo.jpg" width="100px" alt="logo" ></a>
    
-    <form action="/products/search" method="GET" class="mb-3 mb-md-0 d-flex position-relative formSearch">
-      <input class="form-control" name="keywords" type="text" placeholder="Buscar" style="padding-right: 35px;">
+    <form action="/products/search" method="GET" id="form-buscador" class="mb-3 mb-md-0 d-flex position-relative formSearch">
+      <input class="form-control" id="input-buscador" name="keywords" type="text" placeholder="Buscar" style="padding-right: 35px;">
       <button class="border-0 bg-transparent" style="position: absolute; right: 15px; top: 8px;">
         <i class="fa fa-search"></i>
       </button>
@@ -53,7 +53,6 @@
   </div>
 
 
-
 </header>
 <!-- Modal -->
 <!-- Modal -->
@@ -90,3 +89,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/buscador.js"></script>

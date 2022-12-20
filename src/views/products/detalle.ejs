@@ -81,29 +81,5 @@
     <%- include('../partials/footer') %>
   </body>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-   const btn = document.getElementById('btnEliminar')
-
-    btn && btn.addEventListener("click", () => {
-      Swal.fire({
-        title: "¿Estas seguro que deseas eliminar el producto?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Eliminar",
-        denyButtonText: "Cancel",
-        customClass: {
-          actions: "my-actions",
-          cancelButton: "order-1 right-gap",
-          confirmButton: "order-2",
-          denyButton: "order-3",
-        },
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire("Saved!", "", "success");
-        } else if (result.isDenied) {
-          Swal.fire("Changes are not saved", "", "info");
-        }
-      });
-    });
-  </script>
+  <script src="/js/detailDetele.js"></script>
 </html>
