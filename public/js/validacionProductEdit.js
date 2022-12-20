@@ -1,6 +1,5 @@
 // const e = require("express");
 console.log('pepe el grillo');
-const $ = (element) => document.getElementById(element);
 
 const exRegs = {
       exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,}

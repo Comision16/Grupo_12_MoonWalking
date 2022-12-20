@@ -10,7 +10,7 @@ router
 .get('/detalle/:id', detail)
 .get ('/add', adminsCheck, add)
 .get('/edit/:id', uploadProducts.single('image'),adminsCheck, edit)
-.put('/update/:id', adminsCheck, update)
+.put('/update/:id',uploadProducts.single('image'), adminsCheck, update)
 .post('/add', uploadProducts.single('image'), productValidator, store)
 .get('/carrito', carrito)
 .get('/search',search)

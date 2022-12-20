@@ -37,7 +37,7 @@
                        </div>
                        <div class="form_input--profile col-12 col-md-6">
                            <label for="discount" class="form-label-add">Descuento</label>
-                           <input type="number" class="form-controlAdd w-100" id="discount" name="discount">
+                           <input type="number" class="form-controlAdd w-100" id="discount" name="discount" value="0">
                            <small class="error_login"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                            <small id="errorDiscount" class="error_login"></small>
            
@@ -94,6 +94,7 @@
                             <img src="" id="imgPrev" alt="" class="img-fluid">
                         </div>
                    <!-- </div>  -->
+                   <p hidden class="alert alert-danger" id="msgError">El formulario contiene errores</p>
                    <div class="form__box form__box--flex ">
                        <button class="btn btn-outline-secondary "> <a href="/" class="text-dark">Cancelar</a></button>
                        <button class="btn btn-outline-dark" type="submit">Guardar</button>

@@ -31,7 +31,6 @@ module.exports = {
         const {name, price, discount, description} = req.body;
         
         const product = {
-            id : req.params.id,
             name : name?.trim(),
             price : +price,
             discount,
@@ -47,8 +46,22 @@ module.exports = {
                 id: req.params.id
             }
         })
-        .then(() => {
-            return res.redirect('/products/detalle/' + product.id);
+        .then(async () => {
+
+            if(req.file){
+                await db.Image.update(
+                    {
+                        file : req.file.filename
+                    },
+                    {
+                        where : {
+                            productId : req.params.id
+                        }
+                    }
+                )
+            }
+
+            return res.redirect('/products/detalle/' + req.params.id);
         })
         .catch(error => console.log(error))
     },
@@ -96,7 +109,7 @@ module.exports = {
     store : async (req,res) => {
         const errors = validationResult(req);
 
-       if(!errors.isEmpty()){
+       if(errors.isEmpty()){
             try {
                 const brands = await db.Brand.findAll();
                 const categories = await db.Category.findAll();
@@ -123,7 +136,13 @@ module.exports = {
                 brandId: +req.body.brandId,
                 categoryId: +req.body.categoryId
             })
-            .then(() => {
+            .then(async (product) => {
+                if(req.file){
+                    await db.Image.create({
+                        file : req.file.filename,
+                        productId : product.id
+                    })
+                }
                 return res.redirect('/')
             })
             .catch(err => console.log(err));   
