@@ -1,17 +1,19 @@
 // const e = require("express");
 console.log('pepe el grillo');
-const $ = (element) => document.getElementById(element);
 
 const exRegs = {
       exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,}
 
       const msgError = (element, msg, target) => {
         $(element).innerText =  msg; 
-
+        target.classList.add("invalid");
         };
 
 const validField = (element, target) => {
-              $(element).innerText = null;
+  if(element){
+    $(element).innerText =  null;
+
+  }            
               target.classList.remove("invalid");
             };
 $('name').addEventListener('blur', function({target}) {
@@ -47,6 +49,13 @@ $('price').addEventListener('blur', function({target}) {
     } 
 });
 
+$('brand').addEventListener('change', ({target}) => {
+  validField('', target)
+})
+
+$('category').addEventListener('change', ({target}) => {
+  validField('', target)
+})
 
 
 $('description').addEventListener('blur', function({target}) {
@@ -93,5 +102,30 @@ $('image').addEventListener("blur", function ({ target }) {
         break;
     }
   });
+
+  $('form-addProducts').addEventListener('submit', (e) => {
+    $("msgError").hidden = true
+    e.preventDefault();
+
+    const elements = e.target.elements;
+    let error = false;
+
+    for (let i = 0; i < elements.length -3; i++) {
+      if(!elements[i].value.trim().length || elements[i].classList.contains('invalid')){
+        elements[i].classList.add("invalid");
+        error = true;
+        console.log(elements[i].value);
+
+        $("msgError").hidden = false
+      }
+    
+    }
+
+    if(!error) {
+      console.log('enviando...');
+      e.target.submit()
+    }
+
+  })
 
   

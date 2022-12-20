@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h3 class="text-dark">Editar producto</h3>
                         <hr>
-                        <form action="/products/update/<%= product.id %>?_method=PUT"  method="POST" class="row">
+                        <form action="/products/update/<%= product.id %>?_method=PUT"  method="POST" class="row" enctype="multipart/form-data">
 
                             <div class="form_input--profile  col-12" >
                                 <label for="name" class="form-label">Nombre</label>
@@ -44,7 +44,6 @@
                         <label for="brand" class="form-label">Marca</label>
                             <select name="brandId" id="brand" class="form-controlAdd w-100">
                                 <% brands.forEach(brand => { %>
-                                    <option value="" selected disabled hidden>Elegí una marca</option>
                                     <option value="<%= brand.id %>" <%= (product.brandId == brand.id) && 'selected'%>><%= brand.name %></option>
                                 <% }) %>
                             </select>
@@ -64,7 +63,6 @@
                             <label for="category" class="form-label">Categoría</label>
                             <select name="categoryId" id="category" class="form-controlAdd w-100">
                                 <% categories.forEach(category => { %>
-                                    <option value="" selected disabled hidden>Elegí una categoría</option>
                                     <option value="<%= category.id %>" <%= (product.categoryId == category.id) && 'selected'%>><%= category.name %></option>
                                 <% }) %>
                             </select>
