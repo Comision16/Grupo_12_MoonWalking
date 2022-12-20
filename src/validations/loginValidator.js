@@ -7,12 +7,13 @@ const { Op } = require("sequelize");
 module.exports = [
   check("email")
     .notEmpty()
-    .withMessage("Debes completar el campo obligatorio")
+    //.withMessage("Debes completar el campo obligatorio")
     .bail()
     .isEmail().withMessage("Debes incluir un email válido"),
     body("password")
     .notEmpty()
-    .withMessage("Debes completar el campo obligatorio").bail()
+    //.withMessage("Debes completar el campo obligatorio")
+    .bail()
     .custom(async (value, { req }) => {
       const user = await db.User.findOne({
         where: {

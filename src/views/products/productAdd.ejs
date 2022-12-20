@@ -48,6 +48,7 @@
                            <label for="brand" class="form-label-add">Marca</label>
                            <select name="brandId" id="brand" class="form-controlAdd w-100">
                                <% brands.forEach(brand => { %>
+                                <option value="" selected disabled hidden>Elegí una marca</option>
                                    <option value="<%= brand.id %>"><%= brand.name %></option>
                                <% }) %>
                            </select>
@@ -57,11 +58,9 @@
                       <!--  <div class="form_input--profile col-12 col-md-6">
                            <label for="Talle" class="form-label-add">Talle</label>
                            <select name="talle" id="Talle" class="select-add"> Elegí el talle correspondiente
-                               <% sizes.forEach(size => { %>
-                                   <option value="<%= size.id %>"><%= size.number %></option>
-                               <% }) %>
+                              
                            </select>
-                           <small class="error_login"><%= locals.errors && errors.talle ? errors.talle.msg : null %></small>
+                           <small class="error_login"></small>
            
                        </div> -->
            
@@ -69,6 +68,7 @@
                            <label for="category" class="form-label-add">Categoría</label>
                            <select name="categoryId" id="category" class="form-controlAdd w-100">
                                <% categories.forEach(category => { %>
+                                    <option value="" selected disabled hidden>Elegí una categoría</option>
                                    <option value="<%= category.id %>"><%= category.name %></option>
                                <% }) %>
                            </select>

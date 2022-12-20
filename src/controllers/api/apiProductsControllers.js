@@ -32,7 +32,7 @@ const apiProductsControllers = {
                 //     total : products.length,
                 // },
                 total : count,
-                data : products, //o products
+                data : products,
             });
         } catch (error) {
             console.log(error)
@@ -47,7 +47,7 @@ const apiProductsControllers = {
        
         try {
 
-            let product = await db.Product.findByPk(req.params.id); //o products
+            let product = await db.Product.findByPk(req.params.id);
 
         return res.status(200).json({
             ok : true,

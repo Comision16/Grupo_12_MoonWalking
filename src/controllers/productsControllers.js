@@ -18,9 +18,8 @@ module.exports = {
             });
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
-            const sizes = await db.Size.findAll();
 
-            res.render('./products/productEdit', { product, brands, categories, sizes })
+            res.render('./products/productEdit', {product, brands, categories})
         }
         catch(error){
             console.log(error);
@@ -41,7 +40,7 @@ module.exports = {
             brandId: +req.body.brandId,
             categoryId: +req.body.categoryId
         }
-        //return res.send(req.body)
+    
         db.Product.update(product, {
             where:
             {
@@ -85,9 +84,8 @@ module.exports = {
         {
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
-            const sizes = await db.Size.findAll();
 
-            return res.render('./products/productAdd', {brands, categories, sizes})
+            return res.render('./products/productAdd', {brands, categories})
         }
         catch(error){
             console.log(error);
@@ -102,12 +100,11 @@ module.exports = {
             try {
                 const brands = await db.Brand.findAll();
                 const categories = await db.Category.findAll();
-                const sizes = await db.Size.findAll();
 
                 return res.render('./products/productAdd',
                 {
                 errors : errors.mapped(),
-                brands, categories, sizes
+                brands, categories
                 })
             }
             catch(error) {
