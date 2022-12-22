@@ -62,8 +62,8 @@
                   <div class="slaider-frame">
                     <ul>
                       <% relacionados.forEach(product => { %>
-                        <li>
-                          <img class="Img" src="/img/zapatillas/<%= product.images[0] && product.images[0].file %> " alt="" />
+                        <li class="">
+                          <a class="Img p-3" href="/products/detalle/<%= product.id %>"><img class="img-fluid"  src="/img/zapatillas/<%= product.images[0] && product.images[0].file %> " alt="" /></a>
                         </li>
                       <% }) %>
                     

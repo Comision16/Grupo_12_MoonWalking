@@ -8,7 +8,7 @@
     "client:start": "cd moonwalking-react & npm run start",
     "client:build": "cd moonwalking-react & npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client:start\"",
-    "reset-db": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all"
+    "reset-db": "sequelize db:drop & sequelize db:create & sequelize db:migrate"
   },
   "nodemonConfig": {
     "ignore": "*.json"
